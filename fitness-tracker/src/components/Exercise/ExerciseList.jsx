@@ -4,22 +4,19 @@ import SearchBar from '../UI/SearchBar';
 import Loading from '../UI/Loading';
 import styles from './Exercise.module.css';
 import commonStyles from '../common/common.module.css';
-import { getUniqueValues, filterExercises, sortExercises } from '../utils/helpers';
+import {
+  getUniqueValues,
+  filterExercises,
+  sortExercises,
+} from '../utils/helpers';
 
-
-/**
- * ExerciseList renders a filterable, searchable list of exercises.
- * Manages its own filter/sort state, receives exercise data and callbacks as props.
- * Demonstrates lifting state up: exercises and plan come from parent.
- */
 const ExerciseList = ({
-  exercises,
+  exercises = [],
   workoutPlan = [],
   onSelectExercise,
   onAddToPlan,
   isLoading = false,
 }) => {
-  // Local state for search and filters
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('all');
   const [muscleGroup, setMuscleGroup] = useState('all');
@@ -27,41 +24,73 @@ const ExerciseList = ({
   const [sortBy, setSortBy] = useState('name');
   const [sortDirection, setSortDirection] = useState('asc');
 
-  // Derive unique filter options from the exercise data
-  const categories = getUniqueValues(exercises, 'category');
-  const muscleGroups = getUniqueValues(exercises, 'muscleGroup');
-  const difficulties = getUniqueValues(exercises, 'difficulty');
+  // Remove null/undefined exercises before doing anything with them
+  const validExercises = exercises.filter(
+    (exercise) => exercise !== null && exercise !== undefined
+  );
 
-  // Collect all exercise IDs that are currently in the workout plan
-  // workoutPlan is already a flat array of exercise objects (from ExercisesPage)
-  const planExerciseIds = workoutPlan.map((e) => e.id);
+  // Filter options
+  const categories = getUniqueValues(validExercises, 'category');
+  const muscleGroups = getUniqueValues(validExercises, 'muscleGroup');
+  const difficulties = getUniqueValues(validExercises, 'difficulty');
 
-  // Apply filters, then sort the results
-  const filteredExercises = filterExercises(exercises, { searchTerm, category, muscleGroup, difficulty });
-  const sortedExercises = sortExercises(filteredExercises, sortBy, sortDirection);
+  // Exercise IDs in workout plan
+  const planExerciseIds = workoutPlan
+    .filter((exercise) => exercise !== null && exercise !== undefined)
+    .map((exercise) => exercise.id);
 
-  // Handle change events on filter selects — access e.target.value
-  const handleCategoryChange = (e) => setCategory(e.target.value);
-  const handleMuscleChange = (e) => setMuscleGroup(e.target.value);
-  const handleDifficultyChange = (e) => setDifficulty(e.target.value);
+  // Filter
+  const filteredExercises = filterExercises(validExercises, {
+    searchTerm,
+    category,
+    muscleGroup,
+    difficulty,
+  });
+
+  // Sort
+  const sortedExercises = sortExercises(
+    filteredExercises,
+    sortBy,
+    sortDirection
+  );
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+
+  const handleMuscleChange = (e) => {
+    setMuscleGroup(e.target.value);
+  };
+
+  const handleDifficultyChange = (e) => {
+    setDifficulty(e.target.value);
+  };
+
   const handleSortChange = (e) => {
-    const val = e.target.value;
-    if (val === sortBy) {
-      setSortDirection((d) => (d === 'asc' ? 'desc' : 'asc'));
+    const value = e.target.value;
+
+    if (value === sortBy) {
+      setSortDirection((direction) =>
+        direction === 'asc' ? 'desc' : 'asc'
+      );
     } else {
-      setSortBy(val);
+      setSortBy(value);
       setSortDirection('asc');
     }
   };
 
   return (
     <div>
-      {/* Search and filter controls */}
+      {/* Search */}
       <div className={styles.listHeader}>
-        <SearchBar value={searchTerm} onChange={setSearchTerm} placeholder="Search exercises by name..." />
-
+        <SearchBar
+          value={searchTerm}
+          onChange={setSearchTerm}
+          placeholder="Search exercises by name..."
+        />
       </div>
 
+      {/* Filters */}
       <div className={styles.listControls}>
         <select
           className={styles.filterSelect}
@@ -70,8 +99,11 @@ const ExerciseList = ({
           aria-label="Filter by category"
         >
           <option value="all">All Categories</option>
+
           {categories.map((cat) => (
-            <option key={cat} value={cat}>{cat}</option>
+            <option key={cat} value={cat}>
+              {cat}
+            </option>
           ))}
         </select>
 
@@ -82,8 +114,11 @@ const ExerciseList = ({
           aria-label="Filter by muscle group"
         >
           <option value="all">All Muscle Groups</option>
-          {muscleGroups.map((mg) => (
-            <option key={mg} value={mg}>{mg}</option>
+
+          {muscleGroups.map((muscle) => (
+            <option key={muscle} value={muscle}>
+              {muscle}
+            </option>
           ))}
         </select>
 
@@ -94,8 +129,11 @@ const ExerciseList = ({
           aria-label="Filter by difficulty"
         >
           <option value="all">All Difficulties</option>
-          {difficulties.map((d) => (
-            <option key={d} value={d}>{d}</option>
+
+          {difficulties.map((level) => (
+            <option key={level} value={level}>
+              {level}
+            </option>
           ))}
         </select>
 
@@ -112,20 +150,23 @@ const ExerciseList = ({
         </select>
       </div>
 
-      {/* Conditional rendering: loading state */}
+      {/* Results */}
       {isLoading ? (
         <Loading message="Loading exercises..." />
       ) : sortedExercises.length === 0 ? (
-        /* Empty state when no exercises match the filters */
         <div className={commonStyles.emptyState}>
           <div className={commonStyles.emptyIcon}>🔍</div>
-          <h3 className={commonStyles.emptyTitle}>No exercises found</h3>
+
+          <h3 className={commonStyles.emptyTitle}>
+            No exercises found
+          </h3>
+
           <p className={commonStyles.emptyMessage}>
-            Try adjusting your search or filters to find what you're looking for.
+            Try adjusting your search or filters to find what you're
+            looking for.
           </p>
         </div>
       ) : (
-        /* Render exercise cards using .map() */
         <div className={styles.exerciseGrid}>
           {sortedExercises.map((exercise) => (
             <ExerciseCard

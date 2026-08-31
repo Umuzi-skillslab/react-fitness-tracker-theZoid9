@@ -5,7 +5,7 @@ import Home from './components/pages/Home';
 import ExercisePage from "./components/pages/ExercisePage";
 import ExerciseDetail from './components/Exercise/ExerciseDetail';
 import exercisesData from './components/data/exercisesData';
-
+import WorkoutPlannerPage from './components/pages/WorkoutPlannerPage';
 import './App.css'
 
 const EMPTY_PLAN = {
@@ -82,6 +82,16 @@ function App() {
            {/* Dynamic route for individual exercise detail — uses route params */}
             <Route path="/exercises/:id" element={
               <ExerciseDetail exercises={exercisesData} onAddToPlan={(exercise) => handleAddToPlan('monday', exercise)} />
+            } />
+
+                        {/* Workout planner route */}
+            <Route path="/workout-planner" element={
+              <WorkoutPlannerPage
+                workoutPlan={workoutPlan}
+                onAddToPlan={handleAddToPlan}
+                onRemoveExercise={handleRemoveFromPlan}
+                onClearDay={handleClearDay}
+              />
             } />
       </Routes>
     </div>

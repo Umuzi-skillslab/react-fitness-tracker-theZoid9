@@ -359,7 +359,7 @@
   padding-right: 32px;
 
   color: var(--color-text);
-
+  background-color: 2px solid rebeccapurple;
   font-size: 1.15rem;
   font-weight: 700;
 }

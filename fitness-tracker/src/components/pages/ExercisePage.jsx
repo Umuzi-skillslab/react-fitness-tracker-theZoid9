@@ -25,9 +25,9 @@ const ExercisesPage = ({ workoutPlan, onAddToPlan }) => {
   };
 
   const handleAddToPlan = (exercise) => {
-    if (onAddToPlan) {
-      onAddToPlan(exercise);
-    }
+    navigate('/workout-planner', {
+      state: { exercise }
+    });
   };
 
   const planFlat = workoutPlan
