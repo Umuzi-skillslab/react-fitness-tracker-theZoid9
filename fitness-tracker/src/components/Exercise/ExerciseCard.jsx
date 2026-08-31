@@ -9,49 +9,33 @@ import { formatDuration } from '../utils/helpers'
  * ExerciseCard displays a summary of an exercise with icon, badges, metadata,
  * and action buttons. Receives multiple props and demonstrates props destructuring.
  */
-const ExerciseCard = ({ exercise, onSelect, onAddToPlan, isInPlan = false }) => {
-  // Destructure exercise object for cleaner JSX
-  const { id, name, description, category, muscleGroup, difficulty, sets, reps, restTime, image } = exercise;
 
+
+const ExerciseCard = ({ exercise, onSelect, onAddToPlan }) => {
   return (
-    <Card className={styles.exerciseCard}>
-      <div className={styles.cardTop}>
-        <span className={styles.exerciseIcon} role="img" aria-label={name}>
-          {image}
-        </span>
-        <div className={styles.badgeGroup}>
-          <Badge label={category} type={category} />
-          <Badge label={difficulty} type={difficulty} />
-        </div>
-      </div>
+    
 
-      <h3 className={styles.exerciseName}>{name}</h3>
-      <p className={styles.exerciseDesc}>{description}</p>
+    <div className={styles.exerciseCard}>
+      <h3>{exercise.name}</h3>
 
-      {/* Exercise metadata: sets, reps, rest time */}
-      <div className={styles.exerciseMeta}>
-        <span className={styles.metaItem}>Reps: {sets} × {reps}</span>
-        <span className={styles.metaItem}>Time: {formatDuration(restTime)}</span>
-        <span className={styles.metaItem}>Target Muscle: {muscleGroup}</span>
-      </div>
+      <p>{exercise.description}</p>
 
-      {/* Action buttons — event handlers passed as props from parent */}
-      <div className={styles.cardActions}>
-        <Button size="small" onClick={() => onSelect(id)}>View Details</Button>
-        <Button
-          size="small"
-          variant={isInPlan ? 'secondary' : 'primary'}
-          onClick={() => onAddToPlan(exercise)}
-        >
-          {isInPlan ? '✓ In Plan' : '+ Add to Plan'}
-        </Button>
-      </div>
+      <p>Category: {exercise.category}</p>
+      <p>Muscle: {exercise.muscleGroup}</p>
+      <p>Difficulty: {exercise.difficulty}</p>
 
-      {/* Conditional indicator when exercise is already in the plan */}
-      {isInPlan && (
-        <span className={styles.inPlanIndicator}>Already in your workout plan</span>
-      )}
-    </Card>
+      <p>
+        Sets: {exercise.sets} | Reps: {exercise.reps}
+      </p>
+
+      <button onClick={() => onSelect(exercise.id)}>
+        View Details
+      </button>
+
+      <button onClick={() => onAddToPlan(exercise)}>
+        Add to Plan
+      </button>
+    </div>
   );
 };
 
@@ -59,18 +43,17 @@ ExerciseCard.propTypes = {
   exercise: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    category: PropTypes.string,
     muscleGroup: PropTypes.string,
     difficulty: PropTypes.string,
     sets: PropTypes.number,
     reps: PropTypes.number,
-    restTime: PropTypes.number,
-    image: PropTypes.string,
   }).isRequired,
+
   onSelect: PropTypes.func.isRequired,
   onAddToPlan: PropTypes.func.isRequired,
-  isInPlan: PropTypes.bool,
 };
 
 export default ExerciseCard;
+

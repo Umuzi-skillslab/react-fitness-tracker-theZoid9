@@ -128,14 +128,13 @@ const ExerciseList = ({
         </div>
       ) : (
         /* Render exercise cards using .map() */
-        <div className={styles.exerciseList}>
+        <div className={styles.exerciseGrid}>
           {sortedExercises.map((exercise) => (
             <ExerciseCard
               key={exercise.id}
               exercise={exercise}
               onSelect={onSelectExercise}
               onAddToPlan={onAddToPlan}
-              isInPlan={planExerciseIds.includes(exercise.id)}
             />
           ))}
         </div>

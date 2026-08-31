@@ -83,6 +83,10 @@ function App() {
             <Route path="/exercises/:id" element={
               <ExerciseDetail exercises={exercisesData} onAddToPlan={(exercise) => handleAddToPlan('monday', exercise)} />
             } />
+           {/* Dynamic route for individual exercise detail — uses route params */}
+            <Route path="/exercises/:id" element={
+              <ExerciseDetail exercises={exercisesData} onAddToPlan={(exercise) => handleAddToPlan('monday', exercise)} />
+            } />
       </Routes>
     </div>
 
