@@ -1,144 +1,253 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import Card from '../UI/Card';
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-import Button from '../UI/Button';
+import styles from "./Exercise.module.css";
+import { formatDuration } from "../utils/helpers";
 
-import styles from './Exercise.module.css';
-
-/**
- * ExerciseDetail shows full information for a single exercise.
- * Uses route params (useParams) and programmatic navigation (useNavigate).
- * Loads exercise data via useEffect, demonstrating async-like loading pattern.
- */
 const ExerciseDetail = ({ exercises, onAddToPlan }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  // Simulate data loading with useEffect
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    setIsLoading(true);
-    setError(null);
-    // Use a small timeout to simulate async data fetch
     const timer = setTimeout(() => {
-      if (!exercises || exercises.length === 0) {
-        setError('Exercise data is not available.');
-      }
       setIsLoading(false);
     }, 300);
+
     return () => clearTimeout(timer);
-  }, [id, exercises]);
+  }, [id]);
 
-  // Find the exercise by ID from route params
-  const exercise = exercises.find((e) => e.id === parseInt(id));
+  const exercise = exercises.find(
+    (exercise) => exercise.id === Number(id)
+  );
 
-  // Handle navigation to previous/next exercise
-  const handlePrevious = () => {
-    const prevId = parseInt(id) - 1;
-    if (prevId >= 1) navigate(`/exercises/${prevId}`);
-  };
-
-  const handleNext = () => {
-    const nextId = parseInt(id) + 1;
-    if (nextId <= exercises.length) navigate(`/exercises/${nextId}`);
-  };
-
-  // Loading and error conditional rendering
   if (isLoading) {
-    return <div className={styles.notFound}><p>Loading exercise details...</p></div>;
-  }
-
-  if (error || !exercise) {
     return (
       <div className={styles.notFound}>
-        <h2>Exercise Not Found</h2>
-        <p>{error || `No exercise found with ID: ${id}`}</p>
-        <Button onClick={() => navigate('/exercises')}>Back to Exercises</Button>
+        <p>Loading exercise details...</p>
       </div>
     );
   }
 
-  const { name, description, category, muscleGroup, difficulty, equipment, instructions, sets, reps, restTime, videoUrl } = exercise;
+  if (!exercise) {
+    return (
+      <div className={styles.notFound}>
+        <h2>Exercise Not Found</h2>
+
+        <p>
+          No exercise found with ID: {id}
+        </p>
+
+        <button
+          className={styles.actionButton}
+          onClick={() => navigate("/exercises")}
+        >
+          Back to Exercises
+        </button>
+      </div>
+    );
+  }
+
+  const {
+    name,
+    description,
+    category,
+    muscleGroup,
+    difficulty,
+    equipment,
+    instructions = [],
+    sets,
+    reps,
+    restTime,
+    videoUrl,
+  } = exercise;
+
+  const currentIndex = exercises.findIndex(
+    (exercise) => exercise.id === Number(id)
+  );
+
+  const handlePrevious = () => {
+    if (currentIndex > 0) {
+      navigate(`/exercises/${exercises[currentIndex - 1].id}`);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentIndex < exercises.length - 1) {
+      navigate(`/exercises/${exercises[currentIndex + 1].id}`);
+    }
+  };
 
   return (
-    <div>
-      {/* Back button with programmatic navigation */}
-      <button className={styles.backButton} onClick={() => navigate('/exercises')}>
+    <main className={styles.detailPage}>
+
+      {/* Back */}
+      <button
+        className={styles.backButton}
+        onClick={() => navigate("/exercises")}
+      >
         ← Back to Exercises
       </button>
 
       <div className={styles.detailContainer}>
-        {/* Left column: main details */}
-        <div className={styles.detailMain}>
-          <h1 className={styles.detailTitle}>{name}</h1>
-          <div className={styles.detailBadges}>
-            <Badge label={category} type={category} />
-            <Badge label={difficulty} type={difficulty} />
-            <Badge label={muscleGroup} type="strength" />
-          </div>
-          <p className={styles.detailDesc}>{description}</p>
 
-          {/* Exercise instructions list */}
-          <div>
-            <h3 className={styles.instructionsTitle}>Proper Form Instructions</h3>
+        {/* Main content */}
+        <section className={styles.detailMain}>
+
+          <h1 className={styles.detailTitle}>
+            {name}
+          </h1>
+
+          {/* Exercise tags */}
+          <div className={styles.detailBadges}>
+            <span className={styles.badge}>
+              {category}
+            </span>
+
+            <span className={styles.badge}>
+              {difficulty}
+            </span>
+
+            <span className={styles.badge}>
+              {muscleGroup}
+            </span>
+          </div>
+
+          <p className={styles.detailDesc}>
+            {description}
+          </p>
+
+          {/* Stats */}
+          <div className={styles.detailStats}>
+
+            <div className={styles.statCard}>
+              <span className={styles.statValue}>
+                {sets}
+              </span>
+
+              <span className={styles.statLabel}>
+                Sets
+              </span>
+            </div>
+
+            <div className={styles.statCard}>
+              <span className={styles.statValue}>
+                {reps}
+              </span>
+
+              <span className={styles.statLabel}>
+                Reps
+              </span>
+            </div>
+
+            <div className={styles.statCard}>
+              <span className={styles.statValue}>
+                {formatDuration(restTime)}
+              </span>
+
+              <span className={styles.statLabel}>
+                Rest
+              </span>
+            </div>
+
+            <div className={styles.statCard}>
+              <span className={styles.statValue}>
+                {equipment || "None"}
+              </span>
+
+              <span className={styles.statLabel}>
+                Equipment
+              </span>
+            </div>
+
+          </div>
+
+          {/* Instructions */}
+          <div className={styles.instructionsCard}>
+
+            <h2 className={styles.sectionTitle}>
+              Proper Form Instructions
+            </h2>
+
             <ol className={styles.instructionsList}>
               {instructions.map((step, index) => (
-                <li key={index} data-step={index + 1}>{step}</li>
+                <li key={index}>
+                  <span className={styles.stepNumber}>
+                    {index + 1}
+                  </span>
+
+                  <span>
+                    {step}
+                  </span>
+                </li>
               ))}
             </ol>
+
           </div>
 
-          {/* Stats cards showing sets, reps, rest, equipment */}
-          <div className={styles.detailStats}>
-            <Card>
-              <div className={styles.statCard}>
-                <div className={styles.statValue}>{sets}</div>
-                <div className={styles.statLabel}>Sets</div>
-              </div>
-            </Card>
-            <Card>
-              <div className={styles.statCard}>
-                <div className={styles.statValue}>{reps}</div>
-                <div className={styles.statLabel}>Reps</div>
-              </div>
-            </Card>
-            <Card>
-              <div className={styles.statCard}>
-                <div className={styles.statValue}>{formatDuration(restTime)}</div>
-                <div className={styles.statLabel}>Rest Time</div>
-              </div>
-            </Card>
-            <Card>
-              <div className={styles.statCard}>
-                <div className={styles.statValue}>{equipment}</div>
-                <div className={styles.statLabel}>Equipment</div>
-              </div>
-            </Card>
-          </div>
-        </div>
+        </section>
 
-        {/* Right column: video and actions */}
-        <div className={styles.detailSidebar}>
-          <VideoPlayer
-            videoUrl={videoUrl}
-            title={`${name} Demonstration`}
-            description="Watch the proper form for this exercise"
-          />
-          <Button onClick={() => onAddToPlan(exercise)} size="large">Add to Workout Plan</Button>
-          <div style={{ display: 'flex', gap: '8px' }}>
-            <Button variant="secondary" onClick={handlePrevious} disabled={parseInt(id) <= 1}>
+        {/* Sidebar */}
+        <aside className={styles.detailSidebar}>
+
+          {/* Video */}
+          {videoUrl && (
+            <div className={styles.videoCard}>
+
+              <h2 className={styles.sectionTitle}>
+                Demonstration
+              </h2>
+
+              <video
+                className={styles.exerciseVideo}
+                src={videoUrl}
+                controls
+              >
+                Your browser does not support video.
+              </video>
+
+            </div>
+          )}
+
+          {/* Add to plan */}
+          <button
+            className={styles.addButton}
+            onClick={() => onAddToPlan(exercise)}
+          >
+            + Add to Workout Plan
+          </button>
+
+          {/* Previous / Next */}
+          <div className={styles.navigationButtons}>
+
+            <button
+              className={styles.secondaryButton}
+              onClick={handlePrevious}
+              disabled={currentIndex === 0}
+            >
               ← Previous
-            </Button>
-            <Button variant="secondary" onClick={handleNext} disabled={parseInt(id) >= exercises.length}>
+            </button>
+
+            <button
+              className={styles.secondaryButton}
+              onClick={handleNext}
+              disabled={
+                currentIndex === exercises.length - 1
+              }
+            >
               Next →
-            </Button>
+            </button>
+
           </div>
-        </div>
+
+        </aside>
+
       </div>
-    </div>
+
+    </main>
   );
 };
 
 export default ExerciseDetail;
+
