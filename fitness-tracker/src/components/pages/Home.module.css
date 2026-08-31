@@ -1,0 +1,53 @@
+.home {
+  width: 100%;
+}
+
+.statsGrid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.statCard {
+  width: 200px;
+  text-align: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1c1c1e;
+  letter-spacing: -0.03em;
+}
+
+.statLabel {
+  font-size: 0.68rem;
+  color: #8e8e93;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px 20px;
+  color: #8e8e93;
+}
+
+@media (max-width: 700px) {
+  .statsGrid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .statCard {
+    width: 100%;
+    max-width: 300px;
+  }
+}
