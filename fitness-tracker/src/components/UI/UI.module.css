@@ -1,0 +1,326 @@
+/* ===== UI Component Styles — Matte Finish White Design System ===== */
+
+/*
+ * Design tokens: warm paper whites, flat matte shadows,
+ * muted charcoal palette, no gloss or gradients.
+ */
+:root {
+  /* Core palette — matte finish */
+  --color-bg: #F5F4F1;               /* warm paper white */
+  --color-surface: #FEFEFE;           /* crisp card white */
+  --color-text: #1C1C1E;              /* soft black */
+  --color-text-secondary: #8E8E93;    /* warm system gray */
+  --color-border: #E5E5EA;            /* barely-there border */
+  --color-border-light: #F0F0EE;      /* dividers */
+
+  /* Accent palette — muted, matte tones */
+  --color-primary: #3A3A3C;           /* dark charcoal */
+  --color-primary-hover: #2C2C2E;     /* deeper charcoal */
+  --color-primary-light: #EFEFED;     /* matte charcoal tint */
+  --color-secondary: #636366;         /* mid gray */
+  --color-secondary-hover: #48484A;   /* darker mid */
+  --color-danger: #C74B3A;            /* muted terracotta */
+  --color-danger-hover: #A83D2F;      /* deeper terracotta */
+  --color-success: #3D8B37;           /* muted olive green */
+  --color-warning: #B8860B;           /* dark goldenrod */
+  --color-accent: #8E8E93;            /* warm stone */
+
+  /* Geometry — slightly softer for premium feel */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* Shadows — flat matte, no blur, subtle depth */
+  --shadow-xs: 0 1px 2px rgba(28, 28, 30, 0.04);
+  --shadow-sm: 0 1px 3px rgba(28, 28, 30, 0.06);
+  --shadow-md: 0 2px 8px rgba(28, 28, 30, 0.08);
+  --shadow-lg: 0 4px 16px rgba(28, 28, 30, 0.10);
+  --shadow-card-hover: 0 4px 20px rgba(28, 28, 30, 0.10);
+
+  /* Motion — smooth, not bouncy */
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Button Styles ===== */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.button:hover:not(:disabled) {
+  box-shadow: var(--shadow-md);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Primary — matte charcoal */
+.primary {
+  background-color: var(--color-primary);
+  color: #FAFAFA;
+}
+.primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+/* Secondary — warm gray */
+.secondary {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: inset 0 0 0 1px var(--color-border);
+}
+.secondary:hover:not(:disabled) {
+  background-color: var(--color-primary-light);
+  box-shadow: inset 0 0 0 1px var(--color-border);
+}
+
+/* Danger — muted terracotta */
+.danger {
+  background-color: var(--color-danger);
+  color: #FAFAFA;
+}
+.danger:hover:not(:disabled) {
+  background-color: var(--color-danger-hover);
+}
+
+/* Button sizes */
+.small {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+}
+
+.medium {
+  padding: 10px 22px;
+  font-size: 0.875rem;
+}
+
+.large {
+  padding: 14px 30px;
+  font-size: 0.95rem;
+}
+
+/* ===== Card Styles ===== */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  border: 1px solid var(--color-border-light);
+  padding: 22px;
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.cardHeader {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+/* ===== SearchBar Styles ===== */
+.searchContainer {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: var(--transition);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-text);
+  box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+/* ===== Modal Styles ===== */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(28, 28, 30, 0.35);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContent {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 28px;
+  position: relative;
+}
+
+.modalClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.modalClose:hover {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.modalTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 18px;
+  padding-right: 32px;
+  letter-spacing: -0.01em;
+}
+
+/* ===== Loading Styles ===== */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 16px;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--color-border-light);
+  border-top-color: var(--color-text-secondary);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingText {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ===== Badge Styles — Matte pastels ===== */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.beginner {
+  background-color: #E8F0E4;
+  color: #3D6B35;
+}
+
+.intermediate {
+  background-color: #F0EBE0;
+  color: #7A6B3A;
+}
+
+.advanced {
+  background-color: #F0E2DF;
+  color: #8B4A42;
+}
+
+.strength {
+  background-color: #E3E7EC;
+  color: #3A4A5C;
+}
+
+.cardio {
+  background-color: #EDE0E6;
+  color: #7A3D55;
+}
+
+.flexibility {
+  background-color: #E6E0EE;
+  color: #5A3D7A;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .button.medium {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .button.large {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+
+  .modalContent {
+    max-height: 90vh;
+    padding: 20px;
+    margin: 10px;
+  }
+}

@@ -41,7 +41,6 @@ const Navbar = () => {
       <div className={styles.navContainer}>
         {/* Logo / brand link */}
         <Link to="/" className={styles.navLogo}>
-          <span>🏋️</span>
           <span>FitTracker</span>
         </Link>
 
