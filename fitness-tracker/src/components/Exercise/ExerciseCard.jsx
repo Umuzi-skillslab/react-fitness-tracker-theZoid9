@@ -1,41 +1,65 @@
-import PropTypes from 'prop-types';
-import Card from '../UI/Card';
-import Badge from '../UI/Badge';
-import Button from '../UI/Button';
-import styles from './Exercise.module.css';
-import { formatDuration } from '../utils/helpers'
+import PropTypes from "prop-types";
+import styles from "./Exercise.module.css";
 
-/**
- * ExerciseCard displays a summary of an exercise with icon, badges, metadata,
- * and action buttons. Receives multiple props and demonstrates props destructuring.
- */
-
-
-const ExerciseCard = ({ exercise, onSelect, onAddToPlan }) => {
+const ExerciseCard = ({
+  exercise,
+  onSelect,
+  onAddToPlan,
+}) => {
   return (
-    
+    <article className={styles.exerciseCard}>
 
-    <div className={styles.exerciseCard}>
-      <h3>{exercise.name}</h3>
+      <div className={styles.cardHeader}>
+        <h3>{exercise.name}</h3>
 
-      <p>{exercise.description}</p>
+        <span className={styles.difficulty}>
+          {exercise.difficulty}
+        </span>
+      </div>
 
-      <p>Category: {exercise.category}</p>
-      <p>Muscle: {exercise.muscleGroup}</p>
-      <p>Difficulty: {exercise.difficulty}</p>
-
-      <p>
-        Sets: {exercise.sets} | Reps: {exercise.reps}
+      <p className={styles.description}>
+        {exercise.description}
       </p>
 
-      <button onClick={() => onSelect(exercise.id)}>
-        View Details
-      </button>
+      <div className={styles.exerciseInfo}>
+        <p>
+          <strong>Category</strong>
+          <span>{exercise.category}</span>
+        </p>
 
-      <button onClick={() => onAddToPlan(exercise)}>
-        Add to Plan
-      </button>
-    </div>
+        <p>
+          <strong>Muscle</strong>
+          <span>{exercise.muscleGroup}</span>
+        </p>
+
+        <p>
+          <strong>Sets</strong>
+          <span>{exercise.sets}</span>
+        </p>
+
+        <p>
+          <strong>Reps</strong>
+          <span>{exercise.reps}</span>
+        </p>
+      </div>
+
+      <div className={styles.cardActions}>
+        <button
+          className={styles.viewButton}
+          onClick={() => onSelect(exercise.id)}
+        >
+          View Details
+        </button>
+
+        <button
+          className={styles.planButton}
+          onClick={() => onAddToPlan(exercise)}
+        >
+          Add to Plan
+        </button>
+      </div>
+
+    </article>
   );
 };
 
@@ -56,4 +80,3 @@ ExerciseCard.propTypes = {
 };
 
 export default ExerciseCard;
-

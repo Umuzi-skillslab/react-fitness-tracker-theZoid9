@@ -1,60 +1,61 @@
-/* ===== UI Component Styles — Matte Finish White Design System ===== */
 
-/*
- * Design tokens: warm paper whites, flat matte shadows,
- * muted charcoal palette, no gloss or gradients.
- */
+/* =========================================================
+   DESIGN SYSTEM
+   ========================================================= */
+
 :root {
-  /* Core palette — matte finish */
-  --color-bg: #F5F4F1;               /* warm paper white */
-  --color-surface: #FEFEFE;           /* crisp card white */
-  --color-text: #1C1C1E;              /* soft black */
-  --color-text-secondary: #8E8E93;    /* warm system gray */
-  --color-border: #E5E5EA;            /* barely-there border */
-  --color-border-light: #F0F0EE;      /* dividers */
+  /* Colors */
+  --color-bg: #f5f4f1;
+  --color-surface: #fefefe;
+  --color-text: #1c1c1e;
+  --color-text-secondary: #8e8e93;
 
-  /* Accent palette — muted, matte tones */
-  --color-primary: #3A3A3C;           /* dark charcoal */
-  --color-primary-hover: #2C2C2E;     /* deeper charcoal */
-  --color-primary-light: #EFEFED;     /* matte charcoal tint */
-  --color-secondary: #636366;         /* mid gray */
-  --color-secondary-hover: #48484A;   /* darker mid */
-  --color-danger: #C74B3A;            /* muted terracotta */
-  --color-danger-hover: #A83D2F;      /* deeper terracotta */
-  --color-success: #3D8B37;           /* muted olive green */
-  --color-warning: #B8860B;           /* dark goldenrod */
-  --color-accent: #8E8E93;            /* warm stone */
+  --color-border: #e5e5ea;
+  --color-border-light: #f0f0ee;
 
-  /* Geometry — slightly softer for premium feel */
+  --color-primary: #3a3a3c;
+  --color-primary-hover: #2c2c2e;
+  --color-primary-light: #efefed;
+
+  --color-secondary: #636366;
+  --color-danger: #c74b3a;
+  --color-danger-hover: #a83d2f;
+
+  /* Border radius */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
 
-  /* Shadows — flat matte, no blur, subtle depth */
+  /* Shadows */
   --shadow-xs: 0 1px 2px rgba(28, 28, 30, 0.04);
   --shadow-sm: 0 1px 3px rgba(28, 28, 30, 0.06);
   --shadow-md: 0 2px 8px rgba(28, 28, 30, 0.08);
-  --shadow-lg: 0 4px 16px rgba(28, 28, 30, 0.10);
-  --shadow-card-hover: 0 4px 20px rgba(28, 28, 30, 0.10);
+  --shadow-lg: 0 4px 16px rgba(28, 28, 30, 0.1);
 
-  /* Motion — smooth, not bouncy */
+  /* Animation */
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ===== Button Styles ===== */
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+
   border: none;
   border-radius: var(--radius-sm);
+
+  font-family: inherit;
   font-weight: 600;
+  line-height: 1.4;
+
   cursor: pointer;
   transition: var(--transition);
-  font-family: inherit;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
 }
 
 .button:hover:not(:disabled) {
@@ -70,36 +71,38 @@
   cursor: not-allowed;
 }
 
-/* Primary — matte charcoal */
+/* Button variants */
+
 .primary {
   background-color: var(--color-primary);
-  color: #FAFAFA;
+  color: #ffffff;
 }
+
 .primary:hover:not(:disabled) {
   background-color: var(--color-primary-hover);
 }
 
-/* Secondary — warm gray */
 .secondary {
   background-color: var(--color-surface);
   color: var(--color-text);
   box-shadow: inset 0 0 0 1px var(--color-border);
 }
+
 .secondary:hover:not(:disabled) {
   background-color: var(--color-primary-light);
-  box-shadow: inset 0 0 0 1px var(--color-border);
 }
 
-/* Danger — muted terracotta */
 .danger {
   background-color: var(--color-danger);
-  color: #FAFAFA;
+  color: #ffffff;
 }
+
 .danger:hover:not(:disabled) {
   background-color: var(--color-danger-hover);
 }
 
 /* Button sizes */
+
 .small {
   padding: 6px 14px;
   font-size: 0.8rem;
@@ -115,13 +118,21 @@
   font-size: 0.95rem;
 }
 
-/* ===== Card Styles ===== */
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
 .card {
   background-color: var(--color-surface);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-xs);
+
   border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+
   padding: 22px;
+
+  box-shadow: var(--shadow-xs);
+
   transition: var(--transition);
 }
 
@@ -130,93 +141,211 @@
 }
 
 .cardHeader {
+  margin-bottom: 10px;
+
+  color: var(--color-text);
+
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 10px;
   letter-spacing: -0.01em;
 }
 
-/* ===== SearchBar Styles ===== */
-.searchContainer {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-}
 
-.searchInput {
+/* =========================================================
+   SEARCH BAR
+   ========================================================= */
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+
   width: 100%;
-  padding: 12px 16px 12px 44px;
+  max-width: 700px;
+  min-height: 52px;
+
+  margin: 0 auto;
+
+  background-color: var(--color-surface);
+
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  font-size: 0.9rem;
-  font-family: inherit;
-  transition: var(--transition);
-  background-color: var(--color-surface);
-  color: var(--color-text);
+
   box-sizing: border-box;
+
+  transition: var(--transition);
 }
 
-.searchInput:focus {
-  outline: none;
+.searchContainer:focus-within {
   border-color: var(--color-text);
-  box-shadow: 0 0 0 2px var(--color-primary-light);
+
+  box-shadow:
+    0 0 0 3px rgba(28, 28, 30, 0.08);
+}
+
+
+/* Search icon */
+
+.searchIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-left: 16px;
+
+  font-size: 17px;
+
+  opacity: 0.55;
+
+  user-select: none;
+}
+
+
+/* Input */
+
+.searchInput {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 0 12px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--color-text);
+
+  font-family: inherit;
+  font-size: 0.9rem;
 }
 
 .searchInput::placeholder {
   color: var(--color-text-secondary);
-  font-weight: 400;
 }
 
-.searchIcon {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--color-text-secondary);
-  font-size: 1rem;
-  pointer-events: none;
-}
 
-/* ===== Modal Styles ===== */
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(28, 28, 30, 0.35);
-  backdrop-filter: blur(2px);
+/* Clear button */
+
+.clearButton {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+
+  width: 32px;
+  height: 32px;
+
+  margin-right: 4px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--color-text-secondary);
+
+  font-size: 22px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.clearButton:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-text);
+}
+
+
+/* Search button */
+
+.searchButton {
+  height: 40px;
+
+  margin-right: 6px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: var(--radius-sm);
+
+  background-color: var(--color-primary);
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.searchButton:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.searchButton:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   padding: 20px;
+
+  background-color: rgba(28, 28, 30, 0.35);
+
+  z-index: 1000;
 }
 
 .modalContent {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  max-width: 600px;
-  width: 100%;
-  max-height: 80vh;
-  overflow-y: auto;
-  padding: 28px;
   position: relative;
+
+  width: 100%;
+  max-width: 600px;
+  max-height: 80vh;
+
+  padding: 28px;
+
+  overflow-y: auto;
+
+  background-color: var(--color-surface);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-lg);
 }
 
 .modalClose {
   position: absolute;
   top: 14px;
   right: 14px;
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: var(--color-text-secondary);
+
   padding: 4px 10px;
+
+  border: none;
   border-radius: var(--radius-sm);
+
+  background: transparent;
+
+  color: var(--color-text-secondary);
+
+  font-size: 1.4rem;
+
+  cursor: pointer;
+
   transition: var(--transition);
 }
 
@@ -226,30 +355,40 @@
 }
 
 .modalTitle {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--color-text);
   margin-bottom: 18px;
   padding-right: 32px;
-  letter-spacing: -0.01em;
+
+  color: var(--color-text);
+
+  font-size: 1.15rem;
+  font-weight: 700;
 }
 
-/* ===== Loading Styles ===== */
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
 .loadingContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+
   gap: 16px;
+
+  padding: 40px;
 }
 
 .spinner {
   width: 36px;
   height: 36px;
+
   border: 3px solid var(--color-border-light);
   border-top-color: var(--color-text-secondary);
+
   border-radius: 50%;
+
   animation: spin 0.9s linear infinite;
 }
 
@@ -261,53 +400,73 @@
 
 .loadingText {
   color: var(--color-text-secondary);
+
   font-size: 0.875rem;
   font-weight: 500;
 }
 
-/* ===== Badge Styles — Matte pastels ===== */
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
 .badge {
   display: inline-block;
+
   padding: 3px 10px;
+
   border-radius: 50px;
+
   font-size: 0.7rem;
   font-weight: 600;
+
   text-transform: uppercase;
   letter-spacing: 0.6px;
 }
 
+
+/* Difficulty */
+
 .beginner {
-  background-color: #E8F0E4;
-  color: #3D6B35;
+  background-color: #e8f0e4;
+  color: #3d6b35;
 }
 
 .intermediate {
-  background-color: #F0EBE0;
-  color: #7A6B3A;
+  background-color: #f0ebe0;
+  color: #7a6b3a;
 }
 
 .advanced {
-  background-color: #F0E2DF;
-  color: #8B4A42;
+  background-color: #f0e2df;
+  color: #8b4a42;
 }
 
+
+/* Exercise category */
+
 .strength {
-  background-color: #E3E7EC;
-  color: #3A4A5C;
+  background-color: #e3e7ec;
+  color: #3a4a5c;
 }
 
 .cardio {
-  background-color: #EDE0E6;
-  color: #7A3D55;
+  background-color: #ede0e6;
+  color: #7a3d55;
 }
 
 .flexibility {
-  background-color: #E6E0EE;
-  color: #5A3D7A;
+  background-color: #e6e0ee;
+  color: #5a3d7a;
 }
 
-/* ===== Responsive ===== */
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
 @media (max-width: 768px) {
+
   .button.medium {
     padding: 8px 16px;
     font-size: 0.8rem;
@@ -320,7 +479,25 @@
 
   .modalContent {
     max-height: 90vh;
-    padding: 20px;
     margin: 10px;
+    padding: 20px;
+  }
+
+  .searchContainer {
+    min-height: 48px;
+  }
+
+  .searchIcon {
+    padding-left: 12px;
+  }
+
+  .searchInput {
+    font-size: 0.85rem;
+  }
+
+  .searchButton {
+    padding: 0 14px;
+    font-size: 0.8rem;
   }
 }
+

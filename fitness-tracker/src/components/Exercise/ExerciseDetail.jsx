@@ -69,20 +69,25 @@ const ExerciseDetail = ({ exercises, onAddToPlan }) => {
 
   const handlePrevious = () => {
     if (currentIndex > 0) {
-      navigate(`/exercises/${exercises[currentIndex - 1].id}`);
+      navigate(
+        `/exercises/${exercises[currentIndex - 1].id}`
+      );
     }
   };
 
   const handleNext = () => {
     if (currentIndex < exercises.length - 1) {
-      navigate(`/exercises/${exercises[currentIndex + 1].id}`);
+      navigate(
+        `/exercises/${exercises[currentIndex + 1].id}`
+      );
     }
   };
 
   return (
     <main className={styles.detailPage}>
 
-      {/* Back */}
+      {/* Back navigation */}
+
       <button
         className={styles.backButton}
         onClick={() => navigate("/exercises")}
@@ -90,35 +95,50 @@ const ExerciseDetail = ({ exercises, onAddToPlan }) => {
         ← Back to Exercises
       </button>
 
-      <div className={styles.detailContainer}>
 
-        {/* Main content */}
-        <section className={styles.detailMain}>
+      {/* Exercise heading */}
 
+      <header className={styles.detailHeader}>
+
+        <div>
           <h1 className={styles.detailTitle}>
             {name}
           </h1>
 
-          {/* Exercise tags */}
-          <div className={styles.detailBadges}>
-            <span className={styles.badge}>
-              {category}
-            </span>
-
-            <span className={styles.badge}>
-              {difficulty}
-            </span>
-
-            <span className={styles.badge}>
-              {muscleGroup}
-            </span>
-          </div>
-
           <p className={styles.detailDesc}>
             {description}
           </p>
+        </div>
+
+        <div className={styles.detailBadges}>
+
+          <span className={styles.badge}>
+            {category}
+          </span>
+
+          <span className={styles.badge}>
+            {muscleGroup}
+          </span>
+
+          <span className={styles.badge}>
+            {difficulty}
+          </span>
+
+        </div>
+
+      </header>
+
+
+      {/* Main two-column layout */}
+
+      <div className={styles.detailContainer}>
+
+        {/* LEFT SIDE */}
+
+        <section className={styles.detailMain}>
 
           {/* Stats */}
+
           <div className={styles.detailStats}>
 
             <div className={styles.statCard}>
@@ -131,6 +151,7 @@ const ExerciseDetail = ({ exercises, onAddToPlan }) => {
               </span>
             </div>
 
+
             <div className={styles.statCard}>
               <span className={styles.statValue}>
                 {reps}
@@ -141,6 +162,7 @@ const ExerciseDetail = ({ exercises, onAddToPlan }) => {
               </span>
             </div>
 
+
             <div className={styles.statCard}>
               <span className={styles.statValue}>
                 {formatDuration(restTime)}
@@ -150,6 +172,7 @@ const ExerciseDetail = ({ exercises, onAddToPlan }) => {
                 Rest
               </span>
             </div>
+
 
             <div className={styles.statCard}>
               <span className={styles.statValue}>
@@ -163,41 +186,65 @@ const ExerciseDetail = ({ exercises, onAddToPlan }) => {
 
           </div>
 
+
           {/* Instructions */}
+
           <div className={styles.instructionsCard}>
 
             <h2 className={styles.sectionTitle}>
-              Proper Form Instructions
+              Proper Form
             </h2>
 
+            <p className={styles.sectionDescription}>
+              Follow these steps to perform the exercise safely and correctly.
+            </p>
+
             <ol className={styles.instructionsList}>
+
               {instructions.map((step, index) => (
+
                 <li key={index}>
+
                   <span className={styles.stepNumber}>
                     {index + 1}
                   </span>
 
-                  <span>
+                  <span className={styles.stepText}>
                     {step}
                   </span>
+
                 </li>
+
               ))}
+
             </ol>
 
           </div>
 
         </section>
 
-        {/* Sidebar */}
+
+        {/* RIGHT SIDE */}
+
         <aside className={styles.detailSidebar}>
 
           {/* Video */}
+
           {videoUrl && (
+
             <div className={styles.videoCard}>
 
-              <h2 className={styles.sectionTitle}>
-                Demonstration
-              </h2>
+              <div className={styles.videoHeader}>
+
+                <h2 className={styles.sectionTitle}>
+                  Exercise Demonstration
+                </h2>
+
+                <span className={styles.videoLabel}>
+                  VIDEO
+                </span>
+
+              </div>
 
               <video
                 className={styles.exerciseVideo}
@@ -208,9 +255,12 @@ const ExerciseDetail = ({ exercises, onAddToPlan }) => {
               </video>
 
             </div>
+
           )}
 
+
           {/* Add to plan */}
+
           <button
             className={styles.addButton}
             onClick={() => onAddToPlan(exercise)}
@@ -218,7 +268,9 @@ const ExerciseDetail = ({ exercises, onAddToPlan }) => {
             + Add to Workout Plan
           </button>
 
-          {/* Previous / Next */}
+
+          {/* Navigation */}
+
           <div className={styles.navigationButtons}>
 
             <button
@@ -250,4 +302,3 @@ const ExerciseDetail = ({ exercises, onAddToPlan }) => {
 };
 
 export default ExerciseDetail;
-

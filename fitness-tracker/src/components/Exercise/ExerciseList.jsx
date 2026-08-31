@@ -59,9 +59,7 @@ const ExerciseList = ({
       {/* Search and filter controls */}
       <div className={styles.listHeader}>
         <SearchBar value={searchTerm} onChange={setSearchTerm} placeholder="Search exercises by name..." />
-        <span className={styles.resultCount}>
-          {filteredExercises.length} of {exercises.length} exercises
-        </span>
+
       </div>
 
       <div className={styles.listControls}>

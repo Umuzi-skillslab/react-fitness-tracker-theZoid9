@@ -25,7 +25,7 @@ const SearchBar = ({
 
   return (
     <form className={styles.searchContainer} onSubmit={handleSubmit}>
-      <span className={styles.searchIcon} role="img" aria-label="search">🔍</span>
+
       <input
         type="text"
         className={styles.searchInput}
