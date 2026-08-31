@@ -15,19 +15,33 @@
    ========================= */
 
 .exerciseCard {
+  position: relative;
+  overflow: hidden;
+
   display: flex;
   flex-direction: column;
   min-width: 0;
   min-height: 360px;
   padding: 24px;
-  background: #ffffff;
+
+  background-size: cover;
+  background-position: center;
+
   border: 1px solid #e5e5e5;
   border-radius: 16px;
   box-sizing: border-box;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+}
+
+.exerciseCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.exerciseCard > * {
+  position: relative;
+  z-index: 1;
 }
 
 .exerciseCard:hover {

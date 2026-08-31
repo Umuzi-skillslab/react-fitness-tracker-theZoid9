@@ -5,6 +5,7 @@ const exercisesData = [
   {
     id: 1,
     name: 'Barbell Bench Press',
+    image: "/assets/images/barbell.png",
     category: 'strength',
     muscleGroup: 'chest',
     difficulty: 'intermediate',
@@ -22,7 +23,6 @@ const exercisesData = [
     reps: 8,
     restTime: 90,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🏋️',
   },
   {
     id: 2,
@@ -66,7 +66,7 @@ const exercisesData = [
     reps: 5,
     restTime: 180,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '💪',
+    image: '/assets/images/deadlift.png',
   },
   {
     id: 4,
@@ -154,7 +154,7 @@ const exercisesData = [
     reps: 12,
     restTime: 60,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '💪',
+    image: '/assets/images/curl.png',
   },
   {
     id: 8,
@@ -247,6 +247,7 @@ const exercisesData = [
   {
     id: 12,
     name: 'Bicycle Crunches',
+    image:"/assets/images/bicycle.png",
     category: 'flexibility',
     muscleGroup: 'core',
     difficulty: 'beginner',
@@ -264,7 +265,7 @@ const exercisesData = [
     reps: 20,
     restTime: 45,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🧘',
+
   },
   {
     id: 13,
@@ -330,7 +331,7 @@ const exercisesData = [
     reps: 5,
     restTime: 120,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🔥',
+    image: '/assets/images/circuits.png',
   },
   {
     id: 16,

@@ -7,7 +7,10 @@ const ExerciseCard = ({
   onAddToPlan,
 }) => {
   return (
-    <article className={styles.exerciseCard}>
+    <article
+      className={styles.exerciseCard}
+      style={{ backgroundImage: `url(${exercise.image})` }}
+    >
 
       <div className={styles.cardHeader}>
         <h3>{exercise.name}</h3>
