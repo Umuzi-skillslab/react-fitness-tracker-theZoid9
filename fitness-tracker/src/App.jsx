@@ -2,12 +2,15 @@ import { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navigation/Navbar';
 import Home from './components/pages/Home';
-
+import ExercisePage from "./components/pages/ExercisePage";
+import ExerciseDetail from './components/Exercise/ExerciseDetail';
+import exercisesData from './components/data/exercisesData';
 
 import './App.css'
 
 const EMPTY_PLAN = {
-  monday: [],
+  monday: [    { id: 1, name: 'Push Ups' },
+    { id: 2, name: 'Bench Press' },],
   tuesday: [],
   wednesday: [],
   thursday: [],
@@ -70,7 +73,16 @@ function App() {
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar/>
       <Routes>
-          <Route path="/" element={<Home workoutPlan={workoutPlan} />} />
+          <Route path="/" element=
+          {<Home workoutPlan={workoutPlan} />} />
+           <Route path="/exercises" element={
+              <ExercisePage workoutPlan={workoutPlan} onAddToPlan={handleAddToPlan} />
+            }/>
+
+            {/* Dynamic route for individual exercise detail — uses route params */}
+            <Route path="/exercises/:id" element={
+              <ExerciseDetail exercises={exercisesData} onAddToPlan={(exercise) => handleAddToPlan('monday', exercise)} />
+            } />
       </Routes>
     </div>
 

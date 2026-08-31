@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import { Link } from 'react-router-dom';
 import Header from '../common/Header';
 import commonStyles from '../common/common.module.css';
@@ -27,10 +26,7 @@ const Home = ({ workoutPlan, workoutHistory }) => {
   }
 
   const totalPlannedExercises = Object.values(workoutPlan || {}).flat().length;
-
-  const activeDays = Object.values(workoutPlan || {})
-    .filter((d) => d.length > 0).length;
-
+  const activeDays = Object.values(workoutPlan || {}).filter((d) => d.length > 0).length;
   const totalLogged = (workoutHistory || []).length;
 
   return (
