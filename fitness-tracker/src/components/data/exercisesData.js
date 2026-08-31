@@ -88,7 +88,7 @@ const exercisesData = [
     reps: 8,
     restTime: 90,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🎯',
+    image: '/assets/images/pull.png',
   },
   {
     id: 5,
@@ -132,7 +132,7 @@ const exercisesData = [
     reps: 60,
     restTime: 45,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🧘',
+    image: '/assets/images/plank.png',
   },
   {
     id: 7,
@@ -176,7 +176,7 @@ const exercisesData = [
     reps: 10,
     restTime: 30,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🧘',
+    image: '/assets/images/yoga.png',
   },
   {
     id: 9,
@@ -198,7 +198,7 @@ const exercisesData = [
     reps: 100,
     restTime: 60,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '⏭️',
+    image: '/assets/images/jump.png',
   },
   {
     id: 10,
@@ -220,7 +220,7 @@ const exercisesData = [
     reps: 8,
     restTime: 90,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🏋️',
+    image: '/assets/images/press.png',
   },
   {
     id: 11,
@@ -242,7 +242,7 @@ const exercisesData = [
     reps: 12,
     restTime: 60,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🦵',
+    image: '/assets/images/lunge.png',
   },
   {
     id: 12,
@@ -309,7 +309,7 @@ const exercisesData = [
     reps: 10,
     restTime: 75,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '💪',
+    image: '/assets/images/dips.png',
   },
   {
     id: 15,
@@ -353,7 +353,7 @@ const exercisesData = [
     reps: 10,
     restTime: 60,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🎯',
+    image: '/assets/images/lat.png',
   },
 ];
 
