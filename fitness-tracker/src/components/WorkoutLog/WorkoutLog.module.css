@@ -3,30 +3,33 @@
 .logContainer {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
+  width: 100%;
 }
 
-/* Log form */
+/* ===== Log Form ===== */
+
 .logForm {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  padding: 22px;
-  background-color: var(--color-bg);
-  border-radius: var(--radius-md);
+  gap: 20px;
+  padding: 24px;
+  background-color: var(--color-surface);
   border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 }
 
 .formRow {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
 }
 
 .formLabel {
@@ -38,33 +41,55 @@
 }
 
 .formInput {
-  padding: 10px 14px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 13px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   font-size: 0.88rem;
   font-family: inherit;
-  background-color: var(--color-surface);
-  color: var(--color-text);
   transition: var(--transition);
+}
+
+.formInput:hover {
+  border-color: var(--color-text-secondary);
 }
 
 .formInput:focus {
   outline: none;
   border-color: var(--color-text);
-  box-shadow: 0 0 0 2px var(--color-primary-light);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
 }
 
 .formActions {
   display: flex;
-  gap: 8px;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 4px;
 }
 
-/* Log entry */
+/* ===== Log Entries Container ===== */
+
+.logEntries {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== Log Entry ===== */
+
 .logEntry {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
+  gap: 20px;
+  padding: 18px 22px;
+  background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border-light);
   transition: var(--transition);
 }
@@ -74,52 +99,111 @@
 }
 
 .logEntry:hover {
-  padding-left: 4px;
+  background-color: var(--color-bg);
 }
+
+/* ===== Entry Information ===== */
 
 .logEntryInfo {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
+  min-width: 0;
 }
 
 .logEntryName {
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-text);
-  font-size: 0.9rem;
+  margin: 0;
 }
 
 .logEntryDetails {
   font-size: 0.78rem;
   color: var(--color-text-secondary);
+  margin: 0;
 }
 
 .logEntryDate {
   font-size: 0.72rem;
   color: var(--color-text-secondary);
+  margin: 0;
 }
+
+/* ===== Entry Actions ===== */
 
 .logEntryActions {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
+/* ===== Completed Badge ===== */
+
 .completedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
   color: var(--color-success);
+  font-size: 0.7rem;
   font-weight: 700;
-  font-size: 0.72rem;
   letter-spacing: 0.02em;
 }
 
+/* ===== Empty State ===== */
+
+.emptyLog {
+  padding: 50px 24px;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.emptyLogTitle {
+  margin: 0 0 6px;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.emptyLogMessage {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* ===== Mobile ===== */
+
 @media (max-width: 768px) {
+  .logForm {
+    padding: 18px;
+  }
+
   .formRow {
     grid-template-columns: 1fr;
   }
 
+  .formActions {
+    justify-content: stretch;
+  }
+
+  .formActions button {
+    width: 100%;
+  }
+
   .logEntry {
-    flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    flex-direction: column;
+    padding: 16px 18px;
+    gap: 14px;
+  }
+
+  .logEntryActions {
+    width: 100%;
+    justify-content: space-between;
   }
 }

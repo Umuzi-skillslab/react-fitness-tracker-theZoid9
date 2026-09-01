@@ -92,56 +92,50 @@ function App() {
       >
         <Navbar />
 
-        <Routes>
+      <Routes>
+        <Route
+          path="/"
+          element={<Home workoutPlan={workoutPlan} />}
+        />
 
-          {/* HOME */}
-          <Route
-            path="/"
-            element={
-              <Home workoutPlan={workoutPlan} />
-            }
-          />
+        <Route
+          path="/exercises"
+          element={
+            <ExercisePage
+              workoutPlan={workoutPlan}
+              onAddToPlan={handleAddToPlan}
+            />
+          }
+        />
 
-          {/* EXERCISES */}
-          <Route
-            path="/exercises"
-            element={
-              <ExercisePage
-                workoutPlan={workoutPlan}
-                onAddToPlan={handleAddToPlan}
-              />
-            }
-          />
+        <Route
+          path="/exercises/:id"
+          element={
+            <ExerciseDetail
+              exercises={exercisesData}
+              onAddToPlan={(exercise) =>
+                handleAddToPlan("monday", exercise)
+              }
+            />
+          }
+        />
 
-          {/* EXERCISE DETAILS */}
-          <Route
-            path="/exercises/:id"
-            element={
-              <ExerciseDetail
-                exercises={exercisesData}
-                onAddToPlan={(exercise) =>
-                  handleAddToPlan("monday", exercise)
-                }
-              />
-            }
-          />
+        <Route
+          path="/workout-planner"
+          element={
+            <WorkoutPlannerPage
+              workoutPlan={workoutPlan}
+              onRemoveExercise={handleRemoveFromPlan}
+              onClearDay={handleClearDay}
+            />
+          }
+        />
 
-          {/* WORKOUT PLANNER */}
-          <Route
-            path="/workout-planner"
-            element={
-              <WorkoutPlannerPage
-                workoutPlan={workoutPlan}
-                onRemoveExercise={handleRemoveFromPlan}
-                onClearDay={handleClearDay}
-              />
-            }
-          />
-                   {/* Workout history / logging route */}
-          <Route path="/history" element={
-              <HistoryPage />
-            } />
-        </Routes>
+        <Route
+          path="/history"
+          element={<HistoryPage />}
+        />
+      </Routes>
  
       </div>
     </BrowserRouter>
