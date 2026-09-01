@@ -2,53 +2,37 @@ import { useState, useEffect } from "react";
 import Card from "../UI/Card";
 import commonStyles from "../common/common.module.css";
 import styles from "./ProgressPage.module.css";
+import { Link } from "react-router-dom";
 
-const ProgressPage = () => {
-  const [history, setHistory] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    setIsLoading(true);
+const ProgressPage = ({ workoutHistory = [] }) => {
 
-    const saved = localStorage.getItem("workoutHistory");
-
-    if (saved) {
-      try {
-        setHistory(JSON.parse(saved));
-      } catch {
-        // Ignore corrupt localStorage data
-        setHistory([]);
-      }
-    }
-
-    setIsLoading(false);
-  }, []);
 
   // =========================
   // Statistics
   // =========================
 
-  const totalWorkouts = history.length;
+  const totalWorkouts = workoutHistory.length;
 
-  const totalVolume = history.reduce(
+  const totalVolume = workoutHistory.reduce(
     (sum, log) =>
       sum + log.sets * log.reps * (log.weight || 0),
     0
   );
 
-  const totalSets = history.reduce(
+  const totalSets = workoutHistory.reduce(
     (sum, log) => sum + log.sets,
     0
   );
 
   const uniqueExercises = new Set(
-    history.map((log) => log.exerciseId)
+    workoutHistory.map((log) => log.exerciseId)
   ).size;
 
   const avgWeight =
     totalWorkouts > 0
       ? (
-          history.reduce(
+          workoutHistory.reduce(
             (sum, log) => sum + (log.weight || 0),
             0
           ) / totalWorkouts
@@ -59,7 +43,7 @@ const ProgressPage = () => {
   // Exercise Breakdown
   // =========================
 
-  const exerciseBreakdown = history.reduce((acc, log) => {
+  const exerciseBreakdown = workoutHistory.reduce((acc, log) => {
     if (!acc[log.exerciseName]) {
       acc[log.exerciseName] = {
         count: 0,
@@ -78,19 +62,7 @@ const ProgressPage = () => {
     return acc;
   }, {});
 
-  // =========================
-  // Loading State
-  // =========================
 
-  if (isLoading) {
-    return (
-      <div
-        className={`${commonStyles.pageContainer} ${styles.loading}`}
-      >
-        <p>Loading progress...</p>
-      </div>
-    );
-  }
 
   // =========================
   // Page
@@ -177,6 +149,31 @@ const ProgressPage = () => {
           </div>
         </Card>
       </div>
+
+
+        <Card>
+        <div className={styles.workoutPrompt}>
+            <div className={styles.workoutPromptText}>
+            <h2 className={styles.workoutPromptTitle}>
+                Workout Today?
+            </h2>
+
+            <p className={styles.workoutPromptMessage}>
+                Keep your progress going. Log your workout and
+                track your performance.
+            </p>
+            </div>
+
+            <Link
+            to="/History"
+            className={styles.workoutButton}
+            >
+            Log Your Progress
+            </Link>
+        </div>
+        </Card>
+
+
 
       {/* Exercise Breakdown */}
 

@@ -171,6 +171,99 @@
   }
 }
 
+
+/* =========================================
+   Workout Prompt
+========================================= */
+
+.workoutPrompt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  padding: 24px;
+}
+
+.workoutPromptText {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.workoutPromptTitle {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 1.1rem;
+  font-weight: 800;
+
+  letter-spacing: -0.02em;
+}
+
+.workoutPromptMessage {
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  font-size: 0.85rem;
+
+  line-height: 1.5;
+}
+
+.workoutButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 11px 18px;
+
+  background-color: var(--color-text);
+  color: var(--color-surface);
+
+  border: 1px solid var(--color-text);
+  border-radius: var(--radius-sm);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  letter-spacing: 0.06em;
+
+  transition: var(--transition);
+}
+
+.workoutButton:hover {
+  opacity: 0.85;
+  color: var(--color-text-secondary);
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media (max-width: 650px) {
+  .workoutPrompt {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 20px;
+  }
+
+  .workoutButton {
+    width: 100%;
+  }
+}
+
 @media (max-width: 420px) {
   .statsGrid {
     grid-template-columns: 1fr;

@@ -140,7 +140,7 @@ const Home = ({ workoutPlan, workoutHistory }) => {
 
         <div className={styles.dashboardLinkContainer}>
           <Link
-            to="/workout-planner"
+            to="/progress"
             className={styles.dashboardLink}
           >
             DASHBOARD

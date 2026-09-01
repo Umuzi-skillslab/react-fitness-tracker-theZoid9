@@ -11,13 +11,14 @@ import styles from './WorkoutLog.module.css';
  * Manages form state, logs history, and persists to localStorage.
  * Demonstrates form handling with onSubmit, onChange, and state updates.
  */
-const WorkoutLog = ({ exercises = [] }) => {
+const WorkoutLog = ({exercises = [],workoutHistory = [],
+  setWorkoutHistory,
+}) => {
   // Form state for logging a workout
   const [selectedExerciseId, setSelectedExerciseId] = useState('');
   const [sets, setSets] = useState('');
   const [reps, setReps] = useState('');
   const [weight, setWeight] = useState('');
-  const [workoutHistory, setWorkoutHistory] = useState([]);
   const [error, setError] = useState('');
 
   // Load workout history from localStorage on mount (useEffect)
