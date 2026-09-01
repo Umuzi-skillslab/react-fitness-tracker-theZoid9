@@ -2,6 +2,83 @@
   width: 100%;
 }
 
+
+.quoteContainer {
+  min-height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 750px;
+  margin: 120px auto 30px;
+
+  padding: 0 20px;
+
+  text-align: center;
+}
+
+.gymQuote {
+  margin: 0;
+
+  font-size: 2.05rem;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.6;
+
+  color: var(--color-text-secondary);
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.quoteVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quoteHidden {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+
+/* Dashboard button */
+
+.dashboardLinkContainer {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 28px;
+}
+
+.dashboardLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 24px;
+
+  background-color: var(--color-text);
+  color: white;
+
+  border-radius: var(--radius-md);
+
+  text-decoration: none;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  transition: var(--transition);
+}
+
+.dashboardLink:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+
 .statsGrid {
   display: flex;
   justify-content: center;
