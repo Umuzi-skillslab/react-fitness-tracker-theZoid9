@@ -1,0 +1,186 @@
+/* ===== Progress Page — Matte White ===== */
+
+.progressPage {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ===== Page Header ===== */
+
+.pageIntro {
+  margin-bottom: 4px;
+}
+
+.pageDescription {
+  margin: -16px 0 0;
+  max-width: 650px;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ===== Statistics ===== */
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.statCard {
+  padding: 22px 16px;
+  text-align: center;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-border);
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.statLabel {
+  margin-top: 8px;
+  color: var(--color-text-secondary);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+
+/* ===== Breakdown Section ===== */
+
+.breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.exerciseRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 18px;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.exerciseRow:hover {
+  background-color: var(--color-surface);
+  transform: translateX(3px);
+}
+
+.exerciseInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.exerciseName {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.exerciseDetails {
+  color: var(--color-text-secondary);
+  font-size: 0.76rem;
+}
+
+.exerciseVolume {
+  flex-shrink: 0;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+/* ===== Empty State ===== */
+
+.emptyState {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--color-text-secondary);
+}
+
+.emptyIcon {
+  font-size: 2.5rem;
+  margin-bottom: 14px;
+  opacity: 0.7;
+}
+
+.emptyTitle {
+  margin: 0 0 8px;
+  color: var(--color-text);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.emptyMessage {
+  max-width: 420px;
+  margin: 0 auto;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ===== Loading ===== */
+
+.loading {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 1000px) {
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .exerciseRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .exerciseVolume {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 420px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statCard {
+    padding: 18px;
+  }
+
+  .statNumber {
+    font-size: 1.7rem;
+  }
+}

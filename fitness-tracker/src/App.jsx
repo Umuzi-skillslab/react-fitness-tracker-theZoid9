@@ -5,6 +5,7 @@ import Navbar from "./components/Navigation/Navbar";
 import Home from "./components/pages/Home";
 import HistoryPage from "./components/pages/HistoryPage";
 import ExercisePage from "./components/pages/ExercisePage";
+import ProgressPage from './components/pages/ProgressPage';
 import ExerciseDetail from "./components/Exercise/ExerciseDetail";
 import WorkoutPlannerPage from "./components/pages/WorkoutPlannerPage";
 
@@ -135,6 +136,12 @@ function App() {
           path="/history"
           element={<HistoryPage />}
         />
+
+        <Route
+         path="/progress" 
+          element={<ProgressPage />} 
+        />
+
       </Routes>
  
       </div>
