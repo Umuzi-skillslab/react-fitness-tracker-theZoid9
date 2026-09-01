@@ -1,16 +1,17 @@
-import { useState, useEffect, useCallback } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navigation/Navbar';
-import Home from './components/pages/Home';
+import { useState, useEffect, useCallback } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navigation/Navbar";
+import Home from "./components/pages/Home";
 import ExercisePage from "./components/pages/ExercisePage";
-import ExerciseDetail from './components/Exercise/ExerciseDetail';
-import exercisesData from './components/data/exercisesData';
-import WorkoutPlannerPage from './components/pages/WorkoutPlannerPage';
-import './App.css'
+import ExerciseDetail from "./components/Exercise/ExerciseDetail";
+import WorkoutPlannerPage from "./components/pages/WorkoutPlannerPage";
+
+import exercisesData from "./components/data/exercisesData";
+import "./App.css";
 
 const EMPTY_PLAN = {
-  monday: [    { id: 1, name: 'Push Ups' },
-    { id: 2, name: 'Bench Press' },],
+  monday: [],
   tuesday: [],
   wednesday: [],
   thursday: [],
@@ -19,31 +20,38 @@ const EMPTY_PLAN = {
   sunday: [],
 };
 
-
 function App() {
-  
-  // Shared state: workout plan (complex object state managed at top level)
   const [workoutPlan, setWorkoutPlan] = useState(() => {
-  const savedPlan = localStorage.getItem('workoutPlan');
+    const savedPlan = localStorage.getItem("workoutPlan");
 
     return savedPlan
       ? JSON.parse(savedPlan)
       : EMPTY_PLAN;
   });
 
-    useEffect(() => {
+  // Save plan whenever it changes
+  useEffect(() => {
     localStorage.setItem(
-      'workoutPlan',
+      "workoutPlan",
       JSON.stringify(workoutPlan)
     );
   }, [workoutPlan]);
 
-
-    const handleAddToPlan = useCallback((day, exercise) => {
+  // Add exercise to a day
+  const handleAddToPlan = useCallback((day, exercise) => {
     setWorkoutPlan((prev) => {
       const dayExercises = prev[day] || [];
-      // Prevent duplicates within the same day
-      if (dayExercises.some((e) => e.id === exercise.id)) return prev;
+
+      // Don't add duplicate
+      if (
+        dayExercises.some(
+          (existingExercise) =>
+            existingExercise.id === exercise.id
+        )
+      ) {
+        return prev;
+      }
+
       return {
         ...prev,
         [day]: [...dayExercises, exercise],
@@ -51,15 +59,20 @@ function App() {
     });
   }, []);
 
-  // Callback: remove a single exercise from a specific day
-  const handleRemoveFromPlan = useCallback((day, exerciseId) => {
-    setWorkoutPlan((prev) => ({
-      ...prev,
-      [day]: (prev[day] || []).filter((e) => e.id !== exerciseId),
-    }));
-  }, []);
+  // Remove one exercise
+  const handleRemoveFromPlan = useCallback(
+    (day, exerciseId) => {
+      setWorkoutPlan((prev) => ({
+        ...prev,
+        [day]: (prev[day] || []).filter(
+          (exercise) => exercise.id !== exerciseId
+        ),
+      }));
+    },
+    []
+  );
 
-  // Callback: clear all exercises from a specific day
+  // Clear entire day
   const handleClearDay = useCallback((day) => {
     setWorkoutPlan((prev) => ({
       ...prev,
@@ -67,39 +80,67 @@ function App() {
     }));
   }, []);
 
-
   return (
     <BrowserRouter>
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Navbar/>
-      <Routes>
-          <Route path="/" element=
-          {<Home workoutPlan={workoutPlan} />} />
-          
-           <Route path="/exercises" element={
-              <ExercisePage workoutPlan={workoutPlan} onAddToPlan={handleAddToPlan} />
-            }/>
-           {/* Dynamic route for individual exercise detail — uses route params */}
-            <Route path="/exercises/:id" element={
-              <ExerciseDetail exercises={exercisesData} onAddToPlan={(exercise) => handleAddToPlan('monday', exercise)} />
-            } />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+        }}
+      >
+        <Navbar />
 
-                        {/* Workout planner route */}
-            <Route path="/workout-planner" element={
-              <WorkoutPlannerPage
+        <Routes>
+
+          {/* HOME */}
+          <Route
+            path="/"
+            element={
+              <Home workoutPlan={workoutPlan} />
+            }
+          />
+
+          {/* EXERCISES */}
+          <Route
+            path="/exercises"
+            element={
+              <ExercisePage
                 workoutPlan={workoutPlan}
                 onAddToPlan={handleAddToPlan}
+              />
+            }
+          />
+
+          {/* EXERCISE DETAILS */}
+          <Route
+            path="/exercises/:id"
+            element={
+              <ExerciseDetail
+                exercises={exercisesData}
+                onAddToPlan={(exercise) =>
+                  handleAddToPlan("monday", exercise)
+                }
+              />
+            }
+          />
+
+          {/* WORKOUT PLANNER */}
+          <Route
+            path="/workout-planner"
+            element={
+              <WorkoutPlannerPage
+                workoutPlan={workoutPlan}
                 onRemoveExercise={handleRemoveFromPlan}
                 onClearDay={handleClearDay}
               />
-            } />
-      </Routes>
-    </div>
+            }
+          />
 
-
-  
+        </Routes>
+      </div>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

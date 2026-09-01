@@ -811,7 +811,6 @@
     grid-template-columns: 1fr;
   }
 }
-
 .popupOverlay {
   position: fixed;
   inset: 0;

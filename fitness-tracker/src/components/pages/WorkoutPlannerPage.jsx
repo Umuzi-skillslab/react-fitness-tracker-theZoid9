@@ -1,121 +1,91 @@
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
-import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-
-import WorkoutPlanner from '../WorkoutPlanner/WorkoutPlanner';
-import Modal from '../UI/Modal';
-import Button from '../UI/Button';
-
-import commonStyles from '../common/common.module.css';
-import exercisesData from '../data/exercisesData';
-import styles from '../WorkoutPlanner/WorkoutPlanner.module.css';
-
-const DAYS_OF_WEEK = [
-  'monday',
-  'tuesday',
-  'wednesday',
-  'thursday',
-  'friday',
-  'saturday',
-  'sunday',
-];
+import WorkoutPlanner from "../WorkoutPlanner/WorkoutPlanner";
+import Button from "../UI/Button";
+import commonStyles from "../common/common.module.css";
+import styles from "../WorkoutPlanner/WorkoutPlanner.module.css";
 
 const WorkoutPlannerPage = ({
   workoutPlan,
-  onAddToPlan,
   onRemoveExercise,
   onClearDay,
 }) => {
-  const [exercises] = useState(exercisesData);
-  const [showModal, setShowModal] = useState(false);
-  const [selectedExercise, setSelectedExercise] = useState(null);
-
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Exercise passed from the Exercise page
-  const exercise = location.state?.exercise;
+  const [message, setMessage] = useState(
+    location.state?.message || ""
+  );
 
-  // Automatically open the day-selection modal
-  // when arriving from "Add to Plan"
+  const [messageType, setMessageType] = useState(
+    location.state?.messageType || "success"
+  );
+
   useEffect(() => {
-    if (exercise) {
-      setSelectedExercise(exercise);
-      setShowModal(true);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (location.state?.message) {
+      setMessage(location.state.message);
+      setMessageType(location.state.messageType || "success");
+
+      navigate(location.pathname, {
+        replace: true,
+        state: {},
+      });
     }
-  }, [exercise]);
+  }, [location, navigate]);
 
-  // Confirm which day the exercise should be added to
-  const handleConfirmDay = (day) => {
-    if (selectedExercise && onAddToPlan) {
-      onAddToPlan(day, selectedExercise);
-    }
+  useEffect(() => {
+  if (!message) return;
 
-    setShowModal(false);
-    setSelectedExercise(null);
+  const timer = setTimeout(() => {
+    setMessage("");
+  }, 3000);
 
-    // Remove the exercise from navigation state
-    navigate('/workout-planner', { replace: true });
-  };
-
-  // Close the modal
-  const handleCloseModal = () => {
-    setShowModal(false);
-    setSelectedExercise(null);
-
-    navigate('/workout-planner', { replace: true });
-  };
+  return () => clearTimeout(timer);
+}, [message]);
 
   return (
     <div className={commonStyles.pageContainer}>
 
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginBottom: '24px',
-        }}
-      >
-        <h1
-          className={commonStyles.pageTitle}
-          style={{ margin: 0 }}
-        >
-          Weekly Workout Planner
-        </h1>
+      {/* HEADER */}
+      <div className={styles.plannerHeader}>
 
-        <Button onClick={() => navigate('/exercises')}>
+        <div className={styles.plannerHeaderText}>
+          <h1 className={styles.plannerTitle}>
+            Weekly Workout Planner
+          </h1>
+
+          <p className={styles.plannerSubtitle}>
+            Organize your exercises and build your weekly routine.
+          </p>
+        </div>
+
+        <Button
+          onClick={() => navigate("/exercises")}
+        >
           Browse Exercises
         </Button>
+
       </div>
 
+      {/* WORKOUT PLANNER */}
       <WorkoutPlanner
         workoutPlan={workoutPlan}
         onRemoveExercise={onRemoveExercise}
         onClearDay={onClearDay}
+        message={message}
+        messageType={messageType}
       />
-
-      <Modal
-        isOpen={showModal}
-        onClose={handleCloseModal}
-        title={`Add "${selectedExercise?.name || ''}" to which day?`}
-      >
-        <div className={styles.addDayGrid}>
-          {DAYS_OF_WEEK.map((day) => (
-            <button
-              key={day}
-              className={styles.addDayBtn}
-              onClick={() => handleConfirmDay(day)}
-            >
-              {day.charAt(0).toUpperCase() + day.slice(1)}
-            </button>
-          ))}
-        </div>
-      </Modal>
 
     </div>
   );
 };
 
 export default WorkoutPlannerPage;
-

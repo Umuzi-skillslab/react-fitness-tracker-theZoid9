@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useState } from "react";
+import PropTypes from "prop-types";
 
-import styles from './Exercise.module.css';
+import styles from "./Exercise.module.css";
 
 const DAYS_OF_WEEK = [
-  'monday',
-  'tuesday',
-  'wednesday',
-  'thursday',
-  'friday',
-  'saturday',
-  'sunday',
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
 ];
 
 const ExerciseCard = ({
@@ -18,10 +18,21 @@ const ExerciseCard = ({
   onSelect,
   onAddToPlan,
 }) => {
-  const [showDayPicker, setShowDayPicker] = useState(false);
+  const [showDayPicker, setShowDayPicker] =
+    useState(false);
 
+  /*
+   * User selects a day.
+   */
   const handleAddToDay = (day) => {
-    onAddToPlan(exercise, day);
+    /*
+     * Send both values to ExercisesPage.
+     */
+    onAddToPlan(day, exercise);
+
+    /*
+     * Close popup.
+     */
     setShowDayPicker(false);
   };
 
@@ -30,24 +41,34 @@ const ExerciseCard = ({
       <article
         className={styles.exerciseCard}
         style={
-          exercise.image && exercise.image.startsWith('/')
-            ? { backgroundImage: `url(${exercise.image})` }
+          exercise.image &&
+          exercise.image.startsWith("/")
+            ? {
+                backgroundImage: `url(${exercise.image})`,
+              }
             : undefined
         }
       >
+
+        {/* HEADER */}
         <div className={styles.cardHeader}>
+
           <h3>{exercise.name}</h3>
 
           <span className={styles.difficulty}>
             {exercise.difficulty}
           </span>
+
         </div>
 
+        {/* DESCRIPTION */}
         <p className={styles.description}>
           {exercise.description}
         </p>
 
+        {/* INFORMATION */}
         <div className={styles.exerciseInfo}>
+
           <p>
             <strong>Category</strong>
             <span>{exercise.category}</span>
@@ -67,61 +88,91 @@ const ExerciseCard = ({
             <strong>Reps</strong>
             <span>{exercise.reps}</span>
           </p>
+
         </div>
 
+        {/* BUTTONS */}
         <div className={styles.cardActions}>
+
           <button
             className={styles.viewButton}
-            onClick={() => onSelect(exercise.id)}
+            onClick={() =>
+              onSelect(exercise.id)
+            }
           >
             View Details
           </button>
 
           <button
             className={styles.planButton}
-            onClick={() => setShowDayPicker(true)}
+            onClick={() =>
+              setShowDayPicker(true)
+            }
           >
             Add to Plan
           </button>
+
         </div>
+
       </article>
 
+      {/* DAY PICKER */}
       {showDayPicker && (
         <div
           className={styles.popupOverlay}
-          onClick={() => setShowDayPicker(false)}
+          onClick={() =>
+            setShowDayPicker(false)
+          }
         >
+
           <div
             className={styles.dayPicker}
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) =>
+              e.stopPropagation()
+            }
           >
+
             <button
               className={styles.closePopup}
-              onClick={() => setShowDayPicker(false)}
+              onClick={() =>
+                setShowDayPicker(false)
+              }
             >
               ✕
             </button>
 
-            <h2>Add to Workout Plan</h2>
+            <h2>
+              Add to Workout Plan
+            </h2>
 
             <p>
-              Choose a day for <strong>{exercise.name}</strong>
+              Choose a day for{" "}
+              <strong>
+                {exercise.name}
+              </strong>
             </p>
 
             <div className={styles.dayOptions}>
+
               {DAYS_OF_WEEK.map((day) => (
                 <button
                   key={day}
                   className={styles.dayOption}
-                  onClick={() => handleAddToDay(day)}
+                  onClick={() =>
+                    handleAddToDay(day)
+                  }
                 >
                   {day}
                 </button>
               ))}
+
             </div>
+
           </div>
+
         </div>
       )}
+
     </>
   );
 };
@@ -140,6 +191,7 @@ ExerciseCard.propTypes = {
   }).isRequired,
 
   onSelect: PropTypes.func.isRequired,
+
   onAddToPlan: PropTypes.func.isRequired,
 };
 

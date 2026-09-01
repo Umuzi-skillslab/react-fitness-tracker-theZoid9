@@ -5,7 +5,11 @@ import ExerciseList from "../Exercise/ExerciseList";
 import commonStyles from "../common/common.module.css";
 import exercisesData from "../data/exercisesData";
 
-const ExercisesPage = ({ workoutPlan, onAddToPlan }) => {
+const ExercisesPage = ({
+  workoutPlan,
+  onAddToPlan,
+}) => {
+
   const [exercises, setExercises] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -24,9 +28,44 @@ const ExercisesPage = ({ workoutPlan, onAddToPlan }) => {
     navigate(`/exercises/${id}`);
   };
 
-  const handleAddToPlan = (exercise) => {
-    navigate('/workout-planner', {
-      state: { exercise }
+  const handleAddToPlan = (day, exercise) => {
+
+    const dayExercises =
+      workoutPlan?.[day] || [];
+
+    const alreadyExists =
+      dayExercises.some(
+        (existingExercise) =>
+          existingExercise.id === exercise.id
+      );
+
+    // =========================
+    // DUPLICATE
+    // =========================
+
+    if (alreadyExists) {
+
+      navigate("/workout-planner", {
+        state: {
+          message: `${exercise.name} is already added to ${day}.`,
+          messageType: "error",
+        },
+      });
+
+      return;
+    }
+
+    // =========================
+    // NEW EXERCISE
+    // =========================
+
+    onAddToPlan(day, exercise);
+
+    navigate("/workout-planner", {
+      state: {
+        message: `${exercise.name} was added to ${day}.`,
+        messageType: "success",
+      },
     });
   };
 
@@ -36,12 +75,23 @@ const ExercisesPage = ({ workoutPlan, onAddToPlan }) => {
 
   return (
     <main className={commonStyles.pageContainer}>
-    <h1 className={commonStyles.pageTitle} style={{ textAlign: "center" }}>
-      The Work Room
-    </h1>
 
-    <p style={{ textAlign: "center", color: "#777", marginTop: "-10px" }}>
-        Browse, search, and find the perfect exercises for your workout.
+      <h1
+        className={commonStyles.pageTitle}
+        style={{ textAlign: "center" }}
+      >
+        The Work Room
+      </h1>
+
+      <p
+        style={{
+          textAlign: "center",
+          color: "#777",
+          marginTop: "-10px",
+        }}
+      >
+        Browse, search, and find the perfect exercises
+        for your workout.
       </p>
 
       <ExerciseList
@@ -51,6 +101,7 @@ const ExercisesPage = ({ workoutPlan, onAddToPlan }) => {
         onAddToPlan={handleAddToPlan}
         isLoading={isLoading}
       />
+
     </main>
   );
 };
