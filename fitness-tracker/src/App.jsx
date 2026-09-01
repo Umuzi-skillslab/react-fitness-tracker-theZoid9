@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navigation/Navbar";
-
+import Footer from './components/common/Footer';
 import Home from "./components/pages/Home";
 import HistoryPage from "./components/pages/HistoryPage";
 import ExercisePage from "./components/pages/ExercisePage";
@@ -219,6 +219,7 @@ function App() {
             }
           />
         </Routes>
+        <Footer/>
       </div>
     </BrowserRouter>
   );
