@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Header from "../common/Header";
-
+import Footer from '../common/Footer';
 import commonStyles from "../common/common.module.css";
 
 import Card from "../UI/Card";
@@ -191,8 +191,54 @@ const Home = ({ workoutPlan, workoutHistory }) => {
 
         </div>
 
-      </div>
 
+          <div className={styles.homeSection}>
+            <h2 className={styles.sectionTitle}>
+              Today's Focus
+            </h2>
+
+            <div className={styles.focusCard}>
+              <div>
+                <p className={styles.focusDay}>
+                  Today's Workout
+                </p>
+
+                <h3 className={styles.focusTitle}>
+                  Stay Consistent
+                </h3>
+
+                <p className={styles.focusText}>
+                  Build momentum by completing your planned workout today.
+                </p>
+              </div>
+
+              <Link
+                to="/workout-planner"
+                className={styles.focusButton}
+              >
+                View Planner
+              </Link>
+            </div>
+          </div>
+
+          <div className={styles.quickActions}>
+            <Link
+              to="/exercises"
+              className={styles.quickAction}
+            >
+              Browse Exercises
+            </Link>
+
+            <Link
+              to="/workout-planner"
+              className={styles.quickAction}
+            >
+              Open Planner
+            </Link>
+          </div>
+
+      </div>
+              <Footer/>
     </div>
   );
 };
