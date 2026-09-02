@@ -22,7 +22,7 @@ const exercisesData = [
     sets: 4,
     reps: 8,
     restTime: 90,
-    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    videoUrl: 'https://www.youtube.com/embed/4Y2ZdHCOXok',
   },
   {
     id: 2,
@@ -65,7 +65,7 @@ const exercisesData = [
     sets: 4,
     reps: 5,
     restTime: 180,
-    videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    videoUrl: 'https://www.youtube.com/embed/r4MzxtBKyNE',
     image: '/assets/images/deadlift.png',
   },
   {
@@ -356,6 +356,7 @@ const exercisesData = [
     image: '/assets/images/lat.png',
   },
 ];
+
 
 
 export default exercisesData;

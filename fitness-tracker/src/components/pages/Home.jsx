@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-
 import { Link } from "react-router-dom";
 
 import Header from "../common/Header";
-
 import commonStyles from "../common/common.module.css";
-
 import Card from "../UI/Card";
+import AudioPlayer from "../Media/AudioPlayer";
+
+import audioData from "../data/audioData";
 
 import styles from "./Home.module.css";
 
@@ -21,7 +21,6 @@ const GYM_QUOTES = [
 ];
 
 const Home = ({ workoutPlan, workoutHistory }) => {
-
   // =========================
   // LOADING STATE
   // =========================
@@ -53,23 +52,19 @@ const Home = ({ workoutPlan, workoutHistory }) => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-
       // Make current quote disappear
       setShowQuote(false);
 
       // Wait before showing the next quote
       const nextQuoteTimer = setTimeout(() => {
-
-        setQuoteIndex((current) =>
-          (current + 1) % GYM_QUOTES.length
+        setQuoteIndex(
+          (current) => (current + 1) % GYM_QUOTES.length
         );
 
         setShowQuote(true);
-
       }, 500);
 
       return () => clearTimeout(nextQuoteTimer);
-
     }, 9500);
 
     return () => clearInterval(timer);
@@ -97,9 +92,9 @@ const Home = ({ workoutPlan, workoutHistory }) => {
     Object.values(workoutPlan || {}).flat().length;
 
   const activeDays =
-    Object.values(workoutPlan || {})
-      .filter((day) => day.length > 0)
-      .length;
+    Object.values(workoutPlan || {}).filter(
+      (day) => day.length > 0
+    ).length;
 
   const totalLogged =
     (workoutHistory || []).length;
@@ -111,6 +106,10 @@ const Home = ({ workoutPlan, workoutHistory }) => {
   return (
     <div className={styles.home}>
 
+      {/* =========================
+          HEADER
+          ========================= */}
+
       <Header
         title="FitTracker Pro"
         subtitle="Plan workouts, track progress, and crush your fitness goals"
@@ -121,15 +120,15 @@ const Home = ({ workoutPlan, workoutHistory }) => {
           ========================= */}
 
       <div className={styles.quoteContainer}>
-
         <p
           className={`${styles.gymQuote} ${
-            showQuote ? styles.quoteVisible : styles.quoteHidden
+            showQuote
+              ? styles.quoteVisible
+              : styles.quoteHidden
           }`}
         >
           "{GYM_QUOTES[quoteIndex]}"
         </p>
-
       </div>
 
       {/* =========================
@@ -191,54 +190,93 @@ const Home = ({ workoutPlan, workoutHistory }) => {
 
         </div>
 
+        {/* =========================
+            TODAY'S FOCUS
+            ========================= */}
 
-          <div className={styles.homeSection}>
-            <h2 className={styles.sectionTitle}>
-              Today's Focus
-            </h2>
+        <div className={styles.homeSection}>
 
-            <div className={styles.focusCard}>
-              <div>
-                <p className={styles.focusDay}>
-                  Today's Workout
-                </p>
+          <h2 className={styles.sectionTitle}>
+            Today's Focus
+          </h2>
 
-                <h3 className={styles.focusTitle}>
-                  Stay Consistent
-                </h3>
+          <div className={styles.focusCard}>
 
-                <p className={styles.focusText}>
-                  Build momentum by completing your planned workout today.
-                </p>
-              </div>
+            <div>
+              <p className={styles.focusDay}>
+                Today's Workout
+              </p>
 
-              <Link
-                to="/workout-planner"
-                className={styles.focusButton}
-              >
-                View Planner
-              </Link>
+              <h3 className={styles.focusTitle}>
+                Stay Consistent
+              </h3>
+
+              <p className={styles.focusText}>
+                Build momentum by completing your planned workout today.
+              </p>
             </div>
-          </div>
-
-          <div className={styles.quickActions}>
-            <Link
-              to="/exercises"
-              className={styles.quickAction}
-            >
-              Browse Exercises
-            </Link>
 
             <Link
               to="/workout-planner"
-              className={styles.quickAction}
+              className={styles.focusButton}
             >
-              Open Planner
+              View Planner
             </Link>
+
           </div>
 
+        </div>
+
+        {/* =========================
+            WORKOUT AUDIO
+            ========================= */}
+
+        <div className={styles.homeSection}>
+
+          <h2 className={styles.sectionTitle}>
+            Workout Audio
+          </h2>
+
+          <div className={styles.audioGrid}>
+
+            {audioData.map((audio) => (
+              <AudioPlayer
+                key={audio.id}
+                audioUrl={audio.audioUrl}
+                title={audio.title}
+                duration={audio.duration}
+                description={audio.description}
+              />
+            ))}
+
+          </div>
+
+        </div>
+
+        {/* =========================
+            QUICK ACTIONS
+            ========================= */}
+
+        <div className={styles.quickActions}>
+
+          <Link
+            to="/exercises"
+            className={styles.quickAction}
+          >
+            Browse Exercises
+          </Link>
+
+          <Link
+            to="/workout-planner"
+            className={styles.quickAction}
+          >
+            Open Planner
+          </Link>
+
+        </div>
+
       </div>
-            
+
     </div>
   );
 };
