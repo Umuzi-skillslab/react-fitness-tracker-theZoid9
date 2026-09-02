@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1788376844494" clover="3.2.0">
-  <project timestamp="1788376844494" name="All files">
-    <metrics statements="256" coveredstatements="227" conditionals="168" coveredconditionals="134" methods="99" coveredmethods="81" elements="523" coveredelements="442" complexity="0" loc="256" ncloc="256" packages="10" files="26" classes="26"/>
+<coverage generated="1788379404555" clover="3.2.0">
+  <project timestamp="1788379404555" name="All files">
+    <metrics statements="256" coveredstatements="228" conditionals="168" coveredconditionals="136" methods="99" coveredmethods="83" elements="523" coveredelements="447" complexity="0" loc="256" ncloc="256" packages="10" files="26" classes="26"/>
     <package name="Exercise">
       <metrics statements="75" coveredstatements="67" conditionals="30" coveredconditionals="25" methods="34" coveredmethods="28"/>
       <file name="Exercise.module.css" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Exercise\Exercise.module.css">
@@ -111,25 +111,25 @@
       </file>
     </package>
     <package name="Navigation">
-      <metrics statements="13" coveredstatements="12" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="4"/>
+      <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6"/>
       <file name="NavBar.module.css" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Navigation\NavBar.module.css">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="Navbar.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Navigation\Navbar.jsx">
-        <metrics statements="13" coveredstatements="12" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="4"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="11" type="stmt"/>
-        <line num="12" count="11" type="stmt"/>
-        <line num="15" count="11" type="stmt"/>
-        <line num="24" count="11" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="29" count="11" type="stmt"/>
-        <line num="30" count="3" type="stmt"/>
-        <line num="34" count="11" type="stmt"/>
-        <line num="35" count="55" type="cond" truecount="2" falsecount="0"/>
-        <line num="36" count="44" type="stmt"/>
-        <line num="39" count="11" type="stmt"/>
-        <line num="60" count="55" type="stmt"/>
+        <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="20" type="stmt"/>
+        <line num="12" count="20" type="stmt"/>
+        <line num="15" count="20" type="stmt"/>
+        <line num="24" count="20" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="29" count="20" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="34" count="20" type="stmt"/>
+        <line num="35" count="100" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="80" type="stmt"/>
+        <line num="39" count="20" type="stmt"/>
+        <line num="60" count="100" type="stmt"/>
       </file>
     </package>
     <package name="UI">
