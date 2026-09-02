@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1788370913515" clover="3.2.0">
-  <project timestamp="1788370913515" name="All files">
-    <metrics statements="19" coveredstatements="17" conditionals="36" coveredconditionals="28" methods="9" coveredmethods="7" elements="64" coveredelements="52" complexity="0" loc="19" ncloc="19" packages="3" files="8" classes="8"/>
+<coverage generated="1788371755462" clover="3.2.0">
+  <project timestamp="1788371755463" name="All files">
+    <metrics statements="34" coveredstatements="30" conditionals="42" coveredconditionals="33" methods="18" coveredmethods="14" elements="94" coveredelements="77" complexity="0" loc="34" ncloc="34" packages="4" files="10" classes="10"/>
+    <package name="Exercise">
+      <metrics statements="15" coveredstatements="13" conditionals="6" coveredconditionals="5" methods="9" coveredmethods="7"/>
+      <file name="Exercise.module.css" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Exercise\Exercise.module.css">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="ExerciseCard.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Exercise\ExerciseCard.jsx">
+        <metrics statements="15" coveredstatements="13" conditionals="6" coveredconditionals="5" methods="9" coveredmethods="7"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+        <line num="27" count="7" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="39" count="7" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="109" count="1" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="158" count="7" type="stmt"/>
+        <line num="162" count="1" type="stmt"/>
+        <line num="180" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="Media">
       <metrics statements="6" coveredstatements="6" conditionals="10" coveredconditionals="9" methods="2" coveredmethods="2"/>
       <file name="AudioPlayer.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Media\AudioPlayer.jsx">
