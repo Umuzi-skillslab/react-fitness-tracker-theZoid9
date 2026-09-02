@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1788376297703" clover="3.2.0">
-  <project timestamp="1788376297703" name="All files">
-    <metrics statements="224" coveredstatements="199" conditionals="157" coveredconditionals="120" methods="86" coveredmethods="71" elements="467" coveredelements="390" complexity="0" loc="224" ncloc="224" packages="10" files="25" classes="25"/>
+<coverage generated="1788376844494" clover="3.2.0">
+  <project timestamp="1788376844494" name="All files">
+    <metrics statements="256" coveredstatements="227" conditionals="168" coveredconditionals="134" methods="99" coveredmethods="81" elements="523" coveredelements="442" complexity="0" loc="256" ncloc="256" packages="10" files="26" classes="26"/>
     <package name="Exercise">
-      <metrics statements="43" coveredstatements="41" conditionals="19" coveredconditionals="16" methods="21" coveredmethods="19"/>
+      <metrics statements="75" coveredstatements="67" conditionals="30" coveredconditionals="25" methods="34" coveredmethods="28"/>
       <file name="Exercise.module.css" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Exercise\Exercise.module.css">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
@@ -56,6 +56,41 @@
         <line num="203" count="46" type="stmt"/>
         <line num="254" count="1" type="stmt"/>
       </file>
+      <file name="ExerciseList.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Exercise\ExerciseList.jsx">
+        <metrics statements="32" coveredstatements="26" conditionals="11" coveredconditionals="9" methods="13" coveredmethods="9"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="23" count="9" type="stmt"/>
+        <line num="25" count="9" type="stmt"/>
+        <line num="28" count="9" type="stmt"/>
+        <line num="31" count="9" type="stmt"/>
+        <line num="33" count="9" type="stmt"/>
+        <line num="36" count="9" type="stmt"/>
+        <line num="41" count="9" type="stmt"/>
+        <line num="42" count="14" type="stmt"/>
+        <line num="48" count="9" type="stmt"/>
+        <line num="53" count="9" type="stmt"/>
+        <line num="58" count="9" type="stmt"/>
+        <line num="66" count="9" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="73" count="9" type="stmt"/>
+        <line num="86" count="9" type="stmt"/>
+        <line num="95" count="9" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
+        <line num="98" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="100" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="108" count="9" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="136" count="7" type="stmt"/>
+        <line num="146" count="1" type="stmt"/>
+        <line num="155" count="14" type="stmt"/>
+        <line num="165" count="0" type="stmt"/>
+        <line num="174" count="14" type="stmt"/>
+        <line num="225" count="12" type="stmt"/>
+      </file>
     </package>
     <package name="Media">
       <metrics statements="6" coveredstatements="6" conditionals="10" coveredconditionals="9" methods="2" coveredmethods="2"/>
@@ -76,25 +111,25 @@
       </file>
     </package>
     <package name="Navigation">
-      <metrics statements="13" coveredstatements="11" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="3"/>
+      <metrics statements="13" coveredstatements="12" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="4"/>
       <file name="NavBar.module.css" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Navigation\NavBar.module.css">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="Navbar.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Navigation\Navbar.jsx">
-        <metrics statements="13" coveredstatements="11" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="3"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
+        <metrics statements="13" coveredstatements="12" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="4"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="24" count="11" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="34" count="2" type="stmt"/>
-        <line num="35" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="36" count="8" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="60" count="10" type="stmt"/>
+        <line num="29" count="11" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="34" count="11" type="stmt"/>
+        <line num="35" count="55" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="44" type="stmt"/>
+        <line num="39" count="11" type="stmt"/>
+        <line num="60" count="55" type="stmt"/>
       </file>
     </package>
     <package name="UI">
@@ -285,50 +320,50 @@
       </file>
     </package>
     <package name="utils">
-      <metrics statements="41" coveredstatements="39" conditionals="52" coveredconditionals="37" methods="13" coveredmethods="13"/>
+      <metrics statements="41" coveredstatements="40" conditionals="52" coveredconditionals="42" methods="13" coveredmethods="13"/>
       <file name="helpers.js" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\utils\helpers.js">
-        <metrics statements="41" coveredstatements="39" conditionals="52" coveredconditionals="37" methods="13" coveredmethods="13"/>
-        <line num="9" count="3" type="stmt"/>
+        <metrics statements="41" coveredstatements="40" conditionals="52" coveredconditionals="42" methods="13" coveredmethods="13"/>
+        <line num="9" count="4" type="stmt"/>
         <line num="10" count="14" type="cond" truecount="3" falsecount="1"/>
         <line num="11" count="14" type="stmt"/>
         <line num="12" count="14" type="stmt"/>
         <line num="13" count="14" type="cond" truecount="4" falsecount="0"/>
         <line num="14" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="15" count="4" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
         <line num="22" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="23" count="3" type="stmt"/>
         <line num="24" count="3" type="stmt"/>
-        <line num="35" count="3" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
         <line num="36" count="1" type="cond" truecount="4" falsecount="1"/>
         <line num="37" count="1" type="stmt"/>
-        <line num="43" count="3" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
         <line num="44" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="45" count="3" type="cond" truecount="3" falsecount="0"/>
         <line num="46" count="3" type="stmt"/>
-        <line num="52" count="3" type="stmt"/>
+        <line num="52" count="4" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
         <line num="58" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="64" count="3" type="stmt"/>
+        <line num="64" count="4" type="stmt"/>
         <line num="65" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="66" count="1" type="stmt"/>
-        <line num="72" count="3" type="stmt"/>
+        <line num="72" count="4" type="stmt"/>
         <line num="73" count="3" type="stmt"/>
-        <line num="79" count="3" type="stmt"/>
-        <line num="80" count="1" type="cond" truecount="4" falsecount="0"/>
-        <line num="82" count="1" type="stmt"/>
-        <line num="83" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="85" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="86" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="87" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="89" count="2" type="cond" truecount="4" falsecount="0"/>
-        <line num="96" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="97" count="1" type="stmt"/>
-        <line num="98" count="1" type="cond" truecount="2" falsecount="2"/>
-        <line num="99" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="79" count="4" type="stmt"/>
+        <line num="80" count="10" type="cond" truecount="4" falsecount="0"/>
+        <line num="82" count="10" type="stmt"/>
+        <line num="83" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="85" count="16" type="cond" truecount="1" falsecount="1"/>
+        <line num="86" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="87" count="16" type="cond" truecount="1" falsecount="1"/>
+        <line num="89" count="16" type="cond" truecount="4" falsecount="0"/>
+        <line num="96" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="97" count="10" type="stmt"/>
+        <line num="98" count="6" type="cond" truecount="3" falsecount="1"/>
+        <line num="99" count="5" type="cond" truecount="3" falsecount="1"/>
         <line num="100" count="0" type="stmt"/>
-        <line num="107" count="3" type="stmt"/>
-        <line num="108" count="3" type="stmt"/>
+        <line num="107" count="4" type="stmt"/>
+        <line num="108" count="45" type="stmt"/>
       </file>
     </package>
   </project>
