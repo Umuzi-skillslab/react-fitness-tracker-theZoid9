@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1788375065198" clover="3.2.0">
-  <project timestamp="1788375065198" name="All files">
-    <metrics statements="153" coveredstatements="141" conditionals="123" coveredconditionals="92" methods="62" coveredmethods="54" elements="338" coveredelements="287" complexity="0" loc="153" ncloc="153" packages="8" files="18" classes="18"/>
+<coverage generated="1788375646150" clover="3.2.0">
+  <project timestamp="1788375646150" name="All files">
+    <metrics statements="172" coveredstatements="157" conditionals="135" coveredconditionals="102" methods="71" coveredmethods="59" elements="378" coveredelements="318" complexity="0" loc="172" ncloc="172" packages="9" files="22" classes="22"/>
     <package name="Exercise">
       <metrics statements="43" coveredstatements="41" conditionals="19" coveredconditionals="16" methods="21" coveredmethods="19"/>
       <file name="Exercise.module.css" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Exercise\Exercise.module.css">
@@ -75,13 +75,35 @@
         <line num="34" count="1" type="stmt"/>
       </file>
     </package>
+    <package name="Navigation">
+      <metrics statements="13" coveredstatements="11" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="3"/>
+      <file name="NavBar.module.css" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Navigation\NavBar.module.css">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="Navbar.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\Navigation\Navbar.jsx">
+        <metrics statements="13" coveredstatements="11" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="3"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="8" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="60" count="10" type="stmt"/>
+      </file>
+    </package>
     <package name="UI">
       <metrics statements="7" coveredstatements="6" conditionals="19" coveredconditionals="12" methods="3" coveredmethods="2"/>
       <file name="Button.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\UI\Button.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
       </file>
       <file name="Card.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\UI\Card.jsx">
         <metrics statements="4" coveredstatements="3" conditionals="14" coveredconditionals="7" methods="2" coveredmethods="1"/>
@@ -110,7 +132,12 @@
       </file>
     </package>
     <package name="common">
-      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <file name="Header.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\common\Header.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="7" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
       <file name="common.module.css" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\common\common.module.css">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
@@ -127,7 +154,7 @@
       </file>
     </package>
     <package name="pages">
-      <metrics statements="48" coveredstatements="42" conditionals="16" coveredconditionals="11" methods="19" coveredmethods="15"/>
+      <metrics statements="52" coveredstatements="45" conditionals="16" coveredconditionals="11" methods="21" coveredmethods="16"/>
       <file name="ExercisePage.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\pages\ExercisePage.jsx">
         <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="5" methods="7" coveredmethods="7"/>
         <line num="8" count="1" type="stmt"/>
@@ -184,6 +211,13 @@
       </file>
       <file name="Home.module.css" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\pages\Home.module.css">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="NotFound.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\pages\NotFound.jsx">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
       </file>
     </package>
     <package name="utils">
