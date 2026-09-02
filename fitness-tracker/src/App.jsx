@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navigation/Navbar";
 import Footer from './components/common/Footer';
 import Home from "./components/pages/Home";
+import NotFound from "./components/pages/NotFound";
 import HistoryPage from "./components/pages/HistoryPage";
 import ExercisePage from "./components/pages/ExercisePage";
 import ProgressPage from "./components/pages/ProgressPage";
@@ -218,6 +219,8 @@ function App() {
               />
             }
           />
+            {/* 404 catch-all route */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer/>
       </div>
