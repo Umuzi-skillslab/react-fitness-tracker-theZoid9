@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1788379404555" clover="3.2.0">
-  <project timestamp="1788379404555" name="All files">
+<coverage generated="1788380788211" clover="3.2.0">
+  <project timestamp="1788380788211" name="All files">
     <metrics statements="256" coveredstatements="228" conditionals="168" coveredconditionals="136" methods="99" coveredmethods="83" elements="523" coveredelements="447" complexity="0" loc="256" ncloc="256" packages="10" files="26" classes="26"/>
     <package name="Exercise">
       <metrics statements="75" coveredstatements="67" conditionals="30" coveredconditionals="25" methods="34" coveredmethods="28"/>
@@ -136,9 +136,9 @@
       <metrics statements="7" coveredstatements="6" conditionals="19" coveredconditionals="13" methods="3" coveredmethods="2"/>
       <file name="Button.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\UI\Button.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
-        <line num="8" count="3" type="stmt"/>
-        <line num="18" count="22" type="stmt"/>
-        <line num="31" count="3" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="18" count="27" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
       </file>
       <file name="Card.jsx" path="C:\Users\zaida\Desktop\Umuzi capstone\Capstone 3\react-fitness-tracker-theZoid9\fitness-tracker\src\components\UI\Card.jsx">
         <metrics statements="4" coveredstatements="3" conditionals="14" coveredconditionals="8" methods="2" coveredmethods="1"/>
