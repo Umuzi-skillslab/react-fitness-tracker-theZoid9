@@ -44,7 +44,7 @@ const exercisesData = [
     reps: 6,
     restTime: 120,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🦵',
+    image: '/assets/images/squat.png',
   },
   {
     id: 3,
@@ -110,7 +110,7 @@ const exercisesData = [
     reps: 30,
     restTime: 0,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🏃',
+    image: '/assets/images/run.png',
   },
   {
     id: 6,
@@ -287,7 +287,7 @@ const exercisesData = [
     reps: 15,
     restTime: 0,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🚣',
+    image: '/assets/images/row.png',
   },
   {
     id: 14,
@@ -376,7 +376,7 @@ const exercisesData = [
     reps: 30,
     restTime: 0,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🚴',
+    image: '/assets/images/cycle.png',
   },
 
   {
@@ -400,7 +400,7 @@ const exercisesData = [
     reps: 30,
     restTime: 45,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🏃',
+    image: '/assets/images/mountain.png',
   },
 
   {
@@ -424,7 +424,7 @@ const exercisesData = [
     reps: 30,
     restTime: 15,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🧘',
+    image: '/assets/images/quad.png',
   },
 
   {
@@ -448,7 +448,7 @@ const exercisesData = [
     reps: 30,
     restTime: 30,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🧍',
+    image: '/assets/images/stand.png',
   },
 
   {
@@ -472,7 +472,7 @@ const exercisesData = [
     reps: 10,
     restTime: 45,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '⚖️',
+    image: '/assets/images/single.png',
   },
 
   {
@@ -496,7 +496,7 @@ const exercisesData = [
     reps: 10,
     restTime: 30,
     videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-    image: '🐕',
+    image: '/assets/images/bird.png',
   },
 ];
 
