@@ -46,6 +46,9 @@ FitTracker Pro is a responsive React fitness tracking application designed to he
 ## Installation
 
 Clone the repository and install the dependencies:
+```
+cd fitness-tracker
+```
 
 ```bash
 npm install
