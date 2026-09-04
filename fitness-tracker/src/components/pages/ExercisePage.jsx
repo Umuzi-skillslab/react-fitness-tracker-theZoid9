@@ -82,7 +82,7 @@ const ExercisesPage = ({
           minHeight: "100vh",
 
           backgroundImage:
-            'linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)), url("/assets/images/gym4.jpg")',
+            'linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)), url("/assets/images/gymE.jpg")',
 
           backgroundSize: "cover",
           backgroundPosition: "center",

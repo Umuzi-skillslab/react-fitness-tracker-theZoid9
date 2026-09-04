@@ -84,6 +84,7 @@ const Home = ({ workoutPlan, workoutHistory }) => {
     );
   }
 
+
   // =========================
   // STATISTICS
   // =========================
@@ -145,6 +146,7 @@ const Home = ({ workoutPlan, workoutHistory }) => {
             DASHBOARD
           </Link>
         </div>
+        
 
         {/* =========================
             STATS

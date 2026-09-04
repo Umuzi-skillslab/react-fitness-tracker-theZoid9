@@ -56,7 +56,7 @@ const WorkoutPlannerPage = ({
       style={{
         minHeight: "100vh",
         backgroundImage:
-          'linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)), url("/assets/images/gym2.jpg")',
+          'linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)), url("/assets/images/gymP.jpg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
