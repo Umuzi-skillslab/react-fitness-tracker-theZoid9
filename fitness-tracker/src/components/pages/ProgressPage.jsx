@@ -73,7 +73,7 @@ const ProgressPage = ({ workoutHistory = [] }) => {
       style={{
         minHeight: "100vh",
         backgroundImage:
-          'linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)), url("/assets/images/gym.jpg")',
+          'linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)), url("/assets/images/gym5.jpg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
