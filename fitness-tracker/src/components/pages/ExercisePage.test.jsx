@@ -61,7 +61,7 @@ describe("ExercisesPage", () => {
       vi.advanceTimersByTime(300);
     });
 
-    expect(screen.getByText("16 exercises")).toBeInTheDocument();
+    expect(screen.getByText("22 exercises")).toBeInTheDocument();
   });
 
   it("navigates when an exercise is selected", async () => {

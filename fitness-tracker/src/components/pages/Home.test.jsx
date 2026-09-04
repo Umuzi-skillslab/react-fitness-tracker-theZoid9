@@ -102,7 +102,7 @@ describe("Home", () => {
     });
 
     expect(screen.getByText("Today's Focus")).toBeInTheDocument();
-    expect(screen.getByText("Workout Audio")).toBeInTheDocument();
+    expect(screen.getByText("TRAINING AUDIO")).toBeInTheDocument();
     expect(screen.getByText("DASHBOARD")).toBeInTheDocument();
   });
 
