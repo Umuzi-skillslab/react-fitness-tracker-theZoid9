@@ -233,9 +233,13 @@ const Home = ({ workoutPlan, workoutHistory }) => {
 
         <div className={styles.homeSection}>
 
-          <h2 className={styles.sectionTitle}>
-            Workout Audio
-          </h2>
+            <h2 className={styles.sectionTitle}>
+              TRAINING AUDIO
+            </h2>
+
+            <p className={styles.sectionSubtitle}>
+              Stay focused. Keep moving.
+            </p>
 
           <div className={styles.audioGrid}>
 
