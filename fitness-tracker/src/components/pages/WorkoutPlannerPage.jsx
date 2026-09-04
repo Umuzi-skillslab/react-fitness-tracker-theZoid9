@@ -52,38 +52,44 @@ const WorkoutPlannerPage = ({
 }, [message]);
 
   return (
-    <div className={commonStyles.pageContainer}>
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundImage:
+          'linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)), url("/assets/images/gym2.jpg")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div className={commonStyles.pageContainer}>
+        {/* HEADER */}
+        <div className={styles.plannerHeader}>
+          <div className={styles.plannerHeaderText}>
+            <h1 className={styles.plannerTitle}>
+              Weekly Workout Planner
+            </h1>
 
-      {/* HEADER */}
-      <div className={styles.plannerHeader}>
+            <p className={styles.plannerSubtitle}>
+              Organize your exercises and build your weekly routine.
+            </p>
+          </div>
 
-        <div className={styles.plannerHeaderText}>
-          <h1 className={styles.plannerTitle}>
-            Weekly Workout Planner
-          </h1>
-
-          <p className={styles.plannerSubtitle}>
-            Organize your exercises and build your weekly routine.
-          </p>
+          <Button onClick={() => navigate("/exercises")}>
+            Browse Exercises
+          </Button>
         </div>
 
-        <Button
-          onClick={() => navigate("/exercises")}
-        >
-          Browse Exercises
-        </Button>
-
+        {/* WORKOUT PLANNER */}
+        <WorkoutPlanner
+          workoutPlan={workoutPlan}
+          onRemoveExercise={onRemoveExercise}
+          onClearDay={onClearDay}
+          message={message}
+          messageType={messageType}
+        />
       </div>
-
-      {/* WORKOUT PLANNER */}
-      <WorkoutPlanner
-        workoutPlan={workoutPlan}
-        onRemoveExercise={onRemoveExercise}
-        onClearDay={onClearDay}
-        message={message}
-        messageType={messageType}
-      />
-
     </div>
   );
 };
