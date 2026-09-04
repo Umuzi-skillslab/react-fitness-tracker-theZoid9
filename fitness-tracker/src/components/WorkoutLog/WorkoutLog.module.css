@@ -1,4 +1,6 @@
-/* ===== Workout Log — Matte White ===== */
+/* =========================================
+   Workout Log — Dark Glass
+========================================= */
 
 .logContainer {
   display: flex;
@@ -7,18 +9,67 @@
   width: 100%;
 }
 
-/* ===== Log Form ===== */
+
+/* =========================================
+   ACTUAL CARD — GLASS
+========================================= */
+
+/*
+   Card.jsx is the parent of .logForm,
+   .logEntries, and .emptyLog.
+
+   :has() lets us style that Card directly.
+*/
+
+.logContainer div:has(> .logForm),
+.logContainer div:has(> .logEntries),
+.logContainer div:has(> .emptyLog) {
+  background: rgba(10, 10, 10, 0.78) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+
+  border-radius: 18px !important;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   LOG FORM
+========================================= */
 
 .logForm {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  width: 100%;
+  box-sizing: border-box;
+
   padding: 24px;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+
+  background: transparent;
+
+  border: none;
+  border-radius: 0;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
+
+
+/* =========================================
+   FORM ROW
+========================================= */
 
 .formRow {
   display: grid;
@@ -26,184 +77,315 @@
   gap: 16px;
 }
 
+
 .formGroup {
   display: flex;
   flex-direction: column;
   gap: 7px;
 }
 
+
 .formLabel {
   font-size: 0.7rem;
   font-weight: 700;
-  color: var(--color-text-secondary);
+
+  color: rgba(255, 255, 255, 0.48);
+
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
+
+/* =========================================
+   INPUT
+========================================= */
+
 .formInput {
   width: 100%;
   box-sizing: border-box;
+
   padding: 11px 13px;
-  border: 1px solid var(--color-border);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-sm);
-  background-color: var(--color-bg);
-  color: var(--color-text);
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: #ffffff;
+
   font-size: 0.88rem;
   font-family: inherit;
-  transition: var(--transition);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
+
 .formInput:hover {
-  border-color: var(--color-text-secondary);
+  border-color: rgba(255, 255, 255, 0.22);
 }
+
 
 .formInput:focus {
   outline: none;
-  border-color: var(--color-text);
-  background-color: var(--color-surface);
-  box-shadow: 0 0 0 3px var(--color-primary-light);
+
+  border-color: rgba(255, 255, 255, 0.4);
+
+  background: rgba(255, 255, 255, 0.07);
+
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.06);
 }
+
+
+.formInput option {
+  background: #111111;
+  color: #ffffff;
+}
+
+
+/* =========================================
+   FORM ACTIONS
+========================================= */
 
 .formActions {
   display: flex;
   justify-content: flex-end;
+
   gap: 10px;
+
   padding-top: 4px;
 }
 
-/* ===== Log Entries Container ===== */
 
-.logEntries {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+.formActions button {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
-/* ===== Log Entry ===== */
+
+.formActions button:hover {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   LOG ENTRIES
+========================================= */
+
+.logEntries {
+  width: 100%;
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  background: transparent;
+
+  border: none;
+  border-radius: 0;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+
+/* =========================================
+   LOG ENTRY
+========================================= */
 
 .logEntry {
   display: flex;
+
   align-items: center;
   justify-content: space-between;
+
   gap: 20px;
+
   padding: 18px 22px;
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border-light);
-  transition: var(--transition);
+
+  background: transparent;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  transition: background 0.2s ease;
 }
+
 
 .logEntry:last-child {
   border-bottom: none;
 }
 
+
 .logEntry:hover {
-  background-color: var(--color-bg);
+  background: rgba(255, 255, 255, 0.035);
 }
 
-/* ===== Entry Information ===== */
+
+/* =========================================
+   ENTRY INFORMATION
+========================================= */
 
 .logEntryInfo {
   display: flex;
   flex-direction: column;
+
   gap: 5px;
+
   min-width: 0;
 }
 
+
 .logEntryName {
+  margin: 0;
+
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--color-text);
-  margin: 0;
+
+  color: #ffffff;
 }
+
 
 .logEntryDetails {
-  font-size: 0.78rem;
-  color: var(--color-text-secondary);
   margin: 0;
+
+  font-size: 0.78rem;
+
+  color: rgba(255, 255, 255, 0.48);
 }
+
 
 .logEntryDate {
-  font-size: 0.72rem;
-  color: var(--color-text-secondary);
   margin: 0;
+
+  font-size: 0.72rem;
+
+  color: rgba(255, 255, 255, 0.32);
 }
 
-/* ===== Entry Actions ===== */
+
+/* =========================================
+   ENTRY ACTIONS
+========================================= */
 
 .logEntryActions {
   display: flex;
+
   align-items: center;
+
   gap: 12px;
+
   flex-shrink: 0;
 }
 
-/* ===== Completed Badge ===== */
+
+/* =========================================
+   COMPLETED BADGE
+========================================= */
 
 .completedBadge {
   display: inline-flex;
+
   align-items: center;
+
   gap: 5px;
+
   padding: 6px 10px;
+
   border-radius: 999px;
-  background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  color: var(--color-success);
+
+  background: rgba(50, 150, 80, 0.12);
+
+  border: 1px solid rgba(100, 220, 130, 0.2);
+
+  color: #9bd3ad;
+
   font-size: 0.7rem;
   font-weight: 700;
+
   letter-spacing: 0.02em;
 }
 
-/* ===== Empty State ===== */
+
+/* =========================================
+   EMPTY STATE
+========================================= */
 
 .emptyLog {
-  padding: 50px 24px;
+  padding: 56px 24px;
+
   text-align: center;
-  color: var(--color-text-secondary);
+
+  color: rgba(255, 255, 255, 0.45);
+
+  background: transparent;
 }
+
 
 .emptyLogTitle {
   margin: 0 0 6px;
-  color: var(--color-text);
+
+  color: #ffffff;
+
   font-size: 1rem;
   font-weight: 700;
 }
 
+
 .emptyLogMessage {
   margin: 0;
+
+  color: rgba(255, 255, 255, 0.42);
+
   font-size: 0.82rem;
   line-height: 1.6;
 }
 
-/* ===== Mobile ===== */
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 768px) {
+
   .logForm {
     padding: 18px;
   }
+
 
   .formRow {
     grid-template-columns: 1fr;
   }
 
+
   .formActions {
     justify-content: stretch;
   }
+
 
   .formActions button {
     width: 100%;
   }
 
+
   .logEntry {
     align-items: flex-start;
+
     flex-direction: column;
+
     padding: 16px 18px;
+
     gap: 14px;
   }
 
+
   .logEntryActions {
     width: 100%;
+
     justify-content: space-between;
   }
 }

@@ -1,12 +1,26 @@
-/* ===== Progress Page — Matte White ===== */
+/* =========================================
+   Progress Page — Dark Glass
+========================================= */
 
 .progressPage {
   display: flex;
   flex-direction: column;
   gap: 28px;
+  min-height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  padding: 40px 24px 60px;
+  box-sizing: border-box;
 }
 
-/* ===== Page Header ===== */
+
+/* =========================================
+   Page Header
+========================================= */
 
 .pageIntro {
   margin-bottom: 4px;
@@ -15,188 +29,202 @@
 .pageDescription {
   margin: -16px 0 0;
   max-width: 650px;
-  color: var(--color-text-secondary);
+
+  color: rgba(255, 255, 255, 0.48);
+
   font-size: 0.9rem;
   line-height: 1.6;
-}
-
-/* ===== Statistics ===== */
-
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
-}
-
-.statCard {
-  padding: 22px 16px;
-  text-align: center;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  transition: var(--transition);
-}
-
-.statCard:hover {
-  transform: translateY(-2px);
-  border-color: var(--color-border);
-}
-
-.statNumber {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--color-text);
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-
-.statLabel {
-  margin-top: 8px;
-  color: var(--color-text-secondary);
-  font-size: 0.68rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  line-height: 1.4;
-}
-
-/* ===== Breakdown Section ===== */
-
-.breakdown {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.exerciseRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 16px 18px;
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-sm);
-  transition: var(--transition);
-}
-
-.exerciseRow:hover {
-  background-color: var(--color-surface);
-  transform: translateX(3px);
-}
-
-.exerciseInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-}
-
-.exerciseName {
-  color: var(--color-text);
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.exerciseDetails {
-  color: var(--color-text-secondary);
-  font-size: 0.76rem;
-}
-
-.exerciseVolume {
-  flex-shrink: 0;
-  color: var(--color-text);
-  font-size: 0.9rem;
-  font-weight: 800;
-}
-
-/* ===== Empty State ===== */
-
-.emptyState {
-  text-align: center;
-  padding: 48px 24px;
-  color: var(--color-text-secondary);
-}
-
-.emptyIcon {
-  font-size: 2.5rem;
-  margin-bottom: 14px;
-  opacity: 0.7;
-}
-
-.emptyTitle {
-  margin: 0 0 8px;
-  color: var(--color-text);
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.emptyMessage {
-  max-width: 420px;
-  margin: 0 auto;
-  font-size: 0.85rem;
-  line-height: 1.6;
-}
-
-/* ===== Loading ===== */
-
-.loading {
-  text-align: center;
-  padding: 80px 20px;
-  color: var(--color-text-secondary);
-  font-size: 0.9rem;
-}
-
-/* ===== Responsive ===== */
-
-@media (max-width: 1000px) {
-  .statsGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 650px) {
-  .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .exerciseRow {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .exerciseVolume {
-    align-self: flex-end;
-  }
 }
 
 
 /* =========================================
-   Workout Prompt
+   STATS DASHBOARD — GLASS
+========================================= */
+
+.statsGrid {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 35px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  background: rgba(10, 10, 10, 0.78);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  overflow: hidden;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+
+/*
+   Card.jsx creates the outer Card around
+   every statistic.
+
+   Make those Cards transparent so the
+   statsGrid itself becomes the glass surface.
+*/
+
+.statsGrid > * {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  padding: 0 !important;
+}
+
+
+/* =========================================
+   Individual Statistic
+========================================= */
+
+.statCard {
+  width: auto;
+
+  padding: 28px 20px;
+
+  text-align: center;
+
+  position: relative;
+
+  background: transparent;
+  border: none;
+}
+
+
+/* Divider */
+
+.statCard:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  top: 25%;
+  right: 0;
+
+  width: 1px;
+  height: 50%;
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* Number */
+
+.statNumber {
+  font-size: 2.4rem;
+  font-weight: 800;
+
+  color: #ffffff;
+
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+
+/* Label */
+
+.statLabel {
+  margin-top: 10px;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================================
+   WORKOUT TODAY — OUTER CARD GLASS
+========================================= */
+
+/*
+   This targets the actual Card component
+   WITHOUT changing your JSX.
+
+   :has() looks inside the Card and says:
+
+   "If this Card contains .workoutPrompt,
+    make the Card itself glass."
+*/
+
+.progressPage > div:has(.workoutPrompt) {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto 35px;
+
+  padding: 24px !important;
+
+  box-sizing: border-box;
+
+  background: rgba(10, 10, 10, 0.78) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 18px !important;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   Workout Today Content
 ========================================= */
 
 .workoutPrompt {
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+  padding: 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   gap: 24px;
 
-  padding: 24px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
+
 
 .workoutPromptText {
   display: flex;
   flex-direction: column;
-
   gap: 6px;
 }
+
 
 .workoutPromptTitle {
   margin: 0;
 
-  color: var(--color-text);
+  color: #ffffff;
 
   font-size: 1.1rem;
   font-weight: 800;
@@ -204,18 +232,24 @@
   letter-spacing: -0.02em;
 }
 
+
 .workoutPromptMessage {
   margin: 0;
 
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.45);
 
   font-size: 0.85rem;
-
   line-height: 1.5;
 }
 
+
+/* =========================================
+   Workout Button
+========================================= */
+
 .workoutButton {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -223,10 +257,10 @@
 
   padding: 11px 18px;
 
-  background-color: var(--color-text);
-  color: var(--color-surface);
+  background: #ffffff;
+  color: #111111;
 
-  border: 1px solid var(--color-text);
+  border: 1px solid #ffffff;
   border-radius: var(--radius-sm);
 
   font-size: 0.75rem;
@@ -237,43 +271,431 @@
 
   letter-spacing: 0.06em;
 
-  transition: var(--transition);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
+
 
 .workoutButton:hover {
-  opacity: 0.85;
-  color: var(--color-text-secondary);
-  transform: translateY(-1px);
+  background: #e8e8e8;
+  color: #111111;
+
+  transform: translateY(-2px);
 }
 
+
 /* =========================================
-   Mobile
+   EXERCISE BREAKDOWN — OUTER CARD GLASS
+========================================= */
+
+/*
+   Targets the actual Card containing
+   .breakdown.
+
+   This is what fixes the white Card
+   coming from UI.module.css.
+*/
+
+.progressPage > div:has(.breakdown) {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto 35px;
+
+  padding: 22px !important;
+
+  box-sizing: border-box;
+
+  background: rgba(10, 10, 10, 0.78) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 18px !important;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   Breakdown Title
+========================================= */
+
+/*
+   Card.jsx creates the title as an h3.
+*/
+
+.progressPage > div:has(.breakdown) > h3 {
+  margin: 0 0 16px;
+
+  color: #ffffff;
+
+  font-size: 1.05rem;
+  font-weight: 700;
+
+  letter-spacing: -0.01em;
+}
+
+
+/* =========================================
+   Breakdown Content
+========================================= */
+
+.breakdown {
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: transparent;
+
+  border: none;
+  border-radius: 0;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   Exercise Rows
+========================================= */
+
+.exerciseRow {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 18px 2px;
+
+  background: transparent;
+
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 0;
+
+  transition: background 0.2s ease;
+}
+
+
+.exerciseRow:last-child {
+  border-bottom: none;
+}
+
+
+.exerciseRow:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+
+/* =========================================
+   Exercise Information
+========================================= */
+
+.exerciseInfo {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  min-width: 0;
+}
+
+
+.exerciseName {
+  color: #ffffff;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+
+.exerciseDetails {
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 0.76rem;
+}
+
+
+.exerciseVolume {
+  flex-shrink: 0;
+
+  color: #ffffff;
+
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+
+/* =========================================
+   EMPTY STATE — OUTER CARD GLASS
+========================================= */
+
+/*
+   If there is no workout data, the
+   Breakdown Card won't contain .breakdown.
+
+   Instead it contains .emptyState.
+
+   So we target that Card separately.
+*/
+
+.progressPage > div:has(.emptyState) {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto 35px;
+
+  padding: 22px !important;
+
+  box-sizing: border-box;
+
+  background: rgba(10, 10, 10, 0.78) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 18px !important;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+}
+
+
+/* Empty State itself stays transparent */
+
+.emptyState {
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+  padding: 56px 24px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  background: transparent;
+
+  border: none;
+  border-radius: 0;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+
+/* =========================================
+   Empty State Content
+========================================= */
+
+.emptyIcon {
+  font-size: 2.5rem;
+
+  margin-bottom: 14px;
+
+  opacity: 0.55;
+}
+
+
+.emptyTitle {
+  margin: 0 0 8px;
+
+  color: #ffffff;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+
+.emptyMessage {
+  max-width: 420px;
+
+  margin: 0 auto;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   Loading
+========================================= */
+
+.loading {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 80px 20px;
+
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 0.9rem;
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .statCard {
+    padding: 24px 16px;
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE — MOBILE
 ========================================= */
 
 @media (max-width: 650px) {
+
+  .progressPage {
+    padding: 30px 16px 50px;
+  }
+
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .statCard {
+    padding: 22px 14px;
+  }
+
+
+  .statNumber {
+    font-size: 1.8rem;
+  }
+
+
+  .statLabel {
+    font-size: 0.6rem;
+  }
+
+
+  /*
+     Workout Today becomes vertical
+     on smaller screens.
+  */
+
+  .progressPage > div:has(.workoutPrompt) {
+    padding: 20px !important;
+  }
+
+
   .workoutPrompt {
     flex-direction: column;
 
     align-items: flex-start;
-
-    padding: 20px;
   }
+
 
   .workoutButton {
     width: 100%;
   }
+
+
+  /*
+     Breakdown rows
+  */
+
+  .exerciseRow {
+    gap: 12px;
+
+    padding: 16px 2px;
+  }
+
+
+  .exerciseName {
+    font-size: 0.85rem;
+  }
+
+
+  .exerciseDetails {
+    font-size: 0.7rem;
+  }
+
+
+  .exerciseVolume {
+    font-size: 0.8rem;
+  }
 }
 
+
+/* =========================================
+   RESPONSIVE — SMALL PHONE
+========================================= */
+
 @media (max-width: 420px) {
+
   .statsGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
+
 
   .statCard {
-    padding: 18px;
+    padding: 20px 10px;
   }
 
+
   .statNumber {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
+  }
+
+
+  .statLabel {
+    font-size: 0.55rem;
+  }
+
+
+  .workoutPromptTitle {
+    font-size: 1rem;
+  }
+
+
+  .workoutPromptMessage {
+    font-size: 0.78rem;
   }
 }

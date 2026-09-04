@@ -1,16 +1,61 @@
 /* Minimal global reset — matte finish white base */
 
+/* =========================================
+   Global Reset — Dark Gym Theme
+========================================= */
+
+html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  min-height: 100%;
+
+  background: #050505;
+  color: #ffffff;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #root {
   width: 100%;
   max-width: 100%;
+
   margin: 0;
+  padding: 0;
+
   text-align: left;
+
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
+
+  background: #050505;
+}
+
+
+/* Prevent padding from increasing element width */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* Remove default link styling */
+
+a {
+  color: inherit;
+}
+
+
+/* Better image behavior */
+
+img {
+  max-width: 100%;
+  display: block;
 }

@@ -10,6 +10,7 @@
   margin-top: 24px;
 }
 
+
 /* =========================
    EXERCISE CARD
    ========================= */
@@ -17,7 +18,6 @@
 .exerciseCard {
   position: relative;
   overflow: hidden;
-
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -27,16 +27,35 @@
   background-size: cover;
   background-position: center;
 
-  border: 1px solid #e5e5e5;
+  background-color: rgba(12, 12, 12, 0.84);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
+
   box-sizing: border-box;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .exerciseCard::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.88);
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.68),
+      rgba(0, 0, 0, 0.82)
+    );
+
+  pointer-events: none;
 }
 
 .exerciseCard > * {
@@ -45,20 +64,25 @@
 }
 
 .exerciseCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.09);
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
 }
+
 
 /* =========================
    SEARCH + FILTER
    ========================= */
+
 .listHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   width: 100%;
   margin: 0 auto 10px;
+
   text-align: center;
 }
 
@@ -67,37 +91,24 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
+
   width: 100%;
   margin: 0 auto 24px;
+
   flex-wrap: wrap;
 }
 
-.filterSelect {
-  height: 38px;
-  min-width: 120px;
-  padding: 0 10px;
-  border: 1px solid #dedede;
-  border-radius: 8px;
-  background: #ffffff;
-  color: #333;
-  font-size: 0.8rem;
-  cursor: pointer;
-  outline: none;
-}
-
-.filterSelect:focus {
-  border-color: #1c1c1e;
-}
-
-
 .exerciseControls {
   width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   gap: 10px;
   margin: 20px 0;
+
   box-sizing: border-box;
 }
 
@@ -110,6 +121,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   gap: 8px;
   flex-wrap: wrap;
 }
@@ -117,52 +129,83 @@
 .searchInput {
   width: 100%;
   height: 40px;
+
   padding: 0 14px 0 38px;
+
   box-sizing: border-box;
-  border: 1px solid #dedede;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 9px;
-  background: #ffffff;
-  color: #1c1c1e;
+
+  background: rgba(10, 10, 10, 0.8);
+  color: #ffffff;
+
   font-size: 0.85rem;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 .searchInput:focus {
-  border-color: #1c1c1e;
-  box-shadow: 0 0 0 2px #eeeeee;
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(20, 20, 20, 0.9);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
 }
 
 .searchInput::placeholder {
-  color: #999;
+  color: rgba(255, 255, 255, 0.38);
 }
 
 .searchIcon {
   position: absolute;
   left: 13px;
   top: 50%;
+
   transform: translateY(-50%);
-  color: #888;
+
+  color: rgba(255, 255, 255, 0.45);
   font-size: 0.9rem;
+
   pointer-events: none;
 }
 
 .filterSelect {
   height: 40px;
   min-width: 130px;
+
   padding: 0 30px 0 12px;
-  border: 1px solid #dedede;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 9px;
-  background: #ffffff;
-  color: #333;
+
+  background: rgba(10, 10, 10, 0.85);
+  color: #ffffff;
+
   font-size: 0.82rem;
+
   cursor: pointer;
   outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 .filterSelect:focus {
-  border-color: #1c1c1e;
+  border-color: rgba(255, 255, 255, 0.35);
 }
+
+.filterSelect option {
+  background: #111111;
+  color: #ffffff;
+}
+
 
 /* =========================
    CARD HEADER
@@ -172,17 +215,21 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
   gap: 12px;
   margin-bottom: 14px;
 }
 
 .cardHeader h3 {
   margin: 0;
+
   font-size: 1.25rem;
   font-weight: 750;
   line-height: 1.3;
-  color: #1c1c1e;
+
+  color: #ffffff;
 }
+
 
 /* =========================
    DIFFICULTY
@@ -190,14 +237,21 @@
 
 .difficulty {
   flex-shrink: 0;
+
   padding: 5px 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
-  background: #f1f1f1;
-  color: #555;
+
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.65);
+
   font-size: 0.72rem;
   font-weight: 700;
+
   text-transform: capitalize;
 }
+
 
 /* =========================
    DESCRIPTION
@@ -205,14 +259,19 @@
 
 .description {
   margin: 0 0 20px;
-  color: #666;
+
+  color: rgba(255, 255, 255, 0.55);
+
   font-size: 0.9rem;
   line-height: 1.6;
+
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+
   overflow: hidden;
 }
+
 
 /* =========================
    EXERCISE INFORMATION
@@ -221,30 +280,36 @@
 .exerciseInfo {
   display: flex;
   flex-direction: column;
+
   margin-bottom: 20px;
-  border-top: 1px solid #eeeeee;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .exerciseInfo p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   margin: 0;
   padding: 9px 0;
-  border-bottom: 1px solid #eeeeee;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
   font-size: 0.82rem;
 }
 
 .exerciseInfo strong {
-  color: #777;
+  color: rgba(255, 255, 255, 0.4);
   font-weight: 600;
 }
 
 .exerciseInfo span {
-  color: #1c1c1e;
+  color: #ffffff;
   font-weight: 650;
   text-align: right;
 }
+
 
 /* =========================
    CARD BUTTONS
@@ -253,6 +318,7 @@
 .cardActions {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
   gap: 10px;
   margin-top: auto;
 }
@@ -260,45 +326,58 @@
 .cardActions button {
   width: 100%;
   height: 44px;
+
   padding: 0 12px;
+
   border-radius: 9px;
+
   font-size: 0.82rem;
   font-weight: 700;
+
   cursor: pointer;
+
   transition:
     background 0.2s ease,
+    border-color 0.2s ease,
     transform 0.15s ease;
 }
+
 
 /* =========================
    VIEW DETAILS
    ========================= */
 
 .viewButton {
-  border: 1px solid #1c1c1e;
-  background: #1c1c1e;
-  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  background: #ffffff;
+  color: #111111;
 }
 
 .viewButton:hover {
-  background: #333336;
+  background: #e8e8e8;
   transform: translateY(-1px);
 }
+
 
 /* =========================
    ADD TO PLAN
    ========================= */
 
 .planButton {
-  border: 1px solid #d8d8d8;
-  background: #ffffff;
-  color: #1c1c1e;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
 }
 
 .planButton:hover {
-  background: #f5f5f5;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+
   transform: translateY(-1px);
 }
+
 
 /* =========================
    EMPTY STATE
@@ -306,24 +385,33 @@
 
 .notFound {
   max-width: 500px;
+
   margin: 80px auto;
   padding: 50px 30px;
+
   text-align: center;
-  background: #ffffff;
-  border: 1px solid #e5e5e5;
+
+  background: rgba(12, 12, 12, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
 }
 
 .notFound h2 {
   margin: 0 0 10px;
-  color: #1c1c1e;
+  color: #ffffff;
 }
 
 .notFound p {
   margin: 0 0 24px;
-  color: #777;
+  color: rgba(255, 255, 255, 0.45);
 }
+
 
 /* =========================
    EXERCISE DETAIL PAGE
@@ -331,9 +419,14 @@
 
 .detailPage {
   max-width: 1200px;
+
   margin: 0 auto;
+
   padding: 32px 24px 60px;
+
+  color: #ffffff;
 }
+
 
 /* =========================
    BACK BUTTON
@@ -342,20 +435,27 @@
 .backButton {
   display: inline-flex;
   align-items: center;
+
   margin-bottom: 28px;
   padding: 0;
+
   border: none;
   background: none;
-  color: #666;
+
+  color: rgba(255, 255, 255, 0.45);
+
   font-size: 0.9rem;
   font-weight: 600;
+
   cursor: pointer;
+
   transition: color 0.2s ease;
 }
 
 .backButton:hover {
-  color: #1c1c1e;
+  color: #ffffff;
 }
+
 
 /* =========================
    DETAIL HEADER
@@ -365,26 +465,34 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
   gap: 30px;
   margin-bottom: 32px;
 }
 
 .detailTitle {
   margin: 0 0 12px;
-  color: #1c1c1e;
+
+  color: #ffffff;
+
   font-size: 2.6rem;
   font-weight: 800;
+
   line-height: 1.1;
   letter-spacing: -0.04em;
 }
 
 .detailDesc {
   max-width: 700px;
+
   margin: 0;
-  color: #666;
+
+  color: rgba(255, 255, 255, 0.5);
+
   font-size: 1rem;
   line-height: 1.7;
 }
+
 
 /* =========================
    BADGES
@@ -394,6 +502,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+
   gap: 8px;
   max-width: 300px;
 }
@@ -401,15 +510,21 @@
 .badge {
   display: inline-flex;
   align-items: center;
+
   padding: 7px 12px;
-  border: 1px solid #e3e3e3;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  background: #f7f7f7;
-  color: #444;
+
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.65);
+
   font-size: 0.75rem;
   font-weight: 700;
+
   white-space: nowrap;
 }
+
 
 /* =========================
    TWO COLUMN LAYOUT
@@ -417,10 +532,16 @@
 
 .detailContainer {
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(300px, 0.8fr);
+
+  grid-template-columns:
+    minmax(0, 1.7fr)
+    minmax(300px, 0.8fr);
+
   gap: 28px;
+
   align-items: start;
 }
+
 
 /* =========================
    MAIN CONTENT
@@ -430,50 +551,71 @@
   min-width: 0;
 }
 
+
 /* =========================
    STATS
    ========================= */
 
 .detailStats {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
+
   gap: 12px;
   margin-bottom: 24px;
 }
 
 .statCard {
   min-height: 110px;
+
   padding: 18px;
+
   box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   text-align: center;
-  background: #ffffff;
-  border: 1px solid #e5e5e5;
+
+  background: rgba(12, 12, 12, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .statValue {
   max-width: 100%;
+
   overflow: hidden;
-  color: #1c1c1e;
+
+  color: #ffffff;
+
   font-size: 1.35rem;
   font-weight: 800;
+
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .statLabel {
   margin-top: 6px;
-  color: #888;
+
+  color: rgba(255, 255, 255, 0.4);
+
   font-size: 0.7rem;
   font-weight: 700;
+
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
+
 
 /* =========================
    INSTRUCTIONS
@@ -481,25 +623,36 @@
 
 .instructionsCard {
   padding: 28px;
-  background: #ffffff;
-  border: 1px solid #e5e5e5;
+
+  background: rgba(12, 12, 12, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
 }
 
 .sectionTitle {
   margin: 0;
-  color: #1c1c1e;
+
+  color: #ffffff;
+
   font-size: 1.2rem;
   font-weight: 750;
 }
 
 .sectionDescription {
   margin: 8px 0 24px;
-  color: #888;
+
+  color: rgba(255, 255, 255, 0.42);
+
   font-size: 0.85rem;
   line-height: 1.5;
 }
+
 
 /* =========================
    INSTRUCTION LIST
@@ -508,19 +661,27 @@
 .instructionsList {
   display: flex;
   flex-direction: column;
+
   gap: 0;
+
   margin: 0;
   padding: 0;
+
   list-style: none;
 }
 
 .instructionsList li {
   display: flex;
   align-items: flex-start;
+
   gap: 16px;
+
   padding: 18px 0;
-  border-bottom: 1px solid #eeeeee;
-  color: #555;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  color: rgba(255, 255, 255, 0.55);
+
   font-size: 0.9rem;
   line-height: 1.65;
 }
@@ -534,20 +695,26 @@
   border-bottom: none;
 }
 
+
 /* =========================
    STEP NUMBER
    ========================= */
 
 .stepNumber {
   flex-shrink: 0;
+
   width: 32px;
   height: 32px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 50%;
-  background: #1c1c1e;
-  color: #ffffff;
+
+  background: #ffffff;
+  color: #111111;
+
   font-size: 0.75rem;
   font-weight: 700;
 }
@@ -556,6 +723,7 @@
   padding-top: 4px;
 }
 
+
 /* =========================
    SIDEBAR
    ========================= */
@@ -563,10 +731,13 @@
 .detailSidebar {
   display: flex;
   flex-direction: column;
+
   gap: 14px;
+
   position: sticky;
   top: 24px;
 }
+
 
 /* =========================
    VIDEO CARD
@@ -574,39 +745,56 @@
 
 .videoCard {
   overflow: hidden;
+
   padding: 18px;
-  background: #ffffff;
-  border: 1px solid #e5e5e5;
+
+  background: rgba(12, 12, 12, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
 }
 
 .videoHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 10px;
   margin-bottom: 14px;
 }
 
 .videoLabel {
   padding: 4px 8px;
+
   border-radius: 5px;
-  background: #f1f1f1;
-  color: #777;
+
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.45);
+
   font-size: 0.65rem;
   font-weight: 800;
+
   letter-spacing: 0.05em;
 }
 
 .exerciseVideo {
   display: block;
+
   width: 100%;
   aspect-ratio: 16 / 9;
+
   object-fit: cover;
+
   border-radius: 10px;
-  background: #111;
+
+  background: #050505;
 }
+
 
 /* =========================
    ADD TO PLAN
@@ -615,20 +803,25 @@
 .addButton {
   width: 100%;
   height: 48px;
-  border: none;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 10px;
-  background: #1c1c1e;
-  color: #ffffff;
+
+  background: #ffffff;
+  color: #111111;
+
   font-size: 0.85rem;
   font-weight: 700;
+
   cursor: pointer;
+
   transition:
     background 0.2s ease,
     transform 0.15s ease;
 }
 
 .addButton:hover {
-  background: #333336;
+  background: #e8e8e8;
   transform: translateY(-1px);
 }
 
@@ -636,40 +829,49 @@
   transform: translateY(0);
 }
 
+
 /* =========================
    PREVIOUS / NEXT
    ========================= */
 
 .navigationButtons {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 10px;
 }
 
 .secondaryButton {
   width: 100%;
   height: 44px;
-  border: 1px solid #dddddd;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 9px;
-  background: #ffffff;
-  color: #333;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+
   font-size: 0.8rem;
   font-weight: 650;
+
   cursor: pointer;
+
   transition:
     background 0.2s ease,
     border-color 0.2s ease;
 }
 
 .secondaryButton:hover:not(:disabled) {
-  background: #f5f5f5;
-  border-color: #cccccc;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 .secondaryButton:disabled {
-  opacity: 0.35;
+  opacity: 0.3;
   cursor: not-allowed;
 }
+
 
 /* =========================
    FALLBACK BUTTON
@@ -678,13 +880,22 @@
 .actionButton {
   width: 100%;
   height: 46px;
+
   border: none;
   border-radius: 9px;
-  background: #1c1c1e;
-  color: white;
+
+  background: #ffffff;
+  color: #111111;
+
   font-weight: 700;
+
   cursor: pointer;
 }
+
+.actionButton:hover {
+  background: #e8e8e8;
+}
+
 
 /* =========================
    TABLET
@@ -695,6 +906,11 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+
+/* =========================
+   DETAIL TABLET
+   ========================= */
 
 @media (max-width: 950px) {
   .detailHeader {
@@ -715,6 +931,7 @@
   }
 }
 
+
 /* =========================
    SMALL TABLET
    ========================= */
@@ -723,7 +940,10 @@
   .exerciseControls {
     flex-direction: column;
     align-items: stretch;
+
     max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .searchContainer {
@@ -747,6 +967,7 @@
   }
 }
 
+
 /* =========================
    MOBILE
    ========================= */
@@ -766,6 +987,7 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
 
 /* =========================
    SMALL MOBILE
@@ -806,68 +1028,152 @@
   }
 }
 
+
+/* =========================
+   VERY SMALL MOBILE
+   ========================= */
+
 @media (max-width: 400px) {
   .cardActions {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* =========================
+   POPUP OVERLAY
+   ========================= */
+
 .popupOverlay {
   position: fixed;
   inset: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
   z-index: 1000;
 }
 
+
+/* =========================
+   DAY PICKER
+   ========================= */
+
 .dayPicker {
   position: relative;
+
   width: 90%;
   max-width: 420px;
+
   padding: 30px;
-  background: #fff;
+
+  background: rgba(15, 15, 15, 0.96);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+
+  box-sizing: border-box;
 }
 
 .dayPicker h2 {
   margin: 0 0 8px;
+  color: #ffffff;
 }
 
 .dayPicker p {
   margin: 0 0 20px;
-  color: #666;
+  color: rgba(255, 255, 255, 0.45);
 }
+
+
+/* =========================
+   CLOSE POPUP
+   ========================= */
 
 .closePopup {
   position: absolute;
+
   top: 15px;
   right: 15px;
+
   border: none;
   background: none;
+
+  color: rgba(255, 255, 255, 0.45);
+
   font-size: 20px;
+
   cursor: pointer;
+
+  transition: color 0.2s ease;
 }
+
+.closePopup:hover {
+  color: #ffffff;
+}
+
+
+/* =========================
+   DAY OPTIONS
+   ========================= */
 
 .dayOptions {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 10px;
 }
 
 .dayOption {
   padding: 14px;
-  border: 1px solid #ddd;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
-  background: #f7f7f7;
-  color: #1c1c1e;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+
   font-weight: 700;
+
   text-transform: capitalize;
+
   cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
 }
 
 .dayOption:hover {
-  background: #1c1c1e;
-  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   MOBILE POPUP
+   ========================= */
+
+@media (max-width: 480px) {
+  .dayPicker {
+    padding: 24px 20px;
+  }
+
+  .dayOptions {
+    grid-template-columns: 1fr;
+  }
 }
