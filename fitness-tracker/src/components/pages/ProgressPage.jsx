@@ -68,158 +68,138 @@ const ProgressPage = ({ workoutHistory = [] }) => {
   // Page
   // =========================
 
-  return (
+    return (
     <div
-      className={`${commonStyles.pageContainer} ${styles.progressPage}`}
+      style={{
+        minHeight: "100vh",
+        backgroundImage:
+          'linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)), url("/assets/images/gym.jpg")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+      }}
     >
-      {/* Page Header */}
+      <div
+        className={`${commonStyles.pageContainer} ${styles.progressPage}`}
+      >
+        {/* Page Header */}
+        <div className={styles.pageIntro}>
+          <h1 className={commonStyles.pageTitle}>
+            Your Progress
+          </h1>
 
-      <div className={styles.pageIntro}>
-        <h1 className={commonStyles.pageTitle}>
-          Your Progress
-        </h1>
+          <p className={styles.pageDescription}>
+            Track your training performance, monitor your workout volume,
+            and see how consistently you're putting in the work.
+          </p>
+        </div>
 
-        <p className={styles.pageDescription}>
-          Track your training performance, monitor your
-          workout volume, and see how consistently you're
-          putting in the work.
-        </p>
-      </div>
-
-      {/* Statistics */}
-
-      <div className={styles.statsGrid}>
-        <Card>
-          <div className={styles.statCard}>
-            <div className={styles.statNumber}>
-              {totalWorkouts}
+        {/* Statistics */}
+        <div className={styles.statsGrid}>
+          <Card>
+            <div className={styles.statCard}>
+              <div className={styles.statNumber}>{totalWorkouts}</div>
+              <div className={styles.statLabel}>Total Workouts</div>
             </div>
+          </Card>
 
-            <div className={styles.statLabel}>
-              Total Workouts
+          <Card>
+            <div className={styles.statCard}>
+              <div className={styles.statNumber}>
+                {totalVolume.toLocaleString()}
+              </div>
+              <div className={styles.statLabel}>Total Volume (kg)</div>
             </div>
-          </div>
-        </Card>
+          </Card>
 
-        <Card>
-          <div className={styles.statCard}>
-            <div className={styles.statNumber}>
-              {totalVolume.toLocaleString()}
+          <Card>
+            <div className={styles.statCard}>
+              <div className={styles.statNumber}>{totalSets}</div>
+              <div className={styles.statLabel}>Total Sets</div>
             </div>
+          </Card>
 
-            <div className={styles.statLabel}>
-              Total Volume (kg)
+          <Card>
+            <div className={styles.statCard}>
+              <div className={styles.statNumber}>{uniqueExercises}</div>
+              <div className={styles.statLabel}>Exercises Done</div>
             </div>
-          </div>
-        </Card>
+          </Card>
 
-        <Card>
-          <div className={styles.statCard}>
-            <div className={styles.statNumber}>
-              {totalSets}
+          <Card>
+            <div className={styles.statCard}>
+              <div className={styles.statNumber}>{avgWeight}</div>
+              <div className={styles.statLabel}>Avg Weight (kg)</div>
             </div>
-
-            <div className={styles.statLabel}>
-              Total Sets
-            </div>
-          </div>
-        </Card>
-
-        <Card>
-          <div className={styles.statCard}>
-            <div className={styles.statNumber}>
-              {uniqueExercises}
-            </div>
-
-            <div className={styles.statLabel}>
-              Exercises Done
-            </div>
-          </div>
-        </Card>
+          </Card>
+        </div>
 
         <Card>
-          <div className={styles.statCard}>
-            <div className={styles.statNumber}>
-              {avgWeight}
-            </div>
-
-            <div className={styles.statLabel}>
-              Avg Weight (kg)
-            </div>
-          </div>
-        </Card>
-      </div>
-
-
-        <Card>
-        <div className={styles.workoutPrompt}>
+          <div className={styles.workoutPrompt}>
             <div className={styles.workoutPromptText}>
-            <h2 className={styles.workoutPromptTitle}>
+              <h2 className={styles.workoutPromptTitle}>
                 Workout Today?
-            </h2>
+              </h2>
 
-            <p className={styles.workoutPromptMessage}>
-                Keep your progress going. Log your workout and
-                track your performance.
-            </p>
+              <p className={styles.workoutPromptMessage}>
+                Keep your progress going. Log your workout and track your performance.
+              </p>
             </div>
 
             <Link
-            to="/History"
-            className={styles.workoutButton}
+              to="/History"
+              className={styles.workoutButton}
             >
-            Log Your Progress
+              Log Your Progress
             </Link>
-        </div>
+          </div>
         </Card>
 
+        {/* Exercise Breakdown */}
+        <Card title="Exercise Breakdown">
+          {Object.keys(exerciseBreakdown).length === 0 ? (
+            <div className={styles.emptyState}>
+              <div className={styles.emptyIcon}>📈</div>
 
+              <h3 className={styles.emptyTitle}>
+                No progress data yet
+              </h3>
 
-      {/* Exercise Breakdown */}
+              <p className={styles.emptyMessage}>
+                Start logging your workouts to see your training volume
+                and exercise performance here.
+              </p>
+            </div>
+          ) : (
+            <div className={styles.breakdown}>
+              {Object.entries(exerciseBreakdown).map(
+                ([name, data]) => (
+                  <div
+                    key={name}
+                    className={styles.exerciseRow}
+                  >
+                    <div className={styles.exerciseInfo}>
+                      <div className={styles.exerciseName}>
+                        {name}
+                      </div>
 
-      <Card title="Exercise Breakdown">
-        {Object.keys(exerciseBreakdown).length === 0 ? (
-          <div className={styles.emptyState}>
-            <div className={styles.emptyIcon}>📈</div>
-
-            <h3 className={styles.emptyTitle}>
-              No progress data yet
-            </h3>
-
-            <p className={styles.emptyMessage}>
-              Start logging your workouts to see your
-              training volume and exercise performance here.
-            </p>
-          </div>
-        ) : (
-          <div className={styles.breakdown}>
-            {Object.entries(exerciseBreakdown).map(
-              ([name, data]) => (
-                <div
-                  key={name}
-                  className={styles.exerciseRow}
-                >
-                  <div className={styles.exerciseInfo}>
-                    <div className={styles.exerciseName}>
-                      {name}
+                      <div className={styles.exerciseDetails}>
+                        {data.count} sessions {" | "}
+                        {data.totalSets} sets
+                      </div>
                     </div>
 
-                    <div className={styles.exerciseDetails}>
-                      {data.count} sessions
-                      {" | "}
-                      {data.totalSets} sets
+                    <div className={styles.exerciseVolume}>
+                      {data.totalVolume.toLocaleString()} kg
                     </div>
                   </div>
-
-                  <div className={styles.exerciseVolume}>
-                    {data.totalVolume.toLocaleString()} kg
-                  </div>
-                </div>
-              )
-            )}
-          </div>
-        )}
-      </Card>
+                )
+              )}
+            </div>
+          )}
+        </Card>
+      </div>
     </div>
   );
 };
