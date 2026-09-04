@@ -74,11 +74,29 @@ const ExercisesPage = ({
     : [];
 
   return (
-    <main className={commonStyles.pageContainer}>
+      <main
+        className={commonStyles.pageContainer}
+        style={{
+          maxWidth: "none",
+          width: "100%",
+          minHeight: "100vh",
 
+          backgroundImage:
+            'linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)), url("/assets/images/gym3.jpg")',
+
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+
+          boxSizing: "border-box",
+        }}
+      >
       <h1
         className={commonStyles.pageTitle}
-        style={{ textAlign: "center" }}
+        style={{
+          textAlign: "center",
+        }}
       >
         The Work Room
       </h1>
@@ -86,7 +104,7 @@ const ExercisesPage = ({
       <p
         style={{
           textAlign: "center",
-          color: "#777",
+          color: "rgba(255, 255, 255, 0.55)",
           marginTop: "-10px",
         }}
       >
@@ -101,7 +119,6 @@ const ExercisesPage = ({
         onAddToPlan={handleAddToPlan}
         isLoading={isLoading}
       />
-
     </main>
   );
 };

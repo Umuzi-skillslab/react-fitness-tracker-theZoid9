@@ -1,13 +1,14 @@
+
 /* =========================
    EXERCISE GRID
    ========================= */
 
 .exerciseGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  width: 100%;
-  margin-top: 24px;
+  grid-template-columns: repeat(3, 360px);
+  gap: 16px;
+  width: fit-content;
+  margin: 24px auto 0;
 }
 
 
@@ -17,21 +18,21 @@
 
 .exerciseCard {
   position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   min-width: 0;
-  min-height: 360px;
-  padding: 24px;
+  min-height: 80px;
+  padding: 18px;
+  overflow: hidden;
 
+  box-sizing: border-box;
+
+  background-color: rgba(12, 12, 12, 0.84);
   background-size: cover;
   background-position: center;
 
-  background-color: rgba(12, 12, 12, 0.84);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-
-  box-sizing: border-box;
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -49,11 +50,10 @@
   position: absolute;
   inset: 0;
 
-  background:
-    linear-gradient(
-      rgba(0, 0, 0, 0.68),
-      rgba(0, 0, 0, 0.82)
-    );
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.68),
+    rgba(0, 0, 0, 0.82)
+  );
 
   pointer-events: none;
 }
@@ -75,15 +75,17 @@
    ========================= */
 
 .listHeader {
+  width: 100%;
+  margin: 0 auto 10px;
+  text-align: center;
+}
+
+.exerciseControls {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  margin: 0 auto 10px;
-
-  text-align: center;
+  gap: 10px;
+  margin: 20px 0;
 }
 
 .listControls {
@@ -91,25 +93,9 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-
   width: 100%;
-  margin: 0 auto 24px;
-
+  margin-bottom: 24px;
   flex-wrap: wrap;
-}
-
-.exerciseControls {
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  gap: 10px;
-  margin: 20px 0;
-
-  box-sizing: border-box;
 }
 
 .searchContainer {
@@ -121,7 +107,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   gap: 8px;
   flex-wrap: wrap;
 }
@@ -129,7 +114,6 @@
 .searchInput {
   width: 100%;
   height: 40px;
-
   padding: 0 14px 0 38px;
 
   box-sizing: border-box;
@@ -138,7 +122,7 @@
   border-radius: 9px;
 
   background: rgba(10, 10, 10, 0.8);
-  color: #ffffff;
+  color: #fff;
 
   font-size: 0.85rem;
   outline: none;
@@ -178,23 +162,17 @@
 .filterSelect {
   height: 40px;
   min-width: 130px;
-
   padding: 0 30px 0 12px;
 
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 9px;
 
   background: rgba(10, 10, 10, 0.85);
-  color: #ffffff;
+  color: #fff;
 
   font-size: 0.82rem;
-
   cursor: pointer;
   outline: none;
-
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease;
 }
 
 .filterSelect:focus {
@@ -202,8 +180,8 @@
 }
 
 .filterSelect option {
-  background: #111111;
-  color: #ffffff;
+  background: #111;
+  color: #fff;
 }
 
 
@@ -215,7 +193,6 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-
   gap: 12px;
   margin-bottom: 14px;
 }
@@ -223,11 +200,10 @@
 .cardHeader h3 {
   margin: 0;
 
+  color: #fff;
   font-size: 1.25rem;
   font-weight: 750;
   line-height: 1.3;
-
-  color: #ffffff;
 }
 
 
@@ -248,7 +224,6 @@
 
   font-size: 0.72rem;
   font-weight: 700;
-
   text-transform: capitalize;
 }
 
@@ -261,7 +236,6 @@
   margin: 0 0 20px;
 
   color: rgba(255, 255, 255, 0.55);
-
   font-size: 0.9rem;
   line-height: 1.6;
 
@@ -305,7 +279,7 @@
 }
 
 .exerciseInfo span {
-  color: #ffffff;
+  color: #fff;
   font-weight: 650;
   text-align: right;
 }
@@ -318,22 +292,20 @@
 .cardActions {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   gap: 10px;
+
   margin-top: auto;
 }
 
 .cardActions button {
   width: 100%;
   height: 44px;
-
   padding: 0 12px;
 
   border-radius: 9px;
 
   font-size: 0.82rem;
   font-weight: 700;
-
   cursor: pointer;
 
   transition:
@@ -342,16 +314,10 @@
     transform 0.15s ease;
 }
 
-
-/* =========================
-   VIEW DETAILS
-   ========================= */
-
 .viewButton {
   border: 1px solid rgba(255, 255, 255, 0.18);
-
-  background: #ffffff;
-  color: #111111;
+  background: #fff;
+  color: #111;
 }
 
 .viewButton:hover {
@@ -359,22 +325,15 @@
   transform: translateY(-1px);
 }
 
-
-/* =========================
-   ADD TO PLAN
-   ========================= */
-
 .planButton {
   border: 1px solid rgba(255, 255, 255, 0.16);
-
   background: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
+  color: #fff;
 }
 
 .planButton:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.28);
-
   transform: translateY(-1px);
 }
 
@@ -385,9 +344,10 @@
 
 .notFound {
   max-width: 500px;
-
   margin: 80px auto;
   padding: 50px 30px;
+
+  box-sizing: border-box;
 
   text-align: center;
 
@@ -404,7 +364,7 @@
 
 .notFound h2 {
   margin: 0 0 10px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .notFound p {
@@ -414,23 +374,18 @@
 
 
 /* =========================
-   EXERCISE DETAIL PAGE
+   DETAIL PAGE
    ========================= */
 
 .detailPage {
   max-width: 1200px;
-
   margin: 0 auto;
-
   padding: 32px 24px 60px;
 
-  color: #ffffff;
+  box-sizing: border-box;
+
+  color: #fff;
 }
-
-
-/* =========================
-   BACK BUTTON
-   ========================= */
 
 .backButton {
   display: inline-flex;
@@ -448,12 +403,10 @@
   font-weight: 600;
 
   cursor: pointer;
-
-  transition: color 0.2s ease;
 }
 
 .backButton:hover {
-  color: #ffffff;
+  color: #fff;
 }
 
 
@@ -473,18 +426,17 @@
 .detailTitle {
   margin: 0 0 12px;
 
-  color: #ffffff;
+  color: #fff;
 
   font-size: 2.6rem;
   font-weight: 800;
-
   line-height: 1.1;
+
   letter-spacing: -0.04em;
 }
 
 .detailDesc {
   max-width: 700px;
-
   margin: 0;
 
   color: rgba(255, 255, 255, 0.5);
@@ -500,8 +452,8 @@
 
 .detailBadges {
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-end;
+  flex-wrap: wrap;
 
   gap: 8px;
   max-width: 300px;
@@ -521,31 +473,21 @@
 
   font-size: 0.75rem;
   font-weight: 700;
-
   white-space: nowrap;
 }
 
 
 /* =========================
-   TWO COLUMN LAYOUT
+   DETAIL LAYOUT
    ========================= */
 
 .detailContainer {
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.7fr)
-    minmax(300px, 0.8fr);
+  grid-template-columns: minmax(0, 1.7fr) minmax(300px, 0.8fr);
 
   gap: 28px;
-
   align-items: start;
 }
-
-
-/* =========================
-   MAIN CONTENT
-   ========================= */
 
 .detailMain {
   min-width: 0;
@@ -558,7 +500,6 @@
 
 .detailStats {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
 
   gap: 12px;
@@ -567,7 +508,6 @@
 
 .statCard {
   min-height: 110px;
-
   padding: 18px;
 
   box-sizing: border-box;
@@ -592,10 +532,9 @@
 
 .statValue {
   max-width: 100%;
-
   overflow: hidden;
 
-  color: #ffffff;
+  color: #fff;
 
   font-size: 1.35rem;
   font-weight: 800;
@@ -638,7 +577,7 @@
 .sectionTitle {
   margin: 0;
 
-  color: #ffffff;
+  color: #fff;
 
   font-size: 1.2rem;
   font-weight: 750;
@@ -652,11 +591,6 @@
   font-size: 0.85rem;
   line-height: 1.5;
 }
-
-
-/* =========================
-   INSTRUCTION LIST
-   ========================= */
 
 .instructionsList {
   display: flex;
@@ -675,7 +609,6 @@
   align-items: flex-start;
 
   gap: 16px;
-
   padding: 18px 0;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
@@ -695,11 +628,6 @@
   border-bottom: none;
 }
 
-
-/* =========================
-   STEP NUMBER
-   ========================= */
-
 .stepNumber {
   flex-shrink: 0;
 
@@ -712,8 +640,8 @@
 
   border-radius: 50%;
 
-  background: #ffffff;
-  color: #111111;
+  background: #fff;
+  color: #111;
 
   font-size: 0.75rem;
   font-weight: 700;
@@ -729,23 +657,22 @@
    ========================= */
 
 .detailSidebar {
+  position: sticky;
+  top: 24px;
+
   display: flex;
   flex-direction: column;
 
   gap: 14px;
-
-  position: sticky;
-  top: 24px;
 }
 
 
 /* =========================
-   VIDEO CARD
+   VIDEO
    ========================= */
 
 .videoCard {
   overflow: hidden;
-
   padding: 18px;
 
   background: rgba(12, 12, 12, 0.82);
@@ -797,22 +724,20 @@
 
 
 /* =========================
-   ADD TO PLAN
+   ACTION BUTTONS
    ========================= */
 
-.addButton {
+.addButton,
+.actionButton {
   width: 100%;
-  height: 48px;
+  height: 46px;
 
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 10px;
+  border-radius: 9px;
 
-  background: #ffffff;
-  color: #111111;
+  background: #fff;
+  color: #111;
 
-  font-size: 0.85rem;
   font-weight: 700;
-
   cursor: pointer;
 
   transition:
@@ -820,25 +745,23 @@
     transform 0.15s ease;
 }
 
-.addButton:hover {
+.addButton {
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.addButton:hover,
+.actionButton:hover {
   background: #e8e8e8;
-  transform: translateY(-1px);
 }
 
 .addButton:active {
   transform: translateY(0);
 }
 
-
-/* =========================
-   PREVIOUS / NEXT
-   ========================= */
-
 .navigationButtons {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 10px;
 }
 
@@ -850,16 +773,12 @@
   border-radius: 9px;
 
   background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
+  color: #fff;
 
   font-size: 0.8rem;
   font-weight: 650;
 
   cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease;
 }
 
 .secondaryButton:hover:not(:disabled) {
@@ -874,45 +793,116 @@
 
 
 /* =========================
-   FALLBACK BUTTON
+   POPUP
    ========================= */
 
-.actionButton {
-  width: 100%;
-  height: 46px;
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  z-index: 1000;
+}
+
+.dayPicker {
+  position: relative;
+
+  width: 90%;
+  max-width: 420px;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  background: rgba(15, 15, 15, 0.96);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.dayPicker h2 {
+  margin: 0 0 8px;
+  color: #fff;
+}
+
+.dayPicker p {
+  margin: 0 0 20px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.closePopup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
 
   border: none;
-  border-radius: 9px;
+  background: none;
 
-  background: #ffffff;
-  color: #111111;
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.closePopup:hover {
+  color: #fff;
+}
+
+.dayOptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.dayOption {
+  padding: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
 
   font-weight: 700;
+  text-transform: capitalize;
 
   cursor: pointer;
 }
 
-.actionButton:hover {
-  background: #e8e8e8;
+.dayOption:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
 }
 
 
 /* =========================
-   TABLET
+   RESPONSIVE
    ========================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .exerciseGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 260px);
   }
 }
 
+@media (max-width: 850px) {
+  .exerciseGrid {
+    grid-template-columns: repeat(2, 260px);
+  }
 
-/* =========================
-   DETAIL TABLET
-   ========================= */
-
-@media (max-width: 950px) {
   .detailHeader {
     flex-direction: column;
   }
@@ -931,19 +921,15 @@
   }
 }
 
+@media (max-width: 600px) {
+  .exerciseGrid {
+    grid-template-columns: 260px;
+  }
 
-/* =========================
-   SMALL TABLET
-   ========================= */
-
-@media (max-width: 700px) {
   .exerciseControls {
-    flex-direction: column;
     align-items: stretch;
-
     max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto;
   }
 
   .searchContainer {
@@ -967,33 +953,17 @@
   }
 }
 
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media (max-width: 650px) {
+@media (max-width: 480px) {
   .exerciseGrid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+    width: 100%;
+    grid-template-columns: minmax(0, 260px);
+    justify-content: center;
   }
 
   .exerciseCard {
-    min-height: auto;
     padding: 20px;
   }
 
-  .cardActions {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-
-/* =========================
-   SMALL MOBILE
-   ========================= */
-
-@media (max-width: 480px) {
   .detailPage {
     padding: 20px 14px 40px;
   }
@@ -1026,149 +996,7 @@
   .navigationButtons {
     grid-template-columns: 1fr;
   }
-}
 
-
-/* =========================
-   VERY SMALL MOBILE
-   ========================= */
-
-@media (max-width: 400px) {
-  .cardActions {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* =========================
-   POPUP OVERLAY
-   ========================= */
-
-.popupOverlay {
-  position: fixed;
-  inset: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 20px;
-
-  background: rgba(0, 0, 0, 0.75);
-
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-
-  z-index: 1000;
-}
-
-
-/* =========================
-   DAY PICKER
-   ========================= */
-
-.dayPicker {
-  position: relative;
-
-  width: 90%;
-  max-width: 420px;
-
-  padding: 30px;
-
-  background: rgba(15, 15, 15, 0.96);
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-
-  box-sizing: border-box;
-}
-
-.dayPicker h2 {
-  margin: 0 0 8px;
-  color: #ffffff;
-}
-
-.dayPicker p {
-  margin: 0 0 20px;
-  color: rgba(255, 255, 255, 0.45);
-}
-
-
-/* =========================
-   CLOSE POPUP
-   ========================= */
-
-.closePopup {
-  position: absolute;
-
-  top: 15px;
-  right: 15px;
-
-  border: none;
-  background: none;
-
-  color: rgba(255, 255, 255, 0.45);
-
-  font-size: 20px;
-
-  cursor: pointer;
-
-  transition: color 0.2s ease;
-}
-
-.closePopup:hover {
-  color: #ffffff;
-}
-
-
-/* =========================
-   DAY OPTIONS
-   ========================= */
-
-.dayOptions {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 10px;
-}
-
-.dayOption {
-  padding: 14px;
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
-
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-
-  font-weight: 700;
-
-  text-transform: capitalize;
-
-  cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.15s ease;
-}
-
-.dayOption:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
-
-  transform: translateY(-1px);
-}
-
-
-/* =========================
-   MOBILE POPUP
-   ========================= */
-
-@media (max-width: 480px) {
   .dayPicker {
     padding: 24px 20px;
   }
@@ -1177,3 +1005,14 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 400px) {
+  .exerciseGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cardActions {
+    grid-template-columns: 1fr;
+  }
+}
+
