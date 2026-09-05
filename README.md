@@ -156,12 +156,7 @@ npm test -- --coverage
 
 ### Test Coverage Report
 
-| Metric     |       Coverage |
-| ---------- | -------------: |
-| Statements | **[INSERT %]** |
-| Branches   | **[INSERT %]** |
-| Functions  | **[INSERT %]** |
-| Lines      | **[INSERT %]** |
+![Test Coverage](/fitness-tracker/screenshots/coverage.png)
 
 ## Screenshots
 
@@ -193,9 +188,7 @@ npm test -- --coverage
 
 ![Mobile View](/fitness-tracker/screenshots/MobileExecisesPage.png)
 
-### Test Coverage Report
 
-![Test Coverage](/fitness-tracker/screenshots/coverage.png)
 
 ## Future Enhancements
 
