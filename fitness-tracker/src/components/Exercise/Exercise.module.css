@@ -378,13 +378,21 @@
    ========================= */
 
 .detailPage {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 24px 60px;
-
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px 24px 60px;
   box-sizing: border-box;
 
-  color: #fff;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)),
+    url("/assets/images/gym.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .backButton {
@@ -436,15 +444,10 @@
 }
 
 .detailDesc {
-  max-width: 700px;
-  margin: 0;
-
-  color: rgba(255, 255, 255, 0.5);
-
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.48);
 }
-
 
 /* =========================
    BADGES
