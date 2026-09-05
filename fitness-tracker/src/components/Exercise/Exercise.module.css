@@ -395,6 +395,12 @@
   background-attachment: fixed;
 }
 
+.detailPage > * {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .backButton {
   display: inline-flex;
   align-items: center;

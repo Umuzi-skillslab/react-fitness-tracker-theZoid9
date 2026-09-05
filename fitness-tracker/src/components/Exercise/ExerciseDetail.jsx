@@ -7,11 +7,32 @@ import { formatDuration } from "../utils/helpers";
 // Import the reusable VideoPlayer component
 import VideoPlayer from "../Media/VideoPlayer";
 
+const DAYS_OF_WEEK = [
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
+];
+
+
 const ExerciseDetail = ({ exercises, onAddToPlan }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(true);
+  const [showDayPicker, setShowDayPicker] = useState(false);
+
+  
+  const handleAddToDay = (day) => {
+    onAddToPlan(day, exercise);
+    setShowDayPicker(false);
+    navigate("/workout-planner");
+  };
+
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -94,6 +115,7 @@ const ExerciseDetail = ({ exercises, onAddToPlan }) => {
   };
 
   return (
+    <>
     <main className={styles.detailPage}>
 
       {/* Back navigation */}
@@ -251,7 +273,7 @@ const ExerciseDetail = ({ exercises, onAddToPlan }) => {
           {/* Add to plan */}
           <button
             className={styles.addButton}
-            onClick={() => onAddToPlan(exercise)}
+            onClick={() => setShowDayPicker(true)}
           >
             + Add to Workout Plan
           </button>
@@ -284,7 +306,46 @@ const ExerciseDetail = ({ exercises, onAddToPlan }) => {
       </div>
 
     </main>
-  );
+    
+    {showDayPicker && (
+      <div
+        className={styles.popupOverlay}
+        onClick={() => setShowDayPicker(false)}
+      >
+        <div
+          className={styles.dayPicker}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            className={styles.closePopup}
+            onClick={() => setShowDayPicker(false)}
+          >
+            ✕
+          </button>
+
+          <h2>Add to Workout Plan</h2>
+
+          <p>
+            Choose a day for{" "}
+            <strong>{exercise.name}</strong>
+          </p>
+
+          <div className={styles.dayOptions}>
+            {DAYS_OF_WEEK.map((day) => (
+              <button
+                key={day}
+                className={styles.dayOption}
+                onClick={() => handleAddToDay(day)}
+              >
+                {day}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
+  </>
+);
 };
 
 export default ExerciseDetail;

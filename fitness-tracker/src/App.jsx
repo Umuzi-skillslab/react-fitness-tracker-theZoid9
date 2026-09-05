@@ -91,26 +91,27 @@ function App() {
   // Add Exercise To Plan
   // =========================
 
+
+
   const handleAddToPlan = useCallback((day, exercise) => {
-    setWorkoutPlan((prev) => {
-      const dayExercises = prev[day] || [];
+      setWorkoutPlan((prev) => {
+        const dayExercises = prev[day] || [];
 
-      // Don't add duplicate exercises
-      if (
-        dayExercises.some(
-          (existingExercise) =>
-            existingExercise.id === exercise.id
-        )
-      ) {
-        return prev;
-      }
+        if (
+          dayExercises.some(
+            (existingExercise) =>
+              existingExercise.id === exercise.id
+          )
+        ) {
+          return prev;
+        }
 
-      return {
-        ...prev,
-        [day]: [...dayExercises, exercise],
-      };
-    });
-  }, []);
+        return {
+          ...prev,
+          [day]: [...dayExercises, exercise],
+        };
+      });
+    }, []);
 
   // =========================
   // Remove Exercise From Plan
@@ -180,12 +181,11 @@ function App() {
             element={
               <ExerciseDetail
                 exercises={exercisesData}
-                onAddToPlan={(exercise) =>
-                  handleAddToPlan("monday", exercise)
-                }
+                onAddToPlan={handleAddToPlan}
               />
             }
           />
+      
 
           {/* Workout Planner */}
           <Route
