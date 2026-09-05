@@ -8,10 +8,10 @@ const audioData = [
   },
   {
     id: 2,
-    title: 'Workout Motivation',
+    title: 'Earth (Addictive Mix)',
     duration: '10:00',
     description: 'Stay focused and motivated during your training session.',
-    audioUrl: '/assets/audio/workout-motivation.mp3',
+    audioUrl: '/assets/audio/earth.mp3',
   },
   {
     id: 3,
