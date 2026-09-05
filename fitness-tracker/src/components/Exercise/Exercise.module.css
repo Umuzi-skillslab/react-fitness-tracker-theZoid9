@@ -808,21 +808,19 @@
 .popupOverlay {
   position: fixed;
   inset: 0;
-
+  width: 100%;
+  height: 100dvh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-
-  padding: 20px;
-
+  padding: 60px 20px 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
   background: rgba(0, 0, 0, 0.75);
-
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-
   z-index: 1000;
 }
-
 .dayPicker {
   position: relative;
 
