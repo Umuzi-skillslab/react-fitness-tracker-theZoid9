@@ -1,0 +1,680 @@
+/* =========================================
+   PLANNER HEADER
+========================================= */
+
+.plannerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.plannerHeaderText {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.plannerTitle {
+  margin: 0;
+
+  font-size: 2rem;
+  line-height: 1.15;
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+
+  color: #ffffff;
+}
+
+.plannerSubtitle {
+  margin: 0;
+
+  font-size: 0.9rem;
+
+  color: rgba(255, 255, 255, 0.48);
+}
+
+
+/* =========================================
+   BROWSE BUTTON
+========================================= */
+
+.plannerHeader button {
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   PLANNER
+========================================= */
+
+.planner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+
+/* =========================================
+   SUMMARY
+========================================= */
+
+.plannerSummary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.summaryCard {
+  padding: 22px 16px;
+
+  background: rgba(15, 15, 15, 0.8);
+
+  border-radius: var(--radius-md);
+
+  text-align: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.summaryCard:hover {
+  background: rgba(22, 22, 22, 0.9);
+
+  border-color: rgba(255, 255, 255, 0.2);
+
+  transform: translateY(-3px);
+}
+
+.summaryValue {
+  font-size: 1.8rem;
+  font-weight: 800;
+
+  color: #ffffff;
+
+  letter-spacing: -0.03em;
+}
+
+.summaryLabel {
+  font-size: 0.68rem;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  margin-top: 6px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   MESSAGES
+========================================= */
+
+.successMessage,
+.errorMessage {
+  padding: 14px 18px;
+
+  border-radius: var(--radius-sm);
+
+  text-align: center;
+
+  font-weight: 600;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.successMessage {
+  background: rgba(35, 100, 60, 0.18);
+
+  color: #9bd3ad;
+
+  border: 1px solid rgba(100, 220, 130, 0.2);
+}
+
+.errorMessage {
+  background: rgba(100, 35, 30, 0.18);
+
+  color: #e0a49b;
+
+  border: 1px solid rgba(220, 100, 80, 0.22);
+}
+
+
+/* =========================================
+   WEEK GRID
+========================================= */
+
+.weekGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+/* =========================================
+   DAY CARD
+========================================= */
+
+.dayCard {
+  padding: 0;
+
+  overflow: hidden;
+
+  background: rgba(12, 12, 12, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  border-radius: var(--radius-md);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.dayCard:hover {
+  background: rgba(18, 18, 18, 0.92);
+
+  border-color: rgba(255, 255, 255, 0.16);
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================================
+   DAY HEADER
+========================================= */
+
+.dayHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 18px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dayName {
+  margin: 0;
+
+  font-size: 0.95rem;
+  font-weight: 800;
+
+  color: #ffffff;
+
+  text-transform: capitalize;
+
+  letter-spacing: -0.01em;
+}
+
+.dayCount {
+  margin-left: 8px;
+
+  font-size: 0.75rem;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-weight: 500;
+}
+
+.dayActions {
+  display: flex;
+  gap: 6px;
+}
+
+
+/* =========================================
+   DAY BODY
+========================================= */
+
+.dayBody {
+  padding: 14px 18px;
+
+  min-height: 80px;
+}
+
+.dayExerciseItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding: 11px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.dayExerciseItem:last-child {
+  border-bottom: none;
+}
+
+.dayExerciseName {
+  font-size: 0.88rem;
+  font-weight: 600;
+
+  color: #ffffff;
+}
+
+.dayExerciseMeta {
+  margin-top: 2px;
+
+  font-size: 0.72rem;
+
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.dayEmpty {
+  text-align: center;
+
+  padding: 24px 0;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 0.82rem;
+}
+
+
+/* =========================================
+   REMOVE BUTTON
+========================================= */
+
+.removeBtn {
+  background: transparent;
+
+  border: none;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  cursor: pointer;
+
+  font-size: 1rem;
+
+  padding: 4px 8px;
+
+  border-radius: var(--radius-sm);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.removeBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   ADD DAY MODAL
+========================================= */
+
+.addDayGrid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 10px;
+}
+
+.addDayBtn {
+  padding: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: var(--radius-sm);
+
+  background: rgba(15, 15, 15, 0.8);
+
+  cursor: pointer;
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  font-family: inherit;
+
+  color: #ffffff;
+
+  text-transform: capitalize;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.addDayBtn:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+
+  background: rgba(30, 30, 30, 0.9);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+  .weekGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .weekGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plannerSummary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .plannerHeader {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .plannerTitle {
+    font-size: 1.6rem;
+  }
+
+  .plannerHeader button {
+    width: 100%;
+  }
+
+  .weekGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .plannerSummary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .addDayGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================================
+   PLANNER — PREMIUM GYM ANIMATIONS
+   ========================================================= */
+
+@keyframes plannerEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+
+  65% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.005);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes plannerPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes plannerFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Header */
+
+.plannerHeader {
+  animation: plannerEnter 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Summary */
+
+.plannerSummary {
+  animation: plannerEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+/* Summary cards stagger */
+
+.summaryCard {
+  animation: plannerPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.summaryCard:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+.summaryCard:nth-child(2) {
+  animation-delay: 0.22s;
+}
+
+.summaryCard:nth-child(3) {
+  animation-delay: 0.29s;
+}
+
+.summaryCard:nth-child(4) {
+  animation-delay: 0.36s;
+}
+
+/* Week */
+
+.weekGrid {
+  animation: plannerEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+}
+
+/* Day cards stagger */
+
+.dayCard {
+  animation: plannerEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.dayCard:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.dayCard:nth-child(2) {
+  animation-delay: 0.26s;
+}
+
+.dayCard:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+.dayCard:nth-child(4) {
+  animation-delay: 0.38s;
+}
+
+.dayCard:nth-child(5) {
+  animation-delay: 0.44s;
+}
+
+.dayCard:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.dayCard:nth-child(7) {
+  animation-delay: 0.56s;
+}
+
+/* Day card hover */
+
+.dayCard {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.dayCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Summary hover */
+
+.summaryCard {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.summaryCard:hover {
+  transform: translateY(-5px) scale(1.01);
+}
+
+/* Day header */
+
+.dayHeader {
+  transition: background 0.25s ease;
+}
+
+.dayCard:hover .dayHeader {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+/* Exercises */
+
+.dayExerciseItem {
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.dayExerciseItem:hover {
+  background: rgba(255, 255, 255, 0.035);
+  transform: translateX(4px);
+  padding-left: 5px;
+}
+
+/* Exercise name */
+
+.dayExerciseName {
+  transition: color 0.2s ease;
+}
+
+.dayExerciseItem:hover .dayExerciseName {
+  color: #ffffff;
+}
+
+/* Remove button */
+
+.removeBtn {
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.removeBtn:hover {
+  transform: scale(1.08);
+}
+
+.removeBtn:active {
+  transform: scale(0.92);
+}
+
+/* Add-day buttons */
+
+.addDayBtn {
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.addDayBtn:hover {
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.addDayBtn:active {
+  transform: scale(0.96);
+}
+
+/* Success / error messages */
+
+.successMessage,
+.errorMessage {
+  animation: plannerFade 0.35s ease-out both;
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .plannerHeader,
+  .plannerSummary,
+  .summaryCard,
+  .weekGrid,
+  .dayCard,
+  .successMessage,
+  .errorMessage {
+    animation: none;
+  }
+
+  .dayCard:hover,
+  .summaryCard:hover,
+  .dayExerciseItem:hover,
+  .removeBtn:hover,
+  .addDayBtn:hover {
+    transform: none;
+  }
+}

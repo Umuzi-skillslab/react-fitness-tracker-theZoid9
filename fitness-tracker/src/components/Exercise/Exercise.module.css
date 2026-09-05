@@ -1,0 +1,1334 @@
+
+/* =========================
+   EXERCISE GRID
+   ========================= */
+
+.exerciseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 360px);
+  gap: 16px;
+  width: fit-content;
+  margin: 24px auto 0;
+}
+
+
+/* =========================
+   EXERCISE CARD
+   ========================= */
+
+.exerciseCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 80px;
+  padding: 18px;
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  background-color: rgba(12, 12, 12, 0.84);
+  background-size: cover;
+  background-position: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.exerciseCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.68),
+    rgba(0, 0, 0, 0.82)
+  );
+
+  pointer-events: none;
+}
+
+.exerciseCard > * {
+  position: relative;
+  z-index: 1;
+}
+
+.exerciseCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================
+   SEARCH + FILTER
+   ========================= */
+
+.listHeader {
+  width: 100%;
+  margin: 0 auto 10px;
+  text-align: center;
+}
+
+.exerciseControls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.listControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.searchContainer {
+  width: 320px;
+  max-width: 90%;
+}
+
+.filterControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  width: 100%;
+  height: 40px;
+  padding: 0 14px 0 38px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+
+  background: rgba(10, 10, 10, 0.8);
+  color: #fff;
+
+  font-size: 0.85rem;
+  outline: none;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.searchInput:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(20, 20, 20, 0.9);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.9rem;
+
+  pointer-events: none;
+}
+
+.filterSelect {
+  height: 40px;
+  min-width: 130px;
+  padding: 0 30px 0 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+
+  background: rgba(10, 10, 10, 0.85);
+  color: #fff;
+
+  font-size: 0.82rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.filterSelect:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.filterSelect option {
+  background: #111;
+  color: #fff;
+}
+
+
+/* =========================
+   CARD HEADER
+   ========================= */
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.cardHeader h3 {
+  margin: 0;
+
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 750;
+  line-height: 1.3;
+}
+
+
+/* =========================
+   DIFFICULTY
+   ========================= */
+
+.difficulty {
+  flex-shrink: 0;
+
+  padding: 5px 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+
+/* =========================
+   DESCRIPTION
+   ========================= */
+
+.description {
+  margin: 0 0 20px;
+
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   EXERCISE INFORMATION
+   ========================= */
+
+.exerciseInfo {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.exerciseInfo p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0;
+  padding: 9px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  font-size: 0.82rem;
+}
+
+.exerciseInfo strong {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+}
+
+.exerciseInfo span {
+  color: #fff;
+  font-weight: 650;
+  text-align: right;
+}
+
+
+/* =========================
+   CARD BUTTONS
+   ========================= */
+
+.cardActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+
+  margin-top: auto;
+}
+
+.cardActions button {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+
+  border-radius: 9px;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.viewButton {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #fff;
+  color: #111;
+}
+
+.viewButton:hover {
+  background: #e8e8e8;
+  transform: translateY(-1px);
+}
+
+.planButton {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.planButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   EMPTY STATE
+   ========================= */
+
+.notFound {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 50px 30px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  background: rgba(12, 12, 12, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.notFound h2 {
+  margin: 0 0 10px;
+  color: #fff;
+}
+
+.notFound p {
+  margin: 0 0 24px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+
+/* =========================
+   DETAIL PAGE
+   ========================= */
+
+.detailPage {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px 24px 60px;
+  box-sizing: border-box;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)),
+    url("/assets/images/gym.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.detailPage > * {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 28px;
+  padding: 0;
+
+  border: none;
+  background: none;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.backButton:hover {
+  color: #fff;
+}
+
+
+/* =========================
+   DETAIL HEADER
+   ========================= */
+
+.detailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 30px;
+  margin-bottom: 32px;
+}
+
+.detailTitle {
+  margin: 0 0 12px;
+
+  color: #fff;
+
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.1;
+
+  letter-spacing: -0.04em;
+}
+
+.detailDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+/* =========================
+   BADGES
+   ========================= */
+
+.detailBadges {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  gap: 8px;
+  max-width: 300px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+
+/* =========================
+   DETAIL LAYOUT
+   ========================= */
+
+.detailContainer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(300px, 0.8fr);
+
+  gap: 28px;
+  align-items: start;
+}
+
+.detailMain {
+  min-width: 0;
+}
+
+
+/* =========================
+   STATS
+   ========================= */
+
+.detailStats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.statCard {
+  min-height: 110px;
+  padding: 18px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  background: rgba(12, 12, 12, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.statValue {
+  max-width: 100%;
+  overflow: hidden;
+
+  color: #fff;
+
+  font-size: 1.35rem;
+  font-weight: 800;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.statLabel {
+  margin-top: 6px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+
+/* =========================
+   INSTRUCTIONS
+   ========================= */
+
+.instructionsCard {
+  padding: 28px;
+
+  background: rgba(12, 12, 12, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.sectionTitle {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 1.2rem;
+  font-weight: 750;
+}
+
+.sectionDescription {
+  margin: 8px 0 24px;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.instructionsList {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.instructionsList li {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 16px;
+  padding: 18px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.instructionsList li:first-child {
+  padding-top: 0;
+}
+
+.instructionsList li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.stepNumber {
+  flex-shrink: 0;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #fff;
+  color: #111;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.stepText {
+  padding-top: 4px;
+}
+
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+.detailSidebar {
+  position: sticky;
+  top: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+/* =========================
+   VIDEO
+   ========================= */
+
+.videoCard {
+  overflow: hidden;
+  padding: 18px;
+
+  background: rgba(12, 12, 12, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.videoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.videoLabel {
+  padding: 4px 8px;
+
+  border-radius: 5px;
+
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 0.65rem;
+  font-weight: 800;
+
+  letter-spacing: 0.05em;
+}
+
+.exerciseVideo {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+
+  background: #050505;
+}
+
+
+/* =========================
+   ACTION BUTTONS
+   ========================= */
+
+.addButton,
+.actionButton {
+  width: 100%;
+  height: 46px;
+
+  border-radius: 9px;
+
+  background: #fff;
+  color: #111;
+
+  font-weight: 700;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.addButton {
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.addButton:hover,
+.actionButton:hover {
+  background: #e8e8e8;
+}
+
+.addButton:active {
+  transform: translateY(0);
+}
+
+.navigationButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.secondaryButton {
+  width: 100%;
+  height: 44px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+
+  font-size: 0.8rem;
+  font-weight: 650;
+
+  cursor: pointer;
+}
+
+.secondaryButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.secondaryButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   POPUP
+   ========================= */
+
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 20px 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+.dayPicker {
+  position: relative;
+
+  width: 90%;
+  max-width: 420px;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  background: rgba(15, 15, 15, 0.96);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.dayPicker h2 {
+  margin: 0 0 8px;
+  color: #fff;
+}
+
+.dayPicker p {
+  margin: 0 0 20px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.closePopup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  border: none;
+  background: none;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.closePopup:hover {
+  color: #fff;
+}
+
+.dayOptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.dayOption {
+  padding: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+
+  font-weight: 700;
+  text-transform: capitalize;
+
+  cursor: pointer;
+}
+
+.dayOption:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1100px) {
+  .exerciseGrid {
+    grid-template-columns: repeat(3, 260px);
+  }
+}
+
+@media (max-width: 850px) {
+  .exerciseGrid {
+    grid-template-columns: repeat(2, 260px);
+  }
+
+  .detailHeader {
+    flex-direction: column;
+  }
+
+  .detailBadges {
+    justify-content: flex-start;
+    max-width: none;
+  }
+
+  .detailContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .detailSidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .exerciseGrid {
+    grid-template-columns: 260px;
+  }
+
+  .exerciseControls {
+    align-items: stretch;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+
+  .searchContainer {
+    width: 100%;
+  }
+
+  .filterSelect {
+    width: 100%;
+  }
+
+  .detailPage {
+    padding: 24px 18px 40px;
+  }
+
+  .detailTitle {
+    font-size: 2rem;
+  }
+
+  .detailStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .exerciseGrid {
+    width: 100%;
+    grid-template-columns: minmax(0, 260px);
+    justify-content: center;
+  }
+
+  .exerciseCard {
+    padding: 20px;
+  }
+
+  .detailPage {
+    padding: 20px 14px 40px;
+  }
+
+  .detailTitle {
+    font-size: 1.7rem;
+  }
+
+  .detailDesc {
+    font-size: 0.9rem;
+  }
+
+  .instructionsCard {
+    padding: 20px;
+  }
+
+  .detailStats {
+    gap: 8px;
+  }
+
+  .statCard {
+    min-height: 95px;
+    padding: 12px;
+  }
+
+  .statValue {
+    font-size: 1.1rem;
+  }
+
+  .navigationButtons {
+    grid-template-columns: 1fr;
+  }
+
+  .dayPicker {
+    padding: 24px 20px;
+  }
+
+  .dayOptions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .exerciseGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cardActions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   GYM MODE — PREMIUM CARD ANIMATIONS
+   ========================================================= */
+
+@keyframes gymCardEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) scale(0.97);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.005);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gymDetailEnter {
+  0% {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gymPop {
+  0% {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* =========================
+   EXERCISE GRID
+   ========================= */
+
+.exerciseGrid {
+  animation: gymCardEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+/* =========================
+   INDIVIDUAL EXERCISE CARDS
+   ========================= */
+
+.exerciseCard {
+  animation: gymCardEnter 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+/* Cards arrive one after another */
+
+.exerciseCard:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.exerciseCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.exerciseCard:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.exerciseCard:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.exerciseCard:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.exerciseCard:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.exerciseCard:nth-child(7) {
+  animation-delay: 0.35s;
+}
+
+.exerciseCard:nth-child(8) {
+  animation-delay: 0.4s;
+}
+
+.exerciseCard:nth-child(9) {
+  animation-delay: 0.45s;
+}
+
+
+/* =========================
+   GYM HOVER
+   ========================= */
+
+.exerciseCard:hover {
+  transform: translateY(-7px) scale(1.015);
+  border-color: rgba(255, 255, 255, 0.28);
+
+  box-shadow:
+    0 22px 45px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =========================
+   CARD BUTTONS
+   ========================= */
+
+.cardActions button {
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cardActions button:hover {
+  transform: translateY(-2px);
+}
+
+.cardActions button:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================
+   DETAIL PAGE
+   ========================= */
+
+.detailPage {
+  animation: gymFadeIn 0.7s ease-out both;
+}
+
+@keyframes gymFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.detailHeader {
+  animation: gymDetailEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.detailStats {
+  animation: gymCardEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.instructionsCard {
+  animation: gymCardEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+.videoCard {
+  animation: gymCardEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+
+/* =========================
+   STAT CARDS
+   ========================= */
+
+.detailStats .statCard:nth-child(1) {
+  animation: gymPop 0.5s ease-out 0.2s both;
+}
+
+.detailStats .statCard:nth-child(2) {
+  animation: gymPop 0.5s ease-out 0.28s both;
+}
+
+.detailStats .statCard:nth-child(3) {
+  animation: gymPop 0.5s ease-out 0.36s both;
+}
+
+.detailStats .statCard:nth-child(4) {
+  animation: gymPop 0.5s ease-out 0.44s both;
+}
+
+
+/* =========================
+   INSTRUCTION STEPS
+   ========================= */
+
+.instructionsList li {
+  transition:
+    transform 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.instructionsList li:hover {
+  transform: translateX(5px);
+}
+
+.instructionsList li:hover .stepNumber {
+  transform: scale(1.08);
+}
+
+.stepNumber {
+  transition: transform 0.2s ease;
+}
+
+
+/* =========================
+   VIDEO
+   ========================= */
+
+.exerciseVideo {
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.videoCard:hover .exerciseVideo {
+  transform: scale(1.015);
+}
+
+
+/* =========================
+   BACK BUTTON
+   ========================= */
+
+.backButton {
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.backButton:hover {
+  transform: translateX(-5px);
+}
+
+
+/* =========================
+   POPUP
+   ========================= */
+
+.popupOverlay {
+  animation: gymFadeIn 0.25s ease-out both;
+}
+
+.dayPicker {
+  animation: gymPop 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.dayOption {
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.dayOption:hover {
+  transform: translateY(-3px);
+}
+
+.dayOption:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .exerciseGrid,
+  .exerciseCard,
+  .detailPage,
+  .detailHeader,
+  .detailStats,
+  .instructionsCard,
+  .videoCard,
+  .detailStats .statCard,
+  .popupOverlay,
+  .dayPicker {
+    animation: none;
+  }
+
+  .exerciseCard:hover,
+  .videoCard:hover .exerciseVideo,
+  .backButton:hover,
+  .instructionsList li:hover {
+    transform: none;
+  }
+}

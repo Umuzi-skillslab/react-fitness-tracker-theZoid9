@@ -1,0 +1,140 @@
+# Fitness Tracker — Project Planning Document
+
+## 1. Project Overview
+
+The Fitness Tracker is a responsive React web application built with **Vite + React**. Users can discover exercises, view exercise instructions and demonstrations, create weekly workout plans, record completed workouts, and monitor progress.
+
+### Core Features
+
+* Browse, search, filter, and sort exercises.
+* Filter by category, muscle group, and difficulty.
+* View exercise details and proper-form instructions.
+* Watch demonstration videos and listen to motivation audio.
+* Create Monday–Sunday workout plans.
+* Record sets, reps, and weight.
+* View workout history and progress statistics.
+
+## 2. Architecture
+
+The application will use a component-based architecture:
+
+App Component — Acts as the root component and manages the application's main state, routing, workout history, and workout plan.
+Page Components — Represent the main sections of the application, including Home, Exercises, Workout Planner, History, and Progress.
+Exercise Components — Handle exercise cards and detailed exercise information.
+Navigation Components — Provide consistent navigation between application pages.
+Media Components — Handle exercise-related media such as video and audio.
+Common UI Components — Provide reusable elements such as cards, buttons, and footer components.
+Utility Modules — Contain reusable functions such as duration formatting and other helper operations.
+Data Modules — Store and provide the application's exercise data.
+
+## 3. Data Flow
+
+Data will generally flow **down through props**, while child interactions communicate upward using callbacks.
+
+```text
+Exercise Data
+     ↓
+ExercisesPage
+     ↓
+Search / Filters
+     ↓
+ExerciseList → ExerciseCard
+     ↓
+ExerciseDetail
+     ↓
+Add to Planner
+     ↓
+WorkoutPlanner → DayCard
+     ↓
+WorkoutLog
+     ↓
+Workout History
+     ↓
+Progress Calculations
+     ↓
+ProgressPage
+```
+
+Components should avoid independently modifying shared state.
+
+## 4. Routes
+
+| Route            | Page               |
+| ---------------- | ------------------ |
+| `/`              | Home               |
+| `/exercises`     | ExercisesPage      |
+| `/exercises/:id` | ExerciseDetail     |
+| `/planner`       | WorkoutPlannerPage |
+| `/history`       | HistoryPage        |
+| `/progress`      | ProgressPage       |
+| `*`              | NotFound           |
+
+## 5. State Management
+
+React built-in state will be used initially.
+
+**Local state:** search input, modal visibility, navigation state, and temporary form values.
+
+**Shared state:** exercise data, filters, weekly planner, and workout history.
+
+Progress statistics will be **derived from workout history** rather than stored separately, preventing inconsistent data.
+
+Persistent data will initially use browser storage. The architecture should allow future migration to a backend/database.
+
+## 6. Main Components
+
+* **Navbar:** application navigation.
+* **ExerciseCard/List:** display and select exercises.
+* **ExerciseDetail:** instructions, media, and planner actions.
+* **SearchBar/Filters:** exercise discovery.
+* **WorkoutPlanner/DayCard:** manage weekly workouts.
+* **WorkoutLog/LogEntry:** record completed workouts.
+* **VideoPlayer/AudioPlayer:** exercise demonstrations and motivation.
+* **ProgressPage:** calculate and display fitness statistics.
+* **Button/Card/Modal/Loading:** reusable UI components.
+
+## 7. Testing Strategy
+
+Testing will use **Jest and React Testing Library**.
+
+**Unit tests:** filtering, sorting, calculations, formatting, and utility functions.
+
+**Component tests:** rendering, props, callbacks, user interactions, accessibility, loading and empty states.
+
+**Integration tests:** complete user journeys:
+
+```text
+Browse → Search/Filter → Exercise Detail
+→ Add to Planner → Complete Workout
+→ Record Sets/Reps/Weight → History → Progress
+```
+
+### Component Testing Focus
+
+| Type        | Focus                          |
+| ----------- | ------------------------------ |
+| Navigation  | Routes and links               |
+| Exercise    | Props, filtering, selection    |
+| Planner     | Adding/removing exercises      |
+| Workout Log | Sets, reps, weight             |
+| Media       | Sources and controls           |
+| UI          | Interactions and accessibility |
+| Pages       | Integration and navigation     |
+| Utilities   | Logic and edge cases           |
+
+Edge cases will include empty results, empty planner/history, missing media, invalid inputs, and invalid routes.
+
+## 8. Development Order
+
+1. Vite setup, routing, and testing.
+2. Exercise catalogue, search, filters, and details.
+3. Video and audio functionality.
+4. Weekly workout planner and persistence.
+5. Workout logging and history.
+6. Progress calculations and statistics.
+7. Responsive design and accessibility.
+8. Unit, component, integration, and edge-case testing.
+
+## 9. Definition of Done
+
+All core features work, data persists correctly, navigation is responsive, components are reusable, props/state responsibilities are clear, and automated tests cover major functionality and user journeys.

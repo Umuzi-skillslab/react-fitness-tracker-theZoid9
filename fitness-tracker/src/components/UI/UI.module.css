@@ -1,0 +1,736 @@
+
+/* =========================================================
+   DESIGN SYSTEM
+   ========================================================= */
+
+:root {
+  /* Colors */
+  --color-bg: #f5f4f1;
+  --color-surface: #fefefe;
+  --color-text: #1c1c1e;
+  --color-text-secondary: #8e8e93;
+
+  --color-border: #e5e5ea;
+  --color-border-light: #f0f0ee;
+
+  --color-primary: #3a3a3c;
+  --color-primary-hover: #2c2c2e;
+  --color-primary-light: #efefed;
+
+  --color-secondary: #636366;
+  --color-danger: #c74b3a;
+  --color-danger-hover: #a83d2f;
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(28, 28, 30, 0.04);
+  --shadow-sm: 0 1px 3px rgba(28, 28, 30, 0.06);
+  --shadow-md: 0 2px 8px rgba(28, 28, 30, 0.08);
+  --shadow-lg: 0 4px 16px rgba(28, 28, 30, 0.1);
+
+  /* Animation */
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: none;
+  border-radius: var(--radius-sm);
+
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 1.4;
+
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.button:hover:not(:disabled) {
+  box-shadow: var(--shadow-md);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Button variants */
+
+.primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.secondary {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: inset 0 0 0 1px var(--color-border);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: var(--color-primary-light);
+}
+
+.danger {
+  background-color: var(--color-danger);
+  color: #ffffff;
+}
+
+.danger:hover:not(:disabled) {
+  background-color: var(--color-danger-hover);
+}
+
+/* Button sizes */
+
+.small {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+}
+
+.medium {
+  padding: 10px 22px;
+  font-size: 0.875rem;
+}
+
+.large {
+  padding: 14px 30px;
+  font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+
+.card {
+  background: rgba(0, 0, 0, 0.45) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 22px;
+
+  box-shadow: none !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  color: #ffffff;
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: none !important;
+}
+
+.cardHeader {
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+
+
+
+/* =========================================================
+   SEARCH BAR
+   ========================================================= */
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  max-width: 700px;
+  min-height: 52px;
+
+  margin: 0 auto;
+
+  background-color: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  box-sizing: border-box;
+
+  transition: var(--transition);
+}
+
+.searchContainer:focus-within {
+  border-color: var(--color-text);
+
+  box-shadow:
+    0 0 0 3px rgba(28, 28, 30, 0.08);
+}
+
+
+/* Search icon */
+
+.searchIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-left: 16px;
+
+  font-size: 17px;
+
+  opacity: 0.55;
+
+  user-select: none;
+}
+
+
+/* Input */
+
+.searchInput {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 0 12px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--color-text);
+
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-secondary);
+}
+
+
+/* Clear button */
+
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  margin-right: 4px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--color-text-secondary);
+
+  font-size: 22px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.clearButton:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-text);
+}
+
+
+/* Search button */
+
+.searchButton {
+  height: 40px;
+
+  margin-right: 6px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: var(--radius-sm);
+
+  background-color: var(--color-primary);
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.searchButton:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.searchButton:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background-color: rgba(28, 28, 30, 0.35);
+
+  z-index: 1000;
+}
+
+.modalContent {
+  position: relative;
+
+  width: 100%;
+  max-width: 600px;
+  max-height: 80vh;
+
+  padding: 28px;
+
+  overflow-y: auto;
+
+  background-color: var(--color-surface);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-lg);
+}
+
+.modalClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  padding: 4px 10px;
+
+  border: none;
+  border-radius: var(--radius-sm);
+
+  background: transparent;
+
+  color: var(--color-text-secondary);
+
+  font-size: 1.4rem;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.modalClose:hover {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.modalTitle {
+  margin-bottom: 18px;
+  padding-right: 32px;
+
+  color: var(--color-text);
+  background-color: 2px solid rebeccapurple;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  padding: 40px;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+
+  border: 3px solid var(--color-border-light);
+  border-top-color: var(--color-text-secondary);
+
+  border-radius: 50%;
+
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingText {
+  color: var(--color-text-secondary);
+
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.badge {
+  display: inline-block;
+
+  padding: 3px 10px;
+
+  border-radius: 50px;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+
+/* Difficulty */
+
+.beginner {
+  background-color: #e8f0e4;
+  color: #3d6b35;
+}
+
+.intermediate {
+  background-color: #f0ebe0;
+  color: #7a6b3a;
+}
+
+.advanced {
+  background-color: #f0e2df;
+  color: #8b4a42;
+}
+
+
+/* Exercise category */
+
+.strength {
+  background-color: #e3e7ec;
+  color: #3a4a5c;
+}
+
+.cardio {
+  background-color: #ede0e6;
+  color: #7a3d55;
+}
+
+.flexibility {
+  background-color: #e6e0ee;
+  color: #5a3d7a;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .button.medium {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .button.large {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+
+  .modalContent {
+    max-height: 90vh;
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .searchContainer {
+    min-height: 48px;
+  }
+
+  .searchIcon {
+    padding-left: 12px;
+  }
+
+  .searchInput {
+    font-size: 0.85rem;
+  }
+
+  .searchButton {
+    padding: 0 14px;
+    font-size: 0.8rem;
+  }
+}
+
+/* =========================================================
+   DESIGN SYSTEM — PREMIUM GYM MICRO-ANIMATIONS
+   ========================================================= */
+
+@keyframes systemEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.005);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.94);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes overlayEnter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes badgePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.button {
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.22s ease,
+    box-shadow 0.22s ease,
+    opacity 0.2s ease;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.card {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.searchContainer {
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.searchContainer:focus-within {
+  transform: translateY(-2px);
+}
+
+.searchButton {
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.2s ease;
+}
+
+.searchButton:hover {
+  transform: translateY(-2px);
+}
+
+.searchButton:active {
+  transform: scale(0.96);
+}
+
+.clearButton {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.clearButton:hover {
+  transform: scale(1.08);
+}
+
+.clearButton:active {
+  transform: scale(0.9);
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modalOverlay {
+  animation: overlayEnter 0.2s ease-out both;
+}
+
+.modalContent {
+  animation: modalEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.modalClose {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.modalClose:hover {
+  transform: rotate(90deg);
+}
+
+.modalClose:active {
+  transform: rotate(90deg) scale(0.9);
+}
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loadingContainer {
+  animation: systemEnter 0.4s ease-out both;
+}
+
+.spinner {
+  animation: spin 0.9s linear infinite;
+}
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.badge {
+  animation: badgePop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.badge:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .card,
+  .searchContainer,
+  .searchButton,
+  .clearButton,
+  .modalOverlay,
+  .modalContent,
+  .modalClose,
+  .loadingContainer,
+  .badge {
+    animation: none;
+    transition: none;
+  }
+
+  .button:hover:not(:disabled),
+  .card:hover,
+  .searchContainer:focus-within,
+  .searchButton:hover,
+  .clearButton:hover,
+  .badge:hover,
+  .modalClose:hover {
+    transform: none;
+  }
+}

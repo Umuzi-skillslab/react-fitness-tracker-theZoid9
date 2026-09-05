@@ -1,0 +1,147 @@
+/* ===== Common Component Styles — Dark Matte / Glass ===== */
+
+/* ===== Header ===== */
+
+.header {
+  text-align: center;
+  padding: 56px 24px 40px;
+  background: rgba(10, 10, 10, 0.78);
+  color: #f5f5f5;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.headerTitle {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 0 0 14px;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.headerSubtitle {
+  font-size: 1.05rem;
+  opacity: 0.55;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}
+
+
+/* ===== Footer ===== */
+
+.footer {
+  background: rgba(10, 10, 10, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 28px 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  margin-top: auto;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.footerText {
+  margin: 0;
+}
+
+
+/* ===== Page Container ===== */
+
+.pageContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 36px 24px;
+  min-height: calc(100vh - 64px - 80px);
+  box-sizing: border-box;
+}
+
+.pageTitle {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #fdfdfd;
+  margin-bottom: 28px;
+  letter-spacing: -0.025em;
+}
+
+
+/* ===== Empty State ===== */
+
+.emptyState {
+  text-align: center;
+  padding: 64px 24px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.emptyIcon {
+  font-size: 2.8rem;
+  margin-bottom: 18px;
+  opacity: 0.7;
+}
+
+.emptyTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.emptyMessage {
+  font-size: 0.9rem;
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* ===== Error State ===== */
+
+.errorState {
+  text-align: center;
+  padding: 16px 20px;
+  background: rgba(120, 45, 35, 0.18);
+  border: 1px solid rgba(220, 100, 80, 0.25);
+  border-radius: var(--radius-sm);
+  color: #e8aaa0;
+  font-size: 0.875rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* ===== Mobile ===== */
+
+@media (max-width: 768px) {
+  .header {
+    padding: 36px 18px 28px;
+  }
+
+  .headerTitle {
+    font-size: 1.7rem;
+  }
+
+  .headerSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .pageTitle {
+    font-size: 1.35rem;
+  }
+
+  .pageContainer {
+    padding: 24px 18px;
+  }
+
+  .emptyState {
+    padding: 48px 18px;
+  }
+}
+
+/* ===== Animation ===== */

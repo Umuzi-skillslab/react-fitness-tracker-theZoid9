@@ -1,0 +1,231 @@
+.navbar {
+  width: 100%;
+
+  background: rgba(10, 10, 10, 0.82);
+
+  color: white;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  position: relative;
+  z-index: 100;
+}
+
+/* =========================
+   NAV CONTAINER
+   ========================= */
+
+.navContainer {
+  max-width: 1200px;
+
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 64px;
+}
+
+/* =========================
+   LOGO
+   ========================= */
+
+.navLogo {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 20px;
+  font-weight: 800;
+
+  letter-spacing: -0.03em;
+
+  transition: opacity 0.2s ease;
+}
+
+.navLogo:hover {
+  opacity: 0.8;
+}
+
+/* =========================
+   NAVIGATION LINKS
+   ========================= */
+
+.navLinks {
+  display: flex;
+  align-items: center;
+
+  gap: 28px;
+
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  height: 64px;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  text-decoration: none;
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.navLink:hover {
+  color: white;
+}
+
+/* =========================
+   ACTIVE LINK
+   ========================= */
+
+.active {
+  color: white;
+
+  font-weight: 700;
+}
+
+/*
+  Small animated line underneath
+*/
+
+.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 2px;
+
+  background: white;
+
+  border-radius: 2px;
+}
+
+/* =========================
+   HAMBURGER
+   ========================= */
+
+.hamburger {
+  display: none;
+
+  background: transparent;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 8px;
+
+  color: white;
+
+  font-size: 22px;
+
+  width: 42px;
+  height: 42px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.hamburger:hover {
+  background: rgba(255, 255, 255, 0.08);
+
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .navContainer {
+    position: relative;
+
+    flex-wrap: wrap;
+
+    min-height: 60px;
+  }
+
+  .hamburger {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navLinks {
+    display: none;
+
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 4px;
+
+    padding: 12px 0 16px;
+  }
+
+  .navLinks.open {
+    display: flex;
+  }
+
+  .navLinks li {
+    width: 100%;
+  }
+
+  .navLink {
+    display: flex;
+
+    width: 100%;
+
+    height: auto;
+
+    padding: 13px 12px;
+
+    box-sizing: border-box;
+
+    border-radius: 8px;
+  }
+
+  .navLink:hover {
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .active {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .active::after {
+    display: none;
+  }
+}
