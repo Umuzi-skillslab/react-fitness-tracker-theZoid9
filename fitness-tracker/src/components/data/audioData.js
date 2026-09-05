@@ -1,10 +1,10 @@
 const audioData = [
   {
     id: 1,
-    title: 'Pre-Workout Warm Up',
+    title: 'Welcome to House Meets Ivory',
     duration: '05:30',
     description: 'Get your body ready before starting your workout.',
-    audioUrl: '/assets/audio/warmup.mp3',
+    audioUrl: '/assets/audio/Welcome to House Meets Ivory.mp3',
   },
   {
     id: 2,

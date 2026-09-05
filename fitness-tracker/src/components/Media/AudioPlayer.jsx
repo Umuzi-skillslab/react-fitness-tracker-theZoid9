@@ -14,7 +14,7 @@ const AudioPlayer = ({ audioUrl, title, duration, description }) => {
       </div>
       {description && <p className={styles.audioDescription}>{description}</p>}
       <audio className={styles.audio} controls preload="metadata">
-        <source src={audioUrl} type="/assets/audio/Welcome to House Meets Ivory.mp3" />
+        <source src={audioUrl} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
     </div>
