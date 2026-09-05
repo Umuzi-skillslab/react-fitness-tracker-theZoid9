@@ -18,7 +18,14 @@ The Fitness Tracker is a responsive React web application built with **Vite + Re
 
 The application will use a component-based architecture:
 
-
+App Component — Acts as the root component and manages the application's main state, routing, workout history, and workout plan.
+Page Components — Represent the main sections of the application, including Home, Exercises, Workout Planner, History, and Progress.
+Exercise Components — Handle exercise cards and detailed exercise information.
+Navigation Components — Provide consistent navigation between application pages.
+Media Components — Handle exercise-related media such as video and audio.
+Common UI Components — Provide reusable elements such as cards, buttons, and footer components.
+Utility Modules — Contain reusable functions such as duration formatting and other helper operations.
+Data Modules — Store and provide the application's exercise data.
 
 ## 3. Data Flow
 
