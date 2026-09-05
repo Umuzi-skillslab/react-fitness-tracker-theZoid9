@@ -167,35 +167,35 @@ npm test -- --coverage
 
 ### Home Page
 
-![Home Page](screenshots/home.png)
+![Home Page](/fitness-tracker/screenshots/Home.png)
 
 ### Exercises Page
 
-![Exercises Page](screenshots/exercises.png)
+![Exercises Page](/fitness-tracker/screenshots/ExercisePageFilter.png)
 
 ### Exercise Detail
 
-![Exercise Detail](screenshots/exercise-detail.png)
+![Exercise Detail](/fitness-tracker/screenshots/detailPageWithVideo.png)
 
 ### Workout Planner
 
-![Workout Planner](screenshots/workout-planner.png)
+![Workout Planner](/fitness-tracker/screenshots/WorkoutPlanner.png)
 
 ### Workout History
 
-![Workout History](screenshots/history.png)
+![Workout History](/fitness-tracker/screenshots/WorkoutHistory.png)
 
 ### Progress Tracking
 
-![Progress](screenshots/progress.png)
+![Progress](/fitness-tracker/screenshots/ProgressTracking.png)
 
 ### Mobile Responsive View
 
-![Mobile View](screenshots/mobile.png)
+![Mobile View](/fitness-tracker/screenshots/MobileExecisesPage.png)
 
 ### Test Coverage Report
 
-![Test Coverage](screenshots/coverage.png)
+![Test Coverage](/fitness-tracker/screenshots/coverage.png)
 
 ## Future Enhancements
 
