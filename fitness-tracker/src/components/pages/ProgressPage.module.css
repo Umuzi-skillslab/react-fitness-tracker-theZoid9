@@ -7,6 +7,7 @@
   flex-direction: column;
   gap: 28px;
   min-height: 100vh;
+    width: 100%;
 
   background-size: cover;
   background-position: center;
@@ -23,7 +24,11 @@
 ========================================= */
 
 .pageIntro {
-  margin-bottom: 4px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 35px;
+  padding: 8px 0 4px;
+  box-sizing: border-box;
 }
 
 .pageDescription {
@@ -45,41 +50,30 @@
   width: 100%;
   max-width: 1000px;
   margin: 0 auto 35px;
-
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 
-  background: rgba(10, 10, 10, 0.78);
+  /* BLACK SHADE + IMAGE STILL VISIBLE */
+  background: rgba(0, 0, 0, 0.75) !important;
 
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 18px !important;
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  /* NO BLUR */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 
-  overflow: hidden;
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: none !important;
 }
-
-
-/*
-   Card.jsx creates the outer Card around
-   every statistic.
-
-   Make those Cards transparent so the
-   statsGrid itself becomes the glass surface.
-*/
 
 .statsGrid > * {
   background: transparent !important;
   border: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-
-  padding: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
 }
 
 
@@ -163,28 +157,22 @@
 .progressPage > div:has(.workoutPrompt) {
   width: 100%;
   max-width: 1000px;
-
   margin: 0 auto 35px;
-
   padding: 24px !important;
-
   box-sizing: border-box;
 
-  background: rgba(10, 10, 10, 0.78) !important;
+  background: rgba(0, 0, 0, 0.45) !important;
 
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   border-radius: 18px !important;
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  box-shadow: none !important;
 
   color: #ffffff;
 }
-
 
 /* =========================================
    Workout Today Content
@@ -249,39 +237,39 @@
 
 .workoutButton {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
 
   padding: 11px 18px;
 
-  background: #ffffff;
-  color: #111111;
+  background: rgba(0, 0, 0, 0.45) !important;
+  color: #ffffff;
 
-  border: 1px solid #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-sm);
 
   font-size: 0.75rem;
   font-weight: 700;
-
   text-decoration: none;
   text-transform: uppercase;
-
   letter-spacing: 0.06em;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  box-shadow: none !important;
 
   transition:
     transform 0.2s ease,
     background 0.2s ease;
 }
 
-
 .workoutButton:hover {
-  background: #e8e8e8;
-  color: #111111;
-
+  background: rgba(0, 0, 0, 0.6) !important;
+  color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: none !important;
 }
 
 
@@ -300,24 +288,19 @@
 .progressPage > div:has(.breakdown) {
   width: 100%;
   max-width: 1000px;
-
   margin: 0 auto 35px;
-
   padding: 22px !important;
-
   box-sizing: border-box;
 
-  background: rgba(10, 10, 10, 0.78) !important;
+  background: rgba(0, 0, 0, 0.45) !important;
 
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   border-radius: 18px !important;
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  box-shadow: none !important;
 
   color: #ffffff;
 }
@@ -350,22 +333,19 @@
 .breakdown {
   width: 100%;
   max-width: none;
-
   margin: 0;
   padding: 0;
-
   display: flex;
   flex-direction: column;
 
-  background: transparent;
-
-  border: none;
+  background: transparent !important;
+  border: none !important;
   border-radius: 0;
 
-  box-shadow: none;
+  box-shadow: none !important;
 
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 
   overflow: hidden;
 }
@@ -461,26 +441,22 @@
 .progressPage > div:has(.emptyState) {
   width: 100%;
   max-width: 1000px;
-
   margin: 0 auto 35px;
-
   padding: 22px !important;
-
   box-sizing: border-box;
 
-  background: rgba(10, 10, 10, 0.78) !important;
+  background: rgba(0, 0, 0, 0.45) !important;
 
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   border-radius: 18px !important;
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  box-shadow: none !important;
+
+  color: #ffffff;
 }
-
 
 /* Empty State itself stays transparent */
 
@@ -699,3 +675,4 @@
     font-size: 0.78rem;
   }
 }
+

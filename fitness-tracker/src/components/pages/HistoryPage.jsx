@@ -1,3 +1,4 @@
+
 import WorkoutLog from "../WorkoutLog/WorkoutLog";
 import commonStyles from "../common/common.module.css";
 import exercisesData from "../data/exercisesData";
@@ -28,44 +29,38 @@ const HistoryPage = ({ workoutHistory, setWorkoutHistory }) => {
             display: "flex",
             flexDirection: "column",
             gap: hasHistory ? "30px" : "22px",
-            opacity: hasHistory ? 1 : 0.8,
+            opacity: 1,
           }}
         >
-          {/* Page Header */}
-          <div
+        {/* Page Header */}
+        <div
+          style={{
+            padding: hasHistory ? "8px 0 4px" : "20px 0",
+          }}
+        >
+          <h1
+            className={commonStyles.pageTitle}
             style={{
-              padding: hasHistory ? "8px 0 4px" : "20px 0",
-              borderLeft: hasHistory
-                ? "4px solid var(--color-primary)"
-                : "none",
-              paddingLeft: hasHistory ? "12px" : "0",
+              marginBottom: "10px",
+              fontSize: hasHistory ? "2rem" : "1.8rem",
             }}
           >
-            <div>
-              <h1
-                className={commonStyles.pageTitle}
-                style={{
-                  marginBottom: "10px",
-                  fontSize: hasHistory ? "2rem" : "1.8rem",
-                }}
-              >
-                Workout History
-              </h1>
+            Workout History
+          </h1>
 
-              <p
-                style={{
-                  maxWidth: "680px",
-                  margin: "0",
-                  color: "var(--color-text-secondary)",
-                  fontSize: hasHistory ? "0.95rem" : "0.88rem",
-                  lineHeight: hasHistory ? "1.7" : "1.6",
-                }}
-              >
-                Keep track of every workout you complete. Log your exercises,
-                monitor your performance, and look back at your progress over time.
-              </p>
-            </div>
-          </div>
+          <p
+            style={{
+              maxWidth: "680px",
+              margin: "0",
+              color: "var(--color-text-secondary)",
+              fontSize: hasHistory ? "0.95rem" : "0.88rem",
+              lineHeight: hasHistory ? "1.7" : "1.6",
+            }}
+          >
+            Keep track of every workout you complete. Log your exercises,
+            monitor your performance, and look back at your progress over time.
+          </p>
+        </div>
 
           {/* Workout Log */}
           <div

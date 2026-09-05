@@ -26,7 +26,7 @@ const LogEntry = ({ log, onDelete }) => {
           title="Delete log entry"
           aria-label={`Delete log for ${exerciseName}`}
         >
-          🗑️
+          X
         </button>
       </div>
     </div>
