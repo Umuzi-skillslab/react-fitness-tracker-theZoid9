@@ -1025,3 +1025,312 @@
   }
 }
 
+/* =========================================================
+   GYM MODE — PREMIUM CARD ANIMATIONS
+   ========================================================= */
+
+@keyframes gymCardEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) scale(0.97);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.005);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gymDetailEnter {
+  0% {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gymPop {
+  0% {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* =========================
+   EXERCISE GRID
+   ========================= */
+
+.exerciseGrid {
+  animation: gymCardEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+/* =========================
+   INDIVIDUAL EXERCISE CARDS
+   ========================= */
+
+.exerciseCard {
+  animation: gymCardEnter 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+/* Cards arrive one after another */
+
+.exerciseCard:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.exerciseCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.exerciseCard:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.exerciseCard:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.exerciseCard:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.exerciseCard:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.exerciseCard:nth-child(7) {
+  animation-delay: 0.35s;
+}
+
+.exerciseCard:nth-child(8) {
+  animation-delay: 0.4s;
+}
+
+.exerciseCard:nth-child(9) {
+  animation-delay: 0.45s;
+}
+
+
+/* =========================
+   GYM HOVER
+   ========================= */
+
+.exerciseCard:hover {
+  transform: translateY(-7px) scale(1.015);
+  border-color: rgba(255, 255, 255, 0.28);
+
+  box-shadow:
+    0 22px 45px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =========================
+   CARD BUTTONS
+   ========================= */
+
+.cardActions button {
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cardActions button:hover {
+  transform: translateY(-2px);
+}
+
+.cardActions button:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================
+   DETAIL PAGE
+   ========================= */
+
+.detailPage {
+  animation: gymFadeIn 0.7s ease-out both;
+}
+
+@keyframes gymFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.detailHeader {
+  animation: gymDetailEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.detailStats {
+  animation: gymCardEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.instructionsCard {
+  animation: gymCardEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+.videoCard {
+  animation: gymCardEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+
+/* =========================
+   STAT CARDS
+   ========================= */
+
+.detailStats .statCard:nth-child(1) {
+  animation: gymPop 0.5s ease-out 0.2s both;
+}
+
+.detailStats .statCard:nth-child(2) {
+  animation: gymPop 0.5s ease-out 0.28s both;
+}
+
+.detailStats .statCard:nth-child(3) {
+  animation: gymPop 0.5s ease-out 0.36s both;
+}
+
+.detailStats .statCard:nth-child(4) {
+  animation: gymPop 0.5s ease-out 0.44s both;
+}
+
+
+/* =========================
+   INSTRUCTION STEPS
+   ========================= */
+
+.instructionsList li {
+  transition:
+    transform 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.instructionsList li:hover {
+  transform: translateX(5px);
+}
+
+.instructionsList li:hover .stepNumber {
+  transform: scale(1.08);
+}
+
+.stepNumber {
+  transition: transform 0.2s ease;
+}
+
+
+/* =========================
+   VIDEO
+   ========================= */
+
+.exerciseVideo {
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.videoCard:hover .exerciseVideo {
+  transform: scale(1.015);
+}
+
+
+/* =========================
+   BACK BUTTON
+   ========================= */
+
+.backButton {
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.backButton:hover {
+  transform: translateX(-5px);
+}
+
+
+/* =========================
+   POPUP
+   ========================= */
+
+.popupOverlay {
+  animation: gymFadeIn 0.25s ease-out both;
+}
+
+.dayPicker {
+  animation: gymPop 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.dayOption {
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.dayOption:hover {
+  transform: translateY(-3px);
+}
+
+.dayOption:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .exerciseGrid,
+  .exerciseCard,
+  .detailPage,
+  .detailHeader,
+  .detailStats,
+  .instructionsCard,
+  .videoCard,
+  .detailStats .statCard,
+  .popupOverlay,
+  .dayPicker {
+    animation: none;
+  }
+
+  .exerciseCard:hover,
+  .videoCard:hover .exerciseVideo,
+  .backButton:hover,
+  .instructionsList li:hover {
+    transform: none;
+  }
+}

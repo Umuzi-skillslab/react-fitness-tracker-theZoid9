@@ -505,3 +505,232 @@
   }
 }
 
+/* =========================================================
+   DESIGN SYSTEM — PREMIUM GYM MICRO-ANIMATIONS
+   ========================================================= */
+
+@keyframes systemEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.005);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.94);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes overlayEnter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes badgePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.button {
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.22s ease,
+    box-shadow 0.22s ease,
+    opacity 0.2s ease;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.card {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.searchContainer {
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.searchContainer:focus-within {
+  transform: translateY(-2px);
+}
+
+.searchButton {
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.2s ease;
+}
+
+.searchButton:hover {
+  transform: translateY(-2px);
+}
+
+.searchButton:active {
+  transform: scale(0.96);
+}
+
+.clearButton {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.clearButton:hover {
+  transform: scale(1.08);
+}
+
+.clearButton:active {
+  transform: scale(0.9);
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modalOverlay {
+  animation: overlayEnter 0.2s ease-out both;
+}
+
+.modalContent {
+  animation: modalEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.modalClose {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.modalClose:hover {
+  transform: rotate(90deg);
+}
+
+.modalClose:active {
+  transform: rotate(90deg) scale(0.9);
+}
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loadingContainer {
+  animation: systemEnter 0.4s ease-out both;
+}
+
+.spinner {
+  animation: spin 0.9s linear infinite;
+}
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.badge {
+  animation: badgePop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.badge:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .card,
+  .searchContainer,
+  .searchButton,
+  .clearButton,
+  .modalOverlay,
+  .modalContent,
+  .modalClose,
+  .loadingContainer,
+  .badge {
+    animation: none;
+    transition: none;
+  }
+
+  .button:hover:not(:disabled),
+  .card:hover,
+  .searchContainer:focus-within,
+  .searchButton:hover,
+  .clearButton:hover,
+  .badge:hover,
+  .modalClose:hover {
+    transform: none;
+  }
+}

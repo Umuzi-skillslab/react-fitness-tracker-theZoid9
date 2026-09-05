@@ -413,3 +413,77 @@
     height: 1px;
   }
 }
+
+/* =========================
+   GYM STYLE ANIMATION
+   ========================= */
+
+@keyframes gymEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gymFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.home {
+  animation: gymFade 0.8s ease-out;
+}
+
+.quoteContainer {
+  animation: gymEntrance 0.8s ease-out;
+}
+
+.dashboardLinkContainer {
+  animation: gymEntrance 0.7s ease-out 0.15s both;
+}
+
+.statsGrid {
+  animation: gymEntrance 0.7s ease-out 0.25s both;
+}
+
+.homeSection {
+  animation: gymEntrance 0.7s ease-out 0.35s both;
+}
+
+.focusCard {
+  animation: gymEntrance 0.7s ease-out 0.45s both;
+}
+
+.quickActions {
+  animation: gymEntrance 0.7s ease-out 0.55s both;
+}
+
+/* Button press */
+.dashboardLink:active,
+.focusButton:active,
+.quickAction:active {
+  transform: scale(0.96);
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .home,
+  .quoteContainer,
+  .dashboardLinkContainer,
+  .statsGrid,
+  .homeSection,
+  .focusCard,
+  .quickActions {
+    animation: none;
+  }
+}

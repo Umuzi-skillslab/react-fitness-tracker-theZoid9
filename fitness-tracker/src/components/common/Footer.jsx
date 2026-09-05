@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p className={styles.footerText}>
-        FitTracker Pro — Built with React | {new Date().getFullYear()}
+        FitTracker Pro — | Built with React | {new Date().getFullYear()}
       </p>
     </footer>
   );

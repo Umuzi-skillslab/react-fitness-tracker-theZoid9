@@ -431,3 +431,250 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* =========================================================
+   PLANNER — PREMIUM GYM ANIMATIONS
+   ========================================================= */
+
+@keyframes plannerEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+
+  65% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.005);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes plannerPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes plannerFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Header */
+
+.plannerHeader {
+  animation: plannerEnter 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Summary */
+
+.plannerSummary {
+  animation: plannerEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+/* Summary cards stagger */
+
+.summaryCard {
+  animation: plannerPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.summaryCard:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+.summaryCard:nth-child(2) {
+  animation-delay: 0.22s;
+}
+
+.summaryCard:nth-child(3) {
+  animation-delay: 0.29s;
+}
+
+.summaryCard:nth-child(4) {
+  animation-delay: 0.36s;
+}
+
+/* Week */
+
+.weekGrid {
+  animation: plannerEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+}
+
+/* Day cards stagger */
+
+.dayCard {
+  animation: plannerEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.dayCard:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.dayCard:nth-child(2) {
+  animation-delay: 0.26s;
+}
+
+.dayCard:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+.dayCard:nth-child(4) {
+  animation-delay: 0.38s;
+}
+
+.dayCard:nth-child(5) {
+  animation-delay: 0.44s;
+}
+
+.dayCard:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.dayCard:nth-child(7) {
+  animation-delay: 0.56s;
+}
+
+/* Day card hover */
+
+.dayCard {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.dayCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Summary hover */
+
+.summaryCard {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.summaryCard:hover {
+  transform: translateY(-5px) scale(1.01);
+}
+
+/* Day header */
+
+.dayHeader {
+  transition: background 0.25s ease;
+}
+
+.dayCard:hover .dayHeader {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+/* Exercises */
+
+.dayExerciseItem {
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.dayExerciseItem:hover {
+  background: rgba(255, 255, 255, 0.035);
+  transform: translateX(4px);
+  padding-left: 5px;
+}
+
+/* Exercise name */
+
+.dayExerciseName {
+  transition: color 0.2s ease;
+}
+
+.dayExerciseItem:hover .dayExerciseName {
+  color: #ffffff;
+}
+
+/* Remove button */
+
+.removeBtn {
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.removeBtn:hover {
+  transform: scale(1.08);
+}
+
+.removeBtn:active {
+  transform: scale(0.92);
+}
+
+/* Add-day buttons */
+
+.addDayBtn {
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.addDayBtn:hover {
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.addDayBtn:active {
+  transform: scale(0.96);
+}
+
+/* Success / error messages */
+
+.successMessage,
+.errorMessage {
+  animation: plannerFade 0.35s ease-out both;
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .plannerHeader,
+  .plannerSummary,
+  .summaryCard,
+  .weekGrid,
+  .dayCard,
+  .successMessage,
+  .errorMessage {
+    animation: none;
+  }
+
+  .dayCard:hover,
+  .summaryCard:hover,
+  .dayExerciseItem:hover,
+  .removeBtn:hover,
+  .addDayBtn:hover {
+    transform: none;
+  }
+}

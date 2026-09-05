@@ -385,3 +385,215 @@
     justify-content: space-between;
   }
 }
+
+/* =========================================================
+   WORKOUT LOG — PREMIUM GYM ANIMATIONS
+   ========================================================= */
+
+@keyframes logEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+  }
+
+  65% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.005);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes logPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes logFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Main cards */
+
+.logContainer > div:has(> .logForm) {
+  animation: logEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.logContainer > div:has(> .logEntries) {
+  animation: logEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.logContainer > div:has(> .emptyLog) {
+  animation: logEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+/* Form groups */
+
+.formGroup {
+  animation: logFade 0.45s ease-out both;
+}
+
+.formGroup:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+.formGroup:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.formGroup:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+/* Inputs */
+
+.formInput {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.formInput:hover {
+  transform: translateY(-1px);
+}
+
+.formInput:focus {
+  transform: translateY(-1px);
+}
+
+/* Form buttons */
+
+.formActions button {
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease;
+}
+
+.formActions button:hover {
+  transform: translateY(-3px);
+}
+
+.formActions button:active {
+  transform: scale(0.96);
+}
+
+/* Log entries */
+
+.logEntry {
+  transition:
+    background 0.22s ease,
+    transform 0.22s ease,
+    padding-left 0.22s ease;
+}
+
+.logEntry:hover {
+  background: rgba(255, 255, 255, 0.045);
+  transform: translateX(4px);
+  padding-left: 26px;
+}
+
+/* Entry name */
+
+.logEntryName {
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.logEntry:hover .logEntryName {
+  transform: translateX(2px);
+}
+
+/* Entry details */
+
+.logEntryDetails,
+.logEntryDate {
+  transition: opacity 0.2s ease;
+}
+
+.logEntry:hover .logEntryDetails,
+.logEntry:hover .logEntryDate {
+  opacity: 0.8;
+}
+
+/* Completed badge */
+
+.completedBadge {
+  animation: logPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.logEntry:hover .completedBadge {
+  transform: scale(1.05);
+}
+
+/* Entry actions */
+
+.logEntryActions button {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.logEntryActions button:hover {
+  transform: translateY(-2px);
+}
+
+.logEntryActions button:active {
+  transform: scale(0.94);
+}
+
+/* Empty state */
+
+.emptyLog {
+  animation: logFade 0.6s ease-out both;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .logContainer > div:has(> .logForm),
+  .logContainer > div:has(> .logEntries),
+  .logContainer > div:has(> .emptyLog),
+  .formGroup,
+  .completedBadge,
+  .emptyLog {
+    animation: none;
+  }
+
+  .logEntry:hover,
+  .formInput:hover,
+  .formInput:focus,
+  .formActions button:hover,
+  .logEntryActions button:hover {
+    transform: none;
+  }
+}

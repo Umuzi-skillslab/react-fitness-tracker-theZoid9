@@ -673,3 +673,215 @@
   }
 }
 
+/* =========================================================
+   PROGRESS PAGE — PREMIUM GYM ANIMATIONS
+   ========================================================= */
+
+@keyframes progressEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+  }
+
+  65% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.005);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes statPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes progressFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Page content */
+
+.progressPage {
+  animation: progressFade 0.5s ease-out both;
+}
+
+/* Header */
+
+.pageIntro {
+  animation: progressEnter 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Stats dashboard */
+
+.statsGrid {
+  animation: progressEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+
+/* Individual stats */
+
+.statCard {
+  animation: statPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.statCard:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+.statCard:nth-child(2) {
+  animation-delay: 0.22s;
+}
+
+.statCard:nth-child(3) {
+  animation-delay: 0.29s;
+}
+
+.statCard:nth-child(4) {
+  animation-delay: 0.36s;
+}
+
+.statCard:nth-child(5) {
+  animation-delay: 0.43s;
+}
+
+/* Workout Today */
+
+.progressPage > div:has(.workoutPrompt) {
+  animation: progressEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.progressPage > div:has(.workoutPrompt):hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Workout button */
+
+.workoutButton {
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.workoutButton:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.workoutButton:active {
+  transform: scale(0.97);
+}
+
+/* Exercise Breakdown */
+
+.progressPage > div:has(.breakdown) {
+  animation: progressEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.progressPage > div:has(.breakdown):hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Exercise rows */
+
+.exerciseRow {
+  transition:
+    background 0.22s ease,
+    transform 0.22s ease,
+    padding-left 0.22s ease;
+}
+
+.exerciseRow:hover {
+  background: rgba(255, 255, 255, 0.045);
+  transform: translateX(4px);
+  padding-left: 7px;
+}
+
+/* Exercise volume */
+
+.exerciseVolume {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.exerciseRow:hover .exerciseVolume {
+  transform: scale(1.05);
+}
+
+/* Empty state */
+
+.progressPage > div:has(.emptyState) {
+  animation: progressEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+/* Empty icon */
+
+.emptyIcon {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.progressPage > div:has(.emptyState):hover .emptyIcon {
+  transform: scale(1.08) translateY(-3px);
+  opacity: 0.8;
+}
+
+/* Loading */
+
+.loading {
+  animation: progressFade 0.4s ease-out both;
+}
+
+/* Respect accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .progressPage,
+  .pageIntro,
+  .statsGrid,
+  .statCard,
+  .progressPage > div:has(.workoutPrompt),
+  .progressPage > div:has(.breakdown),
+  .progressPage > div:has(.emptyState),
+  .loading {
+    animation: none;
+  }
+
+  .progressPage > div:has(.workoutPrompt):hover,
+  .progressPage > div:has(.breakdown):hover,
+  .exerciseRow:hover,
+  .workoutButton:hover {
+    transform: none;
+  }
+}
