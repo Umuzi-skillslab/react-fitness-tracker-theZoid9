@@ -4,7 +4,7 @@ const audioData = [
     title: 'Welcome to House Meets Ivory',
     duration: '05:30',
     description: 'Get your body ready before starting your workout.',
-    audioUrl: '/assets/audio/Welcome to House Meets Ivory.mp3',
+    audioUrl: "/assets/audio/Welcome%20to%20House%20Meets%20Ivory.mp3",
   },
   {
     id: 2,
